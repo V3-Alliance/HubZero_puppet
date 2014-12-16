@@ -2,11 +2,15 @@ heat_template_version: 2013-05-23
 
 description: A template to initiate the installation of hubZero 1.1 on an instance in the NeCTAR cloud
 
+# Because this file uses the get_file command, it can only be launched by the command line client
+# eg:
+#   heat stack-create --template-file=IdeaProjects/HubZeroPuppet/heat/hubzero.yaml  hubzero_test
+
 parameters:
   image:
     type: string
     label: Image name or ID
-    desription: A member of the Debian GNU/Linux 6.x family
+    description: A member of the Debian GNU/Linux 6.x family
     default: NeCTAR Debian 6 x86_64 (Squeeze)
 
   flavor:
