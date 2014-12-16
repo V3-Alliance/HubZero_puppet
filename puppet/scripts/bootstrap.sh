@@ -10,8 +10,10 @@
 echo "hubzero.tk" > /etc/hostname
 
 # Fix hosts
+# remove the line: 127.0.1.1	localhost.locahost	localhost
 sed -i '127.0.1.1' /etc/hosts
-echo "127.0.1.1     hubzero.tk" | tee -a /etc/hosts
+# and replace it with the intended one
+echo "127.0.1.1 	hubzero.tk" | tee -a /etc/hosts
 
 # Delete local users
 # since we still want to log in as the debian user we'll just move their ID to an acceptible range
