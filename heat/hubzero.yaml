@@ -33,7 +33,7 @@ resources:
       flavor: { get_param: flavor }
       key_name: { get_param: key }
       user_data:
-        get_file: https://gitub.com...
+        get_file: https://raw.githubusercontent.com/MartinPaulo/puppet_hub_zero/master/puppet/scripts/bootstrap.sh
       user_data_format: RAW
 
 
