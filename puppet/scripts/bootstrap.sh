@@ -34,7 +34,7 @@ echo "deb http://packages.hubzero.org/deb manny main" | tee -a /etc/apt/sources.
 apt-key adv --keyserver pgp.mit.edu --recv-keys 143C99EF
 
 apt-get update
-apt-get upgrade
+apt-get -y upgrade
 
 # now we get ready to hand over to puppet
 apt-get -y install puppet git
