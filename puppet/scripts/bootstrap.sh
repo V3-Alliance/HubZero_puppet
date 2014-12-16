@@ -47,3 +47,5 @@ apt-get -y install puppet git
 puppet module install puppetlabs-mysql
 
 git clone https://github.com/MartinPaulo/puppet_hub_zero.git
+
+puppet apply --modulepath=/puppet_hub_zero/puppet/modules:/etc/puppet/modules:/usr/share/puppet/modules -e 'include hubzero' --debug --verbose 2>&1 | logger
