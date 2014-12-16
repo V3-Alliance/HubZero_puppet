@@ -1,0 +1,47 @@
+heat_template_version: 2013-05-23
+
+description: A template to initiate the installation of hubZero 1.1 on an instance in the NeCTAR cloud
+
+parameters:
+  image:
+    type: string
+    label: Image name or ID
+    desription: A member of the Debian GNU/Linux 6.x family
+    default: NeCTAR Debian 6 x86_64 (Squeeze)
+
+  flavor:
+    type: string
+    label: Flavor
+    description: Type (size) of the instance to be created.
+    default: m1.small
+    constraints:
+      - allowed_values: [m1.small, m1.medium, m1.large, m1.xlarge, m1.xxlarge]
+        description: Must be a valid NeCTAR flavour.
+
+  key:
+    type: string
+    label: Key Name
+    description: Name of an existing key pair to enable SSH access to the instance.
+    default: nectar_dev
+
+
+resources:
+  hubZero_instance:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: image }
+      flavor: { get_param: flavor }
+      key_name: { get_param: key }
+      user_data:
+        get_file: https://gitub.com...
+      user_data_format: RAW
+
+
+outputs:
+  instance_name:
+    description: The name of the instance
+    value: { get_attr: [hubZero_instance, name] }
+
+  instance_ip:
+    description: The IP address of the instance
+    value: { get_attr: [hubZero_instance, first_address] }
