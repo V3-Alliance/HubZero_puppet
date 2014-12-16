@@ -34,7 +34,7 @@ echo "deb http://packages.hubzero.org/deb manny main" | tee -a /etc/apt/sources.
 apt-key adv --keyserver pgp.mit.edu --recv-keys 143C99EF
 
 # Now we get ready to hand over to puppet
-# Install puppet from the puppet labs repo.
+# install puppet from the puppet labs repo.
 wget -p https://apt.puppetlabs.com/puppetlabs-release-squeeze.deb -O - > /var/tmp/puppetlabs-release-squeeze.deb
 dpkg -i /var/tmp/puppetlabs-release-squeeze.deb
 
@@ -42,5 +42,8 @@ apt-get update
 apt-get -y upgrade
 
 apt-get -y install puppet git
+
+# and now we add the modules that we are going to need
+puppet module install puppetlabs-mysql
 
 git clone https://github.com/MartinPaulo/puppet_hub_zero.git
