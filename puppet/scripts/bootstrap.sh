@@ -6,12 +6,14 @@
 
 
 # Set hostname
-# Registered temporary domain at http://www.dot.tk/en/index.html?lang=en ...
+# registered temporary domain at http://www.dot.tk/en/index.html?lang=en ...
+hostname hubzero.tk
+# and make the name change permanent
 echo "hubzero.tk" > /etc/hostname
 
 # Fix hosts
 # remove the line: 127.0.1.1	localhost.locahost	localhost
-sed -i '127.0.1.1' /etc/hosts
+sed -i".bak" '/127.0.1.1/d' /etc/hosts
 # and replace it with the intended one
 echo "127.0.1.1 	hubzero.tk" | tee -a /etc/hosts
 
