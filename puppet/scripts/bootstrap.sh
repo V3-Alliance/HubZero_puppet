@@ -33,9 +33,14 @@ echo "deb http://packages.hubzero.org/deb manny main" | tee -a /etc/apt/sources.
 # the 1.1 key has expired but the 1.2 key seems to work
 apt-key adv --keyserver pgp.mit.edu --recv-keys 143C99EF
 
+# Now we get ready to hand over to puppet
+# Install puppet from the puppet labs repo.
+wget -p https://apt.puppetlabs.com/puppetlabs-release-squeeze.deb -O - > /var/tmp/puppetlabs-release-squeeze.deb
+dpkg -i /var/tmp/puppetlabs-release-squeeze.deb
+
 apt-get update
 apt-get -y upgrade
 
-# now we get ready to hand over to puppet
 apt-get -y install puppet git
+
 git clone https://github.com/MartinPaulo/puppet_hub_zero.git
