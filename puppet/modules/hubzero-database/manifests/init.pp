@@ -1,6 +1,6 @@
 class hubzero-database {
 
-  class { 'mysql::server':
+  class { '::mysql::server':
     root_password => 'password',
   }
 
