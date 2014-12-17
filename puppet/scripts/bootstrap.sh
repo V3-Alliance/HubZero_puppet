@@ -46,6 +46,30 @@ apt-get -y install puppet git
 # and now we add the modules that we are going to need
 puppet module install puppetlabs-mysql
 
+# configure Hiera
+cat > /etc/puppet/hiera.yaml <<EOF
+---
+:backends:
+  - yaml
+:yaml:
+  :datadir: /etc/puppet/hieradata
+:hierarchy:
+  - common
+
+EOF
+
+# write out common.yaml
+YAMLDIR='/var/lib/tomcat7/webapps/ROOT/WEB-INF/classes'
+mkdir -p ${YAMLDIR}
+
+#after this follows the JSON itself, followed by the end of the file, which
+#applies puppet.
+cat > ${YAMLDIR}/common.yaml <<EOF
+
+mysql_password: __my_sql_root_password
+
+EOF
+
 git clone https://github.com/MartinPaulo/puppet_hub_zero.git
 
 puppet apply --modulepath=/puppet_hub_zero/puppet/modules:/etc/puppet/modules:/usr/share/puppet/modules -e 'include hubzero' --debug --verbose 2>&1 | logger
