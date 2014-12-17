@@ -57,6 +57,7 @@ cat > /etc/puppet/hiera.yaml <<EOF
   :datadir: $YAMLDIR
 :hierarchy:
   - common
+:logger: puppet
 
 EOF
 
@@ -64,8 +65,8 @@ EOF
 mkdir -p ${YAMLDIR}
 
 cat > ${YAMLDIR}/common.yaml <<EOF
-
-mysql_password: __my_sql_root_password
+---
+hubzero::database::mysql_password: __my_sql_root_password
 
 EOF
 
