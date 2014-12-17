@@ -1,0 +1,8 @@
+# This file is for sensitive heat data - eg: passwords, etc.
+# To use it, make a copy of this file and add the required parameters.
+# Then when launching the instance pass it in via the command line - eg:
+#   heat stack-create --template-file=IdeaProjects/HubZeroPuppet/heat/hubzero.yaml \
+#                     --environment-file=IdeaProjects/HubZeroPuppet/heat/environment.yaml \
+#                     hubzero_test
+parameters:
+  ms_sql_root_password: # 6-18 characters and numbers only, starting with a Capital

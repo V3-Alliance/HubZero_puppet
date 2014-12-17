@@ -4,7 +4,9 @@ description: A template to initiate the installation of hubZero 1.1 on an instan
 
 # Because this file uses the get_file command, it can only be launched by the command line client
 # eg:
-#   heat stack-create --template-file=IdeaProjects/HubZeroPuppet/heat/hubzero.yaml  hubzero_test
+#   heat stack-create --template-file=IdeaProjects/HubZeroPuppet/heat/hubzero.yaml \
+#                     --environment-file=IdeaProjects/HubZeroPuppet/heat/environment.yaml \
+#                     hubzero_test
 
 parameters:
   image:
@@ -27,6 +29,19 @@ parameters:
     label: Key Name
     description: Name of an existing key pair to enable SSH access to the instance.
     default: nectar_dev
+
+  ms_sql_root_password:
+    type: string
+    label: MySql Root Password
+    description: The password that gives absolute access to the database.
+    hidden: true
+    constraints: # update the environment_template.yaml if changing the constraints...
+      - length: { min: 6, max: 16 }
+        description: The password length must be between 6 and 16 characters long.
+      - allowed_pattern: "[a-zA-Z0-9]+"
+        description: The password must consist of characters and numbers only.
+      - allowed_pattern: "[A-Z]+[a-zA-Z0-9]*"
+        description: The password must start with an uppercase character.
 
 
 resources:
