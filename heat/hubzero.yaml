@@ -54,7 +54,7 @@ resources:
       user_data:
         str_replace:
           params:
-            __my_sql_root_password: { get_param: image_id my_sql_root_password }
+            __my_sql_root_password: { get_param: my_sql_root_password }
           template:
             get_file: https://raw.githubusercontent.com/MartinPaulo/puppet_hub_zero/master/puppet/scripts/bootstrap.sh
       user_data_format: RAW
