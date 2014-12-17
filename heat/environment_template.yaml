@@ -5,4 +5,4 @@
 #                     --environment-file=IdeaProjects/HubZeroPuppet/heat/environment.yaml \
 #                     hubzero_test
 parameters:
-  ms_sql_root_password: # 6-18 characters and numbers only, starting with a Capital
+  ms_sql_root_password: # 6-16 characters and numbers only, starting with a Capital
