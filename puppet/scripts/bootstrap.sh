@@ -66,7 +66,7 @@ mkdir -p ${YAMLDIR}
 
 cat > ${YAMLDIR}/common.yaml <<EOF
 ---
-hubzero::database::mysql_password: __my_sql_root_password
+hubzero-database::mysql_password: __my_sql_root_password
 
 EOF
 
