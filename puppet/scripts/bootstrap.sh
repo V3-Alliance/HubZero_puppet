@@ -43,27 +43,26 @@ apt-get -y upgrade
 
 apt-get -y install puppet git
 
-# and now we add the modules that we are going to need
+# now we add the modules that we are going to need
 puppet module install puppetlabs-mysql
 
 # configure Hiera
+YAMLDIR='/etc/puppet/hieradata'
+
 cat > /etc/puppet/hiera.yaml <<EOF
 ---
 :backends:
   - yaml
 :yaml:
-  :datadir: /etc/puppet/hieradata
+  :datadir: $YAMLDIR
 :hierarchy:
   - common
 
 EOF
 
 # write out common.yaml
-YAMLDIR='/var/lib/tomcat7/webapps/ROOT/WEB-INF/classes'
 mkdir -p ${YAMLDIR}
 
-#after this follows the JSON itself, followed by the end of the file, which
-#applies puppet.
 cat > ${YAMLDIR}/common.yaml <<EOF
 
 mysql_password: __my_sql_root_password
