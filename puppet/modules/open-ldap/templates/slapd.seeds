@@ -1,0 +1,5 @@
+slapd	slapd/password2 password <%= $slapd_password %>
+slapd	slapd/internal/generated_adminpw password <%= $slapd_password %>
+slapd	slapd/password2 password <%= $slapd_password %>
+slapd	slapd/internal/adminpw password <%= $slapd_password %>
+slapd	slapd/password1 password <%= $slapd_password %>
