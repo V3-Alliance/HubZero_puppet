@@ -4,18 +4,18 @@ class cms {
     ensure => latest,
   }
 
-  exec { "install example":
-    command => "hzcms install example",
+  exec { "install example site":
+    command => "/usr/bin/hzcms install example",
     require => [Package["hubzero-cms"]],
   }
 
   exec { "disable default sites":
-    command   => "a2dissite default default-ssl",
-    subscribe => Exec["install example" ],
+    command   => "/usr/sbin/a2dissite default default-ssl",
+    subscribe => Exec["install example site" ],
   }
 
   exec { "enable sample sites":
-    command   => "a2ensite example example-ssl",
+    command   => "/usr/sbin/a2ensite example example-ssl",
     subscribe =>  Exec["disable default sites"],
   }
 
