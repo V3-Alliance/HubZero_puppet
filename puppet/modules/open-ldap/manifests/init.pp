@@ -3,7 +3,8 @@ class open-ldap (
 ){
 
 
-# Install the preseed packages
+  # after install can test with:
+  sudo slapcat
   package { "slapd":
     ensure => latest,
     require => File ["/var/cache/debconf/slapd.seeds"],
