@@ -77,7 +77,7 @@ resources:
 outputs:
   instance_name:
     description: The name of the instance
-    value: { get_attr: [hubZero_instance, name] }
+    value: { get_attr: [hubZero_instance, name] } # TODO: is not returning anything?
 
   instance_ip:
     description: The IP address of the instance
