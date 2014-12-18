@@ -67,6 +67,7 @@ mkdir -p ${YAMLDIR}
 cat > ${YAMLDIR}/common.yaml <<EOF
 ---
 hubzero-database::mysql_password: __my_sql_root_password
+open-ldap::slapd_password: __slapd_root_password
 
 EOF
 
