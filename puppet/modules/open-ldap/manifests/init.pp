@@ -12,7 +12,7 @@ class open-ldap (
   }
 
   file {"/var/cache/debconf/slapd.seeds":
-    content => template("ldap/slapd.seeds"),
+    content => template("open-ldap/slapd.seeds"),
     ensure => present,
   }
 
