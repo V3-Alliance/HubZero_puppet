@@ -6,6 +6,6 @@ class forge {
 
   exec { "initialize forge":
     command      => "/usr/bin/hzcms configure forge --enable",
-    require      => Package ["hubzero-forge, hubzero-cms"],
+    require      => [Package["hubzero-forge"], Package["hubzero-cms"]],
   }
 }

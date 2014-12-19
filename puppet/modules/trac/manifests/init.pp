@@ -6,6 +6,6 @@ class trac {
 
   exec { "initialize trac":
     command      => "/usr/bin/hzcms configure trac --enable",
-    require      => Package ["hubzero-trac, hubzero-cms"],
+    require      => [Package["hubzero-trac"], Package["hubzero-cms"]],
   }
 }
