@@ -9,14 +9,14 @@ class hubzero {
   include trac
   include forge
   # include openvz
-  # include firewall
+  include firewall
   # include maxwell-service
   # include maxwell-client
-  # include vncproxy
+  include vncproxy
   # include telequotad
-  # include workspace
-  # include metrics
+  include workspace
+  include metrics
   # include rappture
-  # include filexfer
+  include filexfer
   # include submit
 }
