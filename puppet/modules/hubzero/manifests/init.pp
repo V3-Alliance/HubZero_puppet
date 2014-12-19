@@ -5,7 +5,7 @@ class hubzero {
   include open-ldap
   # skip ssh and sftp
   include webdav
-  # include subversion
+  include subversion
   # include trac
   # include forge
   # include openvz
