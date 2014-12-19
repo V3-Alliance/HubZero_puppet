@@ -6,6 +6,6 @@ class subversion {
 
   exec { "initialize subversion":
     command      => "/usr/bin/hzcms configure subversion --enable",
-    require      => Package ["hubzero-subversion"],
+    require      => Package ["hubzero-subversion", "hubzero-cms"],
   }
 }

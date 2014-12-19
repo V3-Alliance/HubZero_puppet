@@ -30,7 +30,8 @@ class open-ldap (
 
   exec { "enable ldap":
     command      => "/usr/bin/hzcms configure ldap --enable",
-    subscribe    => Exec["initialize ldap"]
+    subscribe    => Exec["initialize ldap"],
+    require      => Package ["hubzero-cms"],
   }
 
 # somehow, need to:
