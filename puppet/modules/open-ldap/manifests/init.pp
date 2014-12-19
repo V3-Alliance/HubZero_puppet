@@ -29,7 +29,7 @@ class open-ldap (
   }
 
   exec { "enable ldap":
-    command      => "hzcms configure ldap --enable",
+    command      => "/usr/bin/hzcms configure ldap --enable",
     subscribe    => Exec["initialize ldap"]
   }
 
