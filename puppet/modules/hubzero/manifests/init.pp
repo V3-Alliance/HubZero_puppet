@@ -6,7 +6,7 @@ class hubzero {
   # skip ssh and sftp
   include webdav
   include subversion
-  # include trac
+  include trac
   # include forge
   # include openvz
   # include firewall
