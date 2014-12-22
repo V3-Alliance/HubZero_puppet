@@ -6,18 +6,20 @@
 
 # first kick off some initialization of variables
 version=__hub_zero_version
-repository=""
 case $version in
-  "1.1" ) #1.1.0
-    repository = "manny"
+  "1.1" )
+    #1.1.0
+    repository="manny"
     puppet_module="hubzero_1_1"
     ;;
-  "1.2" )  # 1.2.2
-    repository = "shira-deb6"
+  "1.2" )
+    # 1.2.2
+    repository="shira-deb6"
     puppet_module="hubzero_1_2"
     ;;
-  * )  # 1.3.0
-    repository = "diego-deb6"
+  * )
+    # 1.3.0
+    repository="diego-deb6"
     puppet_module="hubzero_1_3"
     ;;
 esac
@@ -95,4 +97,4 @@ EOF
 git clone https://github.com/MartinPaulo/puppet_hub_zero.git
 
 # && reboot is required by the OpenVZ module.
-# puppet apply --modulepath=/puppet_hub_zero/puppet/modules:/etc/puppet/modules:/usr/share/puppet/modules -e 'include ${puppet_module}' --debug --verbose 2>&1 | logger && reboot
+puppet apply --modulepath=/puppet_hub_zero/puppet/modules:/etc/puppet/modules:/usr/share/puppet/modules -e 'include ${puppet_module}' --debug --verbose 2>&1 | logger # && reboot
