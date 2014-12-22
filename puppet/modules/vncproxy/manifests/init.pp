@@ -4,7 +4,7 @@ class vncproxy {
     ensure => latest,
   }
 
-  exec { "initialize trac":
+  exec { "initialize vncproxy":
     command      => "/usr/bin/hzcms configure vncproxy --enable",
     require      => [Package["hubzero-vncproxy"], Package["hubzero-cms"]],
   }
