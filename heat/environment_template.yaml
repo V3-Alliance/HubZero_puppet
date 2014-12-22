@@ -7,3 +7,4 @@
 parameters:
   my_sql_root_password: # 6-16 characters and numbers only, starting with a Capital
   slapd_root_password: # 6-16 characters and numbers only, starting with a Capital
+  hub_zero_version: 1_2

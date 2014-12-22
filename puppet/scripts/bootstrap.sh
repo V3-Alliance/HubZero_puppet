@@ -4,6 +4,21 @@
 # It makes the assumption that it is being run as the root user. So run it as the user_data segment of the
 # vm launch.
 
+# first kick off some initialization of variables
+version=__hub_zero_version
+repository=""
+puppet_module="hubzero_"${version}
+case ${version} in
+  1_1 ) #1.1.0
+    ${repository} = "manny"
+    ;;
+  1_2 )  # 1.2.2
+    ${repository} =  "shira-deb6"
+    ;;
+  1_3 )  # 1.3.0
+    ${repository} =  "diego-deb6"
+    ;;
+esac
 
 # Set hostname
 # registered temporary domain at http://www.dot.tk/en/index.html?lang=en ...
@@ -27,9 +42,8 @@ usermod -u 999 debian
 # Setting up DNS
 # the default VM settings should work
 
-
 # Configure Advanced Package Tool
-echo "deb http://packages.hubzero.org/deb manny main" | tee -a /etc/apt/sources.list
+echo "deb http://packages.hubzero.org/deb ${repository} main" | tee -a /etc/apt/sources.list
 # the 1.1 key has expired but the 1.2 key seems to work
 apt-key adv --keyserver pgp.mit.edu --recv-keys 143C99EF
 
@@ -54,7 +68,7 @@ cat > /etc/puppet/hiera.yaml <<EOF
 :backends:
   - yaml
 :yaml:
-  :datadir: $YAMLDIR
+  :datadir: ${YAMLDIR}
 :hierarchy:
   - common
 :logger: puppet
@@ -74,4 +88,4 @@ EOF
 git clone https://github.com/MartinPaulo/puppet_hub_zero.git
 
 # && reboot is required by the OpenVZ module.
-puppet apply --modulepath=/puppet_hub_zero/puppet/modules:/etc/puppet/modules:/usr/share/puppet/modules -e 'include hubzero' --debug --verbose 2>&1 | logger && reboot
+puppet apply --modulepath=/puppet_hub_zero/puppet/modules:/etc/puppet/modules:/usr/share/puppet/modules -e 'include ${puppet_module}' --debug --verbose 2>&1 | logger && reboot

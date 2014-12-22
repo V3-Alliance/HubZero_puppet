@@ -8,6 +8,9 @@ class maxwell-service {
   ->
   exec { "create template":
     command      => "/usr/bin/mkvztemplate amd64 squeeze manny",
+    #default timeout is 300 seconds, which is too short for this command...
+    # timeout is symptomatic of a deeper problem...
+    timeout      => 1800,
     require      => Package["hubzero-mw-service"],
   }
   ->
