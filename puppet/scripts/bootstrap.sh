@@ -10,13 +10,13 @@ repository=""
 puppet_module="hubzero_"${version}
 case ${version} in
   1_1 ) #1.1.0
-    ${repository} = "manny"
+    repository = "manny"
     ;;
   1_2 )  # 1.2.2
-    ${repository} =  "shira-deb6"
+    repository = "shira-deb6"
     ;;
   1_3 )  # 1.3.0
-    ${repository} =  "diego-deb6"
+    repository = "diego-deb6"
     ;;
 esac
 
