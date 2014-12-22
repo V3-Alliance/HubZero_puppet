@@ -43,7 +43,8 @@ usermod -u 999 debian
 # the default VM settings should work
 
 # Configure Advanced Package Tool
-echo "deb http://packages.hubzero.org/deb ${repository} main" | tee -a /etc/apt/sources.list
+#echo "deb http://packages.hubzero.org/deb ${repository} main" | tee -a /etc/apt/sources.list
+echo "deb http://packages.hubzero.org/deb ${repository} main"
 # the 1.1 key has expired but the 1.2 key seems to work
 apt-key adv --keyserver pgp.mit.edu --recv-keys 143C99EF
 
@@ -88,4 +89,4 @@ EOF
 git clone https://github.com/MartinPaulo/puppet_hub_zero.git
 
 # && reboot is required by the OpenVZ module.
-puppet apply --modulepath=/puppet_hub_zero/puppet/modules:/etc/puppet/modules:/usr/share/puppet/modules -e 'include ${puppet_module}' --debug --verbose 2>&1 | logger && reboot
+# puppet apply --modulepath=/puppet_hub_zero/puppet/modules:/etc/puppet/modules:/usr/share/puppet/modules -e 'include ${puppet_module}' --debug --verbose 2>&1 | logger && reboot
