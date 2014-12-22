@@ -1,5 +1,5 @@
 class hubzero_1_3 {
-#  include hubzero-database
+  include mysql_hubzero
 #  # include exim4
 #  include cms
 #  include open-ldap

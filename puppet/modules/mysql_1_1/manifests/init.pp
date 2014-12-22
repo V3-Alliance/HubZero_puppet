@@ -1,4 +1,8 @@
-class hubzero-database (
+# <h2>MySql</h2>
+# <p>Installed using the Puppet MySql module
+# <p>Used by 1.1
+# <p>See: <a href="https://hubzero.org/documentation/1.1.0/installation/Setup.mysql">1.1 Install Instructions</a>
+class mysql_1_1 (
   $mysql_password,
 ){
 
@@ -13,7 +17,7 @@ class hubzero-database (
 # +------------+-------------------------------------------+
 
 
-class { 'mysql::server':
+  class { 'mysql::server':
     root_password => "$mysql_password",
   }
 
