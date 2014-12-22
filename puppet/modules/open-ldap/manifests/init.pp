@@ -1,3 +1,6 @@
+# <h2>OpenLDAP</h2>
+# <p>Install and configure LDAP.
+# <p><b>See:</b> <a href="https://hubzero.org/documentation/1.1.0/installation/Setup.openldap">https://hubzero.org/documentation/1.1.0/installation/Setup.openldap</a>
 class open-ldap (
   $slapd_password,
 ){
@@ -23,15 +26,15 @@ class open-ldap (
   }
 
   exec { "initialize ldap":
-    command      => "/usr/bin/hzldap init 2>&1 | tee /tmp/ldap_details.txt",
+    command      => "/usr/bin/hzldap init 2>&1 | tee /root/ldap_details.txt",
     require      => Package ["hubzero-openldap"],
-    creates      => "/tmp/ldap_details.txt"
+    creates      => "/root/ldap_details.txt"
   }
 
   exec { "enable ldap":
     command      => "/usr/bin/hzcms configure ldap --enable",
     subscribe    => Exec["initialize ldap"],
-    require      => Package ["hubzero-cms"],
+    require      => [Package ["hubzero-cms"], Package["hubzero-openldap"]],
   }
 
 # somehow, need to:
