@@ -1,6 +1,23 @@
-class cms {
+# <h2>Hubzero CMS</h2>
+# <p>Installs the appropriate version of HubZero
+# <p>See:
+# <ul>
+#   <li><a href="https://hubzero.org/documentation/1.1.0/installation/Setup.cms">1.1 Install Instructions</a>
+#   <li><a href="https://hubzero.org/documentation/1.2.2/installation/Setup.cms">1.2 Install Instructions</a>
+#   <li><a href="https://hubzero.org/documentation/1.3.0/installation/installdeb.cms">1.3 Install Instructions</a>
+# </ul>
+class cms (
+  $version
+){
+
+  case $version {
+    1.1: { $cms_version =  "hubzero-cms" }
+    1.2: { $cms_version =  "hubzero-cms-1.2.0" }
+    default : { $cms_version =  "hubzero-cms-1.3.0" }
+  }
 
   package { "hubzero-cms":
+    name   => $cms_version,
     ensure => latest,
   }
 
