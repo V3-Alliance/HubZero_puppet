@@ -1,3 +1,11 @@
+# <h2>Exim4</h2>
+# <p>Used by all versions of HubZero
+# <p>See:
+# <ul>
+#   <li><a href="https://hubzero.org/documentation/1.1.0/installation/Setup.exim4">1.1 Install Instructions</a>
+#   <li><a href="https://hubzero.org/documentation/1.2.2/installation/Setup.mysql">1.2 Install Instructions</a>
+#   <li><a href="https://hubzero.org/documentation/1.3.0/installation/installdeb.mysql">1.3 Install Instructions</a>
+# </ul>
 class exim4 {
   # based on
   #  http://projects.puppetlabs.com/projects/1/wiki/debian_preseed_patterns
