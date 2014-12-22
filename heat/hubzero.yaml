@@ -60,15 +60,25 @@ parameters:
     type: string
     label: HubZero Version
     description: The version of HubZero to install.
-    default: 1_1
+    default: 1.1
     constraints:
-      - allowed_values: [1_1, 1_2, 1_3]
+      - allowed_values: [1.1, 1.2, 1.3]
         description: Will install either 1.1.0, 1.2.2, or 1.3.0
+
+  availability_zone:
+    type: string
+    description: The NeCTAR zone in which the VM is to run (must have block storage)
+    default: melbourne-qh2
+    constraints:
+      - allowed_values: [melbourne-qh2, melbourne-np, monash, qld]
+        description: The NeCTAR zones to launch the instance.
+
 
 resources:
   hubZero_instance:
     type: OS::Nova::Server
     properties:
+      availability_zone: { get_param: availability_zone }
       image: { get_param: image }
       flavor: { get_param: flavor }
       key_name: { get_param: key }
