@@ -20,6 +20,10 @@ case ${version} in
     ;;
 esac
 
+echo "Repo is: ${repository}"
+echo "Version is: ${version}"
+echo "Puppet module is: ${puppet_module}"
+
 # Set hostname
 # registered temporary domain at http://www.dot.tk/en/index.html?lang=en ...
 hostname hubzero.tk
