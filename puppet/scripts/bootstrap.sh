@@ -24,6 +24,7 @@ case $version in
     ;;
 esac
 
+# some sanity checking...
 echo "Repo is: ${repository}"
 echo "Version is: ${version}"
 echo "Puppet module is: ${puppet_module}"
@@ -51,8 +52,7 @@ usermod -u 999 debian
 # the default VM settings should work
 
 # Configure Advanced Package Tool
-#echo "deb http://packages.hubzero.org/deb ${repository} main" | tee -a /etc/apt/sources.list
-echo "deb http://packages.hubzero.org/deb ${repository} main"
+echo "deb http://packages.hubzero.org/deb ${repository} main" | tee -a /etc/apt/sources.list
 # the 1.1 key has expired but the 1.2 key seems to work
 apt-key adv --keyserver pgp.mit.edu --recv-keys 143C99EF
 
