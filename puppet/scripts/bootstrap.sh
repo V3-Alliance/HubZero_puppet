@@ -7,16 +7,18 @@
 # first kick off some initialization of variables
 version=__hub_zero_version
 repository=""
-puppet_module="hubzero_"${version}
-case ${version} in
-  1.1 ) #1.1.0
+case $version in
+  "1.1" ) #1.1.0
     repository = "manny"
+    puppet_module="hubzero_1_1"
     ;;
-  1.2 )  # 1.2.2
+  "1.2" )  # 1.2.2
     repository = "shira-deb6"
+    puppet_module="hubzero_1_2"
     ;;
-  1.3 )  # 1.3.0
+  * )  # 1.3.0
     repository = "diego-deb6"
+    puppet_module="hubzero_1_3"
     ;;
 esac
 

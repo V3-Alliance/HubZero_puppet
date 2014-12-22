@@ -1,4 +1,4 @@
-class hubzero {
+class hubzero_1_2 {
 #  include hubzero-database
 #  # include exim4
 #  include cms
