@@ -94,6 +94,7 @@ open-ldap::slapd_password: __slapd_root_password
 cms::version: ${version}
 open-ldap::version: ${version}
 openvz::version: ${version}
+maxwell-service::version: ${version}
 
 EOF
 

@@ -9,7 +9,7 @@ class hubzero_1_3 {
   include forge
   include openvz
   include firewall
-#  # include maxwell-service # Is slightly broken...
+  include maxwell-service
 #  # include maxwell-client
 #  include vncproxy
 #  # include telequotad
