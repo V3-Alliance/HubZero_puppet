@@ -13,7 +13,7 @@ class hubzero_1_3 {
   include maxwell-client
   include vncproxy
 #  # include telequotad
-#  include workspace
+  include workspace
 #  include metrics
 #  # include rappture
 #  include filexfer
