@@ -7,7 +7,7 @@ class hubzero_1_2 {
   include subversion
   include trac
   include forge
-#  include openvz
+  include openvz
 #  include firewall
 #  # include maxwell-service # Is slightly broken...
 #  # include maxwell-client
