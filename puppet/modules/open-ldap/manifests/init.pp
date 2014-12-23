@@ -19,6 +19,7 @@
 # to test: # getent passwd
 class open-ldap (
   $slapd_password,
+  $version
 ){
 
   package { "slapd":
@@ -34,7 +35,13 @@ class open-ldap (
 
   package { "hubzero-openldap":
     ensure  => latest,
+    responsefile => "/var/cache/debconf/ldap.seeds",
     require => [Package["slapd"]],
+  }
+
+  file { "/var/cache/debconf/ldap.seeds":
+    content => template("open-ldap/ldap.seeds"),
+    ensure  => present,
   }
 
   exec { "initialize ldap":
@@ -47,6 +54,14 @@ class open-ldap (
     command      => "/usr/bin/hzcms configure ldap --enable",
     subscribe    => Exec["initialize ldap"],
     require      => [Package ["hubzero-cms"], Package["hubzero-openldap"]],
+  }
+
+  if ($version!="1.1") {
+    exec { "sync ldap users":
+      command      => "/usr/bin/hzldap syncusers",
+      subscribe    => Exec["enable ldap"],
+      require      => [Package ["hubzero-cms"], Package["hubzero-openldap"]],
+    }
   }
 
 }
