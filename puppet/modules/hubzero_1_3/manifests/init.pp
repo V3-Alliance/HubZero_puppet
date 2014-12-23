@@ -10,7 +10,7 @@ class hubzero_1_3 {
   include openvz
   include firewall
   include maxwell-service
-#  # include maxwell-client
+  include maxwell-client
 #  include vncproxy
 #  # include telequotad
 #  include workspace

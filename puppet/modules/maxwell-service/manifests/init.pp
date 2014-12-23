@@ -24,7 +24,7 @@ class maxwell-service (
     command      => $template_command,
   #default timeout is 300 seconds, which is too short for this command under 1.1...
   # timeout is symptomatic of a deeper problem...
-  #  timeout      => 1800,
+    timeout      => 1800,
     require      => Package["hubzero-mw-service"],
   }
   ->
