@@ -60,7 +60,7 @@ parameters:
     type: string
     label: HubZero Version
     description: The version of HubZero to install.
-    default: 1.1
+    default: 1.3
     constraints:
       - allowed_values: [1.1, 1.2, 1.3]
         description: Will install either 1.1.0, 1.2.2, or 1.3.0
