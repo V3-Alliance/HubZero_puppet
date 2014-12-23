@@ -3,8 +3,7 @@ class hubzero_1_2 {
 #  # include exim4
   include cms
   include open-ldap
-#  # skip ssh and sftp
-#  include webdav
+  include webdav
 #  include subversion
 #  include trac
 #  include forge
