@@ -14,7 +14,7 @@ class hubzero_1_2 {
   include vncproxy
 #  # include telequotad
   include workspace
-#  include metrics
+#  include metrics # metrics for 1.2.2 is broken, the advice is not to install it...
 #  # include rappture
 #  include filexfer
 #  # include submit

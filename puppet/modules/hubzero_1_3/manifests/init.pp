@@ -1,6 +1,6 @@
 class hubzero_1_3 {
   include mysql_hubzero
-#  # include exim4
+  # include exim4
   include cms
   include open-ldap
   include webdav
@@ -14,7 +14,7 @@ class hubzero_1_3 {
   include vncproxy
 #  # include telequotad
   include workspace
-#  include metrics
+  include metrics
 #  # include rappture
 #  include filexfer
 #  # include submit
