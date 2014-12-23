@@ -5,7 +5,7 @@ class hubzero_1_3 {
   include open-ldap
   include webdav
   include subversion
-#  include trac
+  include trac
 #  include forge
 #  include openvz
 #  include firewall
