@@ -8,7 +8,7 @@ class hubzero_1_2 {
   include trac
   include forge
   include openvz
-#  include firewall
+  include firewall
 #  # include maxwell-service # Is slightly broken...
 #  # include maxwell-client
 #  include vncproxy
