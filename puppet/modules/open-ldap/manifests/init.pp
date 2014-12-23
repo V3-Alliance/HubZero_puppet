@@ -21,13 +21,12 @@
 #       in order to export all CMS users/groups
 #</pre>
 
-# to test: # getent passwd
 class open-ldap (
   $slapd_password,
   $version
 ){
 
-  # as the hub zero 1 & 2 packages install this, I'm not sure what harm is done by not making it a 1.1 option...
+# as the hub zero 1 & 2 packages install this, I'm not sure what harm is done by not making it a 1.1 option...
   package { "slapd":
     ensure       => latest,
     require      => File ["/var/cache/debconf/slapd.seeds"],
@@ -40,9 +39,9 @@ class open-ldap (
   }
 
   package { "hubzero-openldap":
-    ensure  => latest,
+    ensure       => latest,
     responsefile => "/var/cache/debconf/ldap.seeds",
-    require => [Package["slapd"]],
+    require      => [Package["slapd"]],
   }
 
   file { "/var/cache/debconf/ldap.seeds":
