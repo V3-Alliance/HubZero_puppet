@@ -6,7 +6,7 @@ class hubzero_1_2 {
   include webdav
   include subversion
   include trac
-#  include forge
+  include forge
 #  include openvz
 #  include firewall
 #  # include maxwell-service # Is slightly broken...
