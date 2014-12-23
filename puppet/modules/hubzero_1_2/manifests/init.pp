@@ -2,7 +2,7 @@ class hubzero_1_2 {
   include mysql_hubzero
 #  # include exim4
   include cms
-#  include open-ldap
+  include open-ldap
 #  # skip ssh and sftp
 #  include webdav
 #  include subversion
