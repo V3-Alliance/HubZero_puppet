@@ -11,7 +11,7 @@ class hubzero_1_2 {
   include firewall
   include maxwell-service # Is broken...
   include maxwell-client
-#  include vncproxy
+  include vncproxy
 #  # include telequotad
 #  include workspace
 #  include metrics

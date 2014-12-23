@@ -11,7 +11,7 @@ class hubzero_1_3 {
   include firewall
   include maxwell-service
   include maxwell-client
-#  include vncproxy
+  include vncproxy
 #  # include telequotad
 #  include workspace
 #  include metrics
