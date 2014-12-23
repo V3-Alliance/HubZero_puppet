@@ -91,7 +91,7 @@ cat > ${YAMLDIR}/common.yaml <<EOF
 ---
 mysql_1_1::mysql_password: __my_sql_root_password
 open-ldap::slapd_password: __slapd_root_password
-cms:version: ${version}
+cms::version: ${version}
 
 EOF
 
