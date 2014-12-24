@@ -90,6 +90,7 @@ Known issues:
   Exec[initialize forge]/returns: ldap.INVALID_DN_SYNTAX: {'info': 'invalid DN', 'desc': 'Invalid DN syntax'}#033[0m
   [1;31mError: /usr/bin/hzcms configure forge --enable returned 1 instead of one of [0]#033[0m
   ```
+
 - The 1.3 maxwell service gives the following (probably related) error:
 
   ```bash
