@@ -7,7 +7,7 @@
 #   <li><a href="https://hubzero.org/documentation/1.3.0/installation/installdeb.openldap">1.3 Install Instructions</a>
 # </ul>
 # <h3>Version 1.1 gotcha's</h3
-# <p>Currently get the following message when installing :
+# <p>TODO: Check: currently get the following message when installing :
 # <pre>/Exec[enable ldap]/returns:
 #     syncing user 'admin' to ldap#033[0m
 #     pw = pwd.getpwnam('admin')#033[0m
