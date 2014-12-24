@@ -101,3 +101,20 @@ outputs:
   instance_ip:
     description: The IP address of the instance
     value: { get_attr: [hubZero_instance, first_address] }
+
+  instance_url:
+    description: The url of the instance
+    value:
+      str_replace:
+        template: https://host
+        params:
+          host: { get_attr: [hubZero_instance, first_address] }
+
+  instance_ssh:
+    description: The ssh address of the instance.
+    value:
+      str_replace:
+        template: ssh debian@host -i ~/.ssh/key.pem
+        params:
+          host: { get_attr: [nova_instance, first_address] }
+          key: { get_param: key_name }
