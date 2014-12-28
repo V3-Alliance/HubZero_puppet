@@ -95,7 +95,7 @@ resources:
 
 outputs:
   instance_name:
-    description: The name of the instance
+    description: The name of the instance:
     value: { get_attr: [hubZero_instance, name] } # TODO: is not returning anything?
 
   instance_ip:
@@ -103,7 +103,7 @@ outputs:
     value: { get_attr: [hubZero_instance, first_address] }
 
   instance_url:
-    description: The url of the instance
+    description: The url of the instance:
     value:
       str_replace:
         template: https://host
@@ -111,10 +111,10 @@ outputs:
           host: { get_attr: [hubZero_instance, first_address] }
 
   instance_ssh:
-    description: The ssh address of the instance.
+    description: The ssh address of the instance:
     value:
       str_replace:
         template: ssh debian@host -i ~/.ssh/key.pem
         params:
-          host: { get_attr: [nova_instance, first_address] }
-          key: { get_param: key_name }
+          host: { get_attr: [hubZero_instance, first_address] }
+          key: { get_param: key }
