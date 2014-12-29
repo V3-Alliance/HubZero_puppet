@@ -47,7 +47,6 @@ Tasks still to be done:
 - Email the user when the install is complete
 - Email needs to be properly configured ( *Check: must not relay email!* )
 - Need to move the users home directories to the larger mounted transient storage.
-- telequotad not yet added to the installation
 - rapture not yet added to the installation
 - submit not yet added to the installation
 - The DNS entry and matching records need to be set up manually. Instructions have to be written.

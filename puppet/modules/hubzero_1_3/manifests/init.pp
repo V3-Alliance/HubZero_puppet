@@ -12,7 +12,7 @@ class hubzero_1_3 {
   include maxwell-service
   include maxwell-client
   include vncproxy
-  # include telequotad
+  include telequotad
   include workspace
   include metrics
   # include rappture

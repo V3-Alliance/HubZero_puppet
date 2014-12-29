@@ -13,7 +13,7 @@ class hubzero_1_1 {
   include maxwell-service # Is broken...
   include maxwell-client
   include vncproxy
-  # include telequotad
+  include telequotad
   include workspace
   include metrics
   # include rappture
