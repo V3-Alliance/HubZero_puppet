@@ -101,4 +101,4 @@ EOF
 git clone https://github.com/MartinPaulo/puppet_hub_zero.git
 
 # && reboot is required by the OpenVZ module.
-puppet apply --modulepath=/puppet_hub_zero/puppet/modules:/etc/puppet/modules:/usr/share/puppet/modules -e "include ${puppet_module}" --debug --verbose 2>&1 | logger && reboot
+puppet apply --modulepath=/puppet_hub_zero/puppet/modules:/etc/puppet/modules:/usr/share/puppet/modules -e "include ${puppet_module}" --debug --verbose 2>&1 | logger # && reboot
