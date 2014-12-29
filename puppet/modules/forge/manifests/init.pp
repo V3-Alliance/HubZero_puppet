@@ -14,7 +14,11 @@ class forge {
 
   exec { "initialize forge":
     command      => "/usr/bin/hzcms configure forge --enable",
-    require      => [Package["hubzero-forge"], Package["hubzero-cms"], Exec["initialize subversion"],
-      Exec["initialize trac"],  Exec["enable ldap"]],
+    require      => [
+      Package["hubzero-forge"],
+      Package["hubzero-cms"],
+      Exec["initialize subversion"],
+      Exec["initialize trac"],
+      Exec["enable ldap"]],
   }
 }
