@@ -62,6 +62,12 @@ Known issues:
 - The 1.1, the 1.2 and 1.3 maxwell service gives the following (probably related) error:
 
   ```bash
+  Exec[enable maxwell]/returns: checking /etc/vz/vz.conf#033[0m
+  Exec[enable maxwell]/returns: Turning off disk quota in /etc/vz/vz.conf#033[0m
+  Exec[enable maxwell]/returns: checking /etc/mw-service/mw-service.conf#033[0m
+  Exec[enable maxwell]/returns: creating /etc/mw-service/mw-service.conf#033[0m
+  Exec[enable maxwell]/returns: checking group 'network'#033[0m
+  Exec[enable maxwell]/returns: adding group 'network'#033[0m
   Exec[enable maxwell]/returns: Traceback (most recent call last):#033[0m
   Exec[enable maxwell]/returns:   File "/usr/bin/hzcms", line 4855, in <module>#033[0m
   Exec[enable maxwell]/returns:     args.func(args)#033[0m
