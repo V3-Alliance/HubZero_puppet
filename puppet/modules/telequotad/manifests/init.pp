@@ -17,23 +17,23 @@ class telequotad (
   }
 
   exec { "add quota to filesystem":
-    command      => "/usr/bin/sed -i.old -r '/[ \\t]\\/[ \\t]/{s/(ext4[\\t ]*)([^\\t ]*)/\\1\\2,quota/}' /etc/fstab",
+    command      => "/bin/sed -i.old -r '/[ \\t]\\/[ \\t]/{s/(ext4[\\t ]*)([^\\t ]*)/\\1\\2,quota/}' /etc/fstab",
     require      => Package["hubzero-telequotad"],
   }
 
   exec { "remount filesystem":
-    command      => "mount -oremount /",
+    command      => "/bin/mount -oremount /",
     require      => Exec["add quota to filesystem"],
   }
 
   exec { "restart quota":
-    command      => "mount -o remount /",
+    command      => "/etc/init.d/quota restart",
     require      => Exec["remount filesystem"],
   }
 
   if ($version=="1.3") {
     exec { "enable telequotad":
-      command      => "hzcms configure telequotad --enable",
+      command      => "/usr/bin/hzcms configure telequotad --enable",
       require      => [
         Package ["hubzero-cms"],
         Exec["restart quota"]],
