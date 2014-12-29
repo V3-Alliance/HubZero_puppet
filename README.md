@@ -48,7 +48,7 @@ Tasks still to be done:
 - Do we need to move the users home directories to the larger mounted transient storage?
 - rapture not yet added to the installation
 - submit not yet added to the installation
-- The DNS entry and matching records need to be set up manually. Instructions have to be written.
+- The DNS entry for the site and any matching records need to be set up manually. Instructions have to be written.
 
 Known issues:
 - The LDAP installation on version 1.1 returns an error: needs investigation. See the open-ldap module for more.
