@@ -30,7 +30,8 @@ class maxwell-service (
   ->
   exec { "enable maxwell":
     command      => "/usr/bin/hzcms configure mw-service --enable",
-    require      => [Package["hubzero-mw-service"], Package["hubzero-cms"], Exec["initialize openvz"]],
+    require      => [Package["hubzero-mw-service"], Package["hubzero-cms"], Exec["initialize openvz"],
+      Exec["enable ldap"]],
   }
 
 }
