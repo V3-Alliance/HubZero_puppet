@@ -1,6 +1,6 @@
 class hubzero_1_1 {
   include mysql_1_1
-  # include exim4
+  include exim4
   include cms
   include open-ldap
   # skip ssh and sftp as they are buggy...
