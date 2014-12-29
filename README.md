@@ -30,7 +30,6 @@ vi heat/environment.yaml
 heat stack-create --template-file=heat/hubzero.yaml --environment-file=heat/environment.yaml hubzero_1_3
 
 # wait for a while...
-# TODO: email the user when the install is complete...
 ```
 
 Once complete, the passwords and users created by the ldap installation have been written to the file:
@@ -46,10 +45,11 @@ in order to export all the CMS users and groups
 Tasks still to be done:
 - Email the user when the install is complete
 - Email needs to be properly configured ( *Check: must not relay email!* )
-- Need to move the users home directories to the larger mounted transient storage.
+- Do we need to move the users home directories to the larger mounted transient storage?
 - rapture not yet added to the installation
 - submit not yet added to the installation
 - The DNS entry and matching records need to be set up manually. Instructions have to be written.
+- Export LDAP users in 1.1. See the open-ldap module for more.
 
 Known issues:
 - The LDAP installation on version 1.1 returns an error: needs investigation. See the open-ldap module for more.
