@@ -14,12 +14,6 @@
 #     KeyError: 'getpwnam(): name not found: admin'#033[0m
 #</pre>
 # <p>I'm not sure if this is meant to happen or not?
-# <p>TODO: somehow, need to:
-# <pre>
-#       Go to administrator section of your site (/administrator),
-#       go to Site->Maintenance->LDAP and press the Export Users and Export Groups buttons
-#       in order to export all CMS users/groups
-#</pre>
 
 class open-ldap (
   $slapd_password,
