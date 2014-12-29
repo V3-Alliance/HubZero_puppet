@@ -49,7 +49,6 @@ Tasks still to be done:
 - rapture not yet added to the installation
 - submit not yet added to the installation
 - The DNS entry and matching records need to be set up manually. Instructions have to be written.
-- Export LDAP users in 1.1. See the open-ldap module for more.
 
 Known issues:
 - The LDAP installation on version 1.1 returns an error: needs investigation. See the open-ldap module for more.
