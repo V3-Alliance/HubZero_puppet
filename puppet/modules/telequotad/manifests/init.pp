@@ -17,7 +17,7 @@ class telequotad (
   }
 
   exec { "add quota to filesystem":
-    command      => "sudo sed -i.old -r '/[ \\t]\\/[ \\t]/{s/(ext4[\\t ]*)([^\\t ]*)/\\1\\2,quota/}' /etc/fstab",
+    command      => "/usr/bin/sed -i.old -r '/[ \\t]\\/[ \\t]/{s/(ext4[\\t ]*)([^\\t ]*)/\\1\\2,quota/}' /etc/fstab",
     require      => Package["hubzero-telequotad"],
   }
 
