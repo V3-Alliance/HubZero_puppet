@@ -96,6 +96,7 @@ open-ldap::version: ${version}
 openvz::version: ${version}
 maxwell-service::version: ${version}
 telequotad::version: ${version}
+rappture::version: ${version}
 
 EOF
 
