@@ -38,7 +38,12 @@ Typically it will take up to 15 minutes to run through the installation.
 Once complete, the passwords and users created by the ldap installation have been written to the file:
 
 ```bash
-/root/ldap_details.txt
+/etc/ldap.secrets
+```
+Once complete, the passwords and users created by the hub zero installation have been written to the file:
+
+```bash
+/etc/hubzero.secrets
 ```
 
 If installing version 1.1, once the installation is complete, go to the administrator section of your site

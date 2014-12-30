@@ -44,9 +44,9 @@ class open-ldap (
   }
 
   exec { "initialize ldap":
-    command      => "/usr/bin/hzldap init 2>&1 | tee /root/ldap_details.txt",
+    command      => "/usr/bin/hzldap init 2>&1 | tee /etc/ldap.secrets",
     require      => Package ["hubzero-openldap"],
-    creates      => "/root/ldap_details.txt"
+    creates      => "/etc/ldap.secrets"
   }
 
   exec { "enable ldap":
