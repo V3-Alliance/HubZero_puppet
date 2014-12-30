@@ -24,6 +24,7 @@ class rappture (
     path    => "/usr/local/bin/setup_jail.sh",
     content => template ('rappture/setup_jail.sh'),
     mode    => '0755',
+    ensure  => present,
     require => Package["hubzero-rappture"],
   }
 
@@ -31,7 +32,8 @@ class rappture (
     command      => "/usr/local/bin/setup_jail.sh",
     require      => [
       Package["hubzero-rappture"],
-      Package["hubzero-mw-client"]],
+      Package["hubzero-mw-client"],
+      File["deploy rapture configure script"]],
   }
 
 }
