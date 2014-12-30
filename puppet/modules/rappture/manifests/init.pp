@@ -22,7 +22,7 @@ class rappture (
 
   file { "deploy rapture configure script":
     path    => "/usr/local/bin/setup_jail.sh",
-    content => template ('rappture/setup_jail.sh'),
+    content => template ('rappture/setup_jail.erb'),
     mode    => '0755',
     ensure  => present,
     require => Package["hubzero-rappture"],
