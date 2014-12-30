@@ -48,7 +48,6 @@ in order to export all the CMS users and groups
 Tasks still to be done:
 - Email needs to be properly configured ( *Check: must not relay email!* )
 - Do we need to move the users home directories to the larger mounted transient storage?
-- rapture not yet added to the installation
 - submit not yet added to the installation
 - The DNS entry for the site and any matching records need to be set up manually. Instructions have to be written.
 
