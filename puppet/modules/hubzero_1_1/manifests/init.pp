@@ -16,7 +16,7 @@ class hubzero_1_1 {
   include telequotad
   include workspace
   include metrics
-  # include rappture
+  include rappture
   include filexfer
   # include submit
 }

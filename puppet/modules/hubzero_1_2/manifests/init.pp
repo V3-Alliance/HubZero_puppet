@@ -15,7 +15,7 @@ class hubzero_1_2 {
   include telequotad
   include workspace
 #  include metrics # metrics for 1.2.2 is broken, the advice is not to install it...
-  # include rappture
+  include rappture
   include filexfer
   # include submit
 }
