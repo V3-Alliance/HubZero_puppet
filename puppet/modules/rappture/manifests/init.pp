@@ -1,4 +1,4 @@
-# <h2>Rapture</h2>
+# <h2>Rappture</h2>
 # <p>Install and configure <a href="https://nanohub.org/infrastructure/rappture/">rappture</a>.
 # <p>See:
 # <ul>
@@ -6,7 +6,7 @@
 #   <li><a href="https://hubzero.org/documentation/1.2.2/installation/Setup.rappture">1.2 Install Instructions</a>
 #   <li><a href="https://hubzero.org/documentation/1.3.0/installation/installdeb.rappture">1.3 Install Instructions</a>
 # </ul>
-class rapture (
+class rappture (
   $version
 ){
 
