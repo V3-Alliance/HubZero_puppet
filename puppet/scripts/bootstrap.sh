@@ -31,15 +31,15 @@ echo "Puppet module is: ${puppet_module}"
 
 # Set hostname
 # registered temporary domain at http://www.dot.tk/en/index.html?lang=en ...
-hostname hubzero.tk
+hostname __hostname
 # and make the name change permanent
-echo "hubzero.tk" > /etc/hostname
+echo "__hostname" > /etc/hostname
 
 # Fix hosts
 # remove the line: 127.0.1.1	localhost.locahost	localhost
 sed -i".bak" '/127.0.1.1/d' /etc/hosts
 # and replace it with the intended one
-echo "127.0.1.1 	hubzero.tk" | tee -a /etc/hosts
+echo "127.0.1.1 	__hostname" | tee -a /etc/hosts
 
 # Delete local users
 # since we still want to log in as the debian user we'll just move their ID to an acceptible range

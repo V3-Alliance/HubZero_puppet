@@ -72,12 +72,17 @@ parameters:
 
   availability_zone:
     type: string
+    label: Availability Zone
     description: The NeCTAR zone in which the VM is to run (must have block storage)
     default: melbourne-qh2
     constraints:
       - allowed_values: [melbourne-qh2, melbourne-np, monash, qld]
         description: The NeCTAR zones to launch the instance.
 
+  hostname:
+    type: string
+    label: The Hostname
+    description: The hostname for the installation - something along the lines of v3.edu.au
 
 resources:
   hubZero_instance:
@@ -94,6 +99,7 @@ resources:
             __slapd_root_password: { get_param: slapd_root_password }
             __hub_zero_version: { get_param: hub_zero_version }
             __email: { get_param: email}
+            __hostname: { get_param: hostname}
           template:
             get_file: https://raw.githubusercontent.com/MartinPaulo/puppet_hub_zero/master/puppet/scripts/bootstrap.sh
       user_data_format: RAW
