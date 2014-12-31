@@ -82,7 +82,7 @@ parameters:
   hostname:
     type: string
     label: The Hostname
-    description: The hostname for the installation - something along the lines of v3.edu.au
+    description: The fully quailified hostname for the installation - something along the lines of hubzero.v3.edu.au
 
 resources:
   hubZero_instance:
