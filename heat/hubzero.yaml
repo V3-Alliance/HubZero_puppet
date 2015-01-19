@@ -92,7 +92,6 @@ resources:
       image: { get_param: image }
       flavor: { get_param: flavor }
       key_name: { get_param: key }
-      name: { get_param: hostname }
       user_data:
         str_replace:
           params:
@@ -109,7 +108,8 @@ resources:
 outputs:
   instance_name:
     description: "The name of the instance:"
-    value: { get_attr: [hubZero_instance, name] } # TODO: is not returning anything?
+    value: { get_attr: [hubZero_instance, name] }
+    # TODO: reports "The Referenced Attribute (hubZero_instance name) is incorrect."??
 
   instance_aws_name:
     description: "The AWS compatible instance name:"
