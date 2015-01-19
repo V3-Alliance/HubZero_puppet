@@ -56,6 +56,7 @@ If installing version 1.1, once the installation is complete, go to the administ
 in order to export all the CMS users and groups
 
 Tasks still to be done:
+- The php temporary directory needs to be set
 - Email needs to be properly configured ( *Check: must not relay email!* )
 - Do we need to move the users home directories to the larger mounted transient storage?
 - submit not yet added to the installation
