@@ -92,6 +92,7 @@ resources:
       image: { get_param: image }
       flavor: { get_param: flavor }
       key_name: { get_param: key }
+      name: { get_param: hostname }
       user_data:
         str_replace:
           params:
