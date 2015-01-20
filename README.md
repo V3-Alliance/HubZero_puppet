@@ -56,8 +56,9 @@ If installing version 1.1, once the installation is complete, go to the administ
 in order to export all the CMS users and groups
 
 Tasks still to be done:
-- [ ] The php temporary directory needs to be set
-- [ ] The php file upload size needs to be increased
+- [ ] The php temporary directory (upload_tmp_dir in /etc/php5/apache2/php.ini) needs to be set
+- [ ] The php file upload size (upload_max_filesize in /etc/php5/apache2/php.ini) needs to be increased
+      (must check that it matches or is less than upload_max_filesize)
 - [ ] Email needs to be properly configured ( *Check: must not relay email!* )
 - [ ] Do we need to move the users home directories to the larger mounted transient storage?
 - [ ] submit package not yet added to the installation
