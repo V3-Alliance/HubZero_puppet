@@ -56,12 +56,12 @@ If installing version 1.1, once the installation is complete, go to the administ
 in order to export all the CMS users and groups
 
 Tasks still to be done:
-- The php temporary directory needs to be set
-- Email needs to be properly configured ( *Check: must not relay email!* )
-- Do we need to move the users home directories to the larger mounted transient storage?
-- submit not yet added to the installation
-- The external DNS entry for the site and any matching records need to be set up manually. Instructions have to be written.
-- The url shown on the output page of the stack shows an IP number. One that uses the domain name needs to be added.
+- [ ] The php temporary directory needs to be set
+- [ ] Email needs to be properly configured ( *Check: must not relay email!* )
+- [ ] Do we need to move the users home directories to the larger mounted transient storage?
+- [ ] submit package not yet added to the installation
+- [ ] The external DNS entry for the site and any matching records need to be set up manually. Instructions have to be written.
+- [ ] The url shown on the output page of the stack shows an IP number. One that uses the domain name needs to be added.
 
 Known issues:
 - The LDAP installation on version 1.1 returns an error: this needs investigation. See the open-ldap module for more.
