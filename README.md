@@ -57,6 +57,7 @@ in order to export all the CMS users and groups
 
 Tasks still to be done:
 - [ ] The php temporary directory needs to be set
+- [ ] The php file upload size needs to be increased
 - [ ] Email needs to be properly configured ( *Check: must not relay email!* )
 - [ ] Do we need to move the users home directories to the larger mounted transient storage?
 - [ ] submit package not yet added to the installation
