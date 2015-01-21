@@ -57,6 +57,10 @@ in order to export all the CMS users and groups
 
 Tasks still to be done:
 - [ ] The php temporary directory (upload_tmp_dir in /etc/php5/apache2/php.ini) needs to be set
+      The command to do this is:
+      ```bash
+      sed -i.bak "s/;upload_tmp_dir = .*/upload_tmp_dir = \/tmp/" /etc/php5/apache2/php.ini
+      ```
 - [ ] The php file upload size (upload_max_filesize in /etc/php5/apache2/php.ini) needs to be increased
       (must check that it matches or is less than upload_max_filesize)
 - [ ] Email needs to be properly configured ( *Check: must not relay email!* )
