@@ -67,16 +67,17 @@ parameters:
     description: The version of HubZero to install.
     default: 1.3
     constraints:
-      - allowed_values: ["1.1", "1.2", "1.3", "1.3.1"]
+      - allowed_values: [1.1, 1.2, 1.3, 1.3.1]
         description: Will install either 1.1.0, 1.2.2, or 1.3.0, or 1.3.1
 
+  # not strictly needed, but useful
   availability_zone:
     type: string
     label: Availability Zone
     description: The NeCTAR zone in which the VM is to run
     default: melbourne-qh2
     constraints:
-      - allowed_values: [melbourne-qh2, melbourne-np, monash, qld]
+      - allowed_values: ["melbourne-qh2", "melbourne-np", "monash", "qld", ""]
         description: The NeCTAR zones in which the the instance can be launched.
 
   hostname:
