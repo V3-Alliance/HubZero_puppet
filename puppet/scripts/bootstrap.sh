@@ -105,5 +105,5 @@ git clone https://github.com/MartinPaulo/puppet_hub_zero.git
 MACHINE_IP=$(/sbin/ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
 # && reboot is required by the OpenVZ module.
 puppet apply --modulepath=/puppet_hub_zero/puppet/modules:/etc/puppet/modules:/usr/share/puppet/modules -e "include ${puppet_module}" --debug --verbose 2>&1 | logger\
- && echo "The install is complete! You can find your hubzero site at: http://${MACHINE_IP}" | mail -s "Install Progress" mpaulo@v3.org.au\
+ && echo "The install is complete! You can find your new hubzero site at: http://${MACHINE_IP}" | mail -s "Install Progress" mpaulo@v3.org.au\
  && reboot
