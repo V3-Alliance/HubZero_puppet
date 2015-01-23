@@ -1,6 +1,6 @@
 heat_template_version: 2013-05-23
 
-description: A template to initiate the installation of hubZero 1.1 on an instance in the NeCTAR cloud
+description: A template to initiate the installation of hubZero on an instance in the NeCTAR cloud
 
 # Because this file uses the get_file command, it can only be launched by the command line client
 # eg:
