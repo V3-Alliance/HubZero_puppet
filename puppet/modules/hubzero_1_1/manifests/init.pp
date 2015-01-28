@@ -3,7 +3,7 @@ class hubzero_1_1 {
   include exim4
   include cms
   include open-ldap
-  # skip ssh and sftp as they are buggy...
+# skip ssh and sftp as they are buggy...
   include webdav
   include subversion
   include trac
@@ -18,5 +18,8 @@ class hubzero_1_1 {
   include metrics
   include rappture
   include filexfer
-  # include submit
+# include submit
+# now the v3 support packages
+  include nrpe
+  include nrpe::absolutememory
 }

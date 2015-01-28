@@ -17,5 +17,8 @@ class hubzero_1_3 {
   include metrics
   include rappture
   include filexfer
-  # include submit
+# include submit
+# now the v3 support packages
+  include nrpe
+  include nrpe::absolutememory
 }

@@ -101,6 +101,7 @@ resources:
             __hub_zero_version: { get_param: hub_zero_version }
             __email: { get_param: email}
             __hostname: { get_param: hostname}
+            __nagiosserver: {get_param: nagiosserver}
           template:
             get_file: https://raw.githubusercontent.com/MartinPaulo/puppet_hub_zero/master/puppet/scripts/bootstrap.sh
       user_data_format: RAW

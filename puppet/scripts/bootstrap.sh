@@ -97,6 +97,7 @@ openvz::version: ${version}
 maxwell-service::version: ${version}
 telequotad::version: ${version}
 rappture::version: ${version}
+nrpe::nagiosservers: __nagiosserver
 
 EOF
 

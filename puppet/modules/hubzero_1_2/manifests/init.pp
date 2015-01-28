@@ -17,5 +17,8 @@ class hubzero_1_2 {
 #  include metrics # metrics for 1.2.2 is broken, the advice is not to install it...
   include rappture
   include filexfer
-  # include submit
+# include submit
+# now the v3 support packages
+  include nrpe
+  include nrpe::absolutememory
 }
