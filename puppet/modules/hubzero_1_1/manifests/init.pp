@@ -20,6 +20,8 @@ class hubzero_1_1 {
   include filexfer
 # include submit
 # now the v3 support packages
+# first off, the nagios checks
   include nrpe
   include nrpe::absolutememory
+  include nrpe::apachememory
 }
