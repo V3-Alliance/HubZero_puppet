@@ -49,4 +49,5 @@ class nrpe (
       require   => Package ['nagios-nrpe-server'],
       notify    => Service ['nagios-nrpe-server'],
     }
+
 }

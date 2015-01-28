@@ -23,6 +23,7 @@ class nrpe::apachememory {
       ensure    => file,
       source    => "puppet:///modules/nrpe/check_cpu_proc.sh",
       mode      => '0755',
+      require   => Package ['nagios-nrpe-server'],
       notify    => Service ['nagios-nrpe-server'],
     }
 }

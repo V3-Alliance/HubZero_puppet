@@ -23,8 +23,7 @@ class nrpe::absolutememory {
       ensure    => file,
       source    => "puppet:///modules/nrpe/absolutememorynagios.py",
       mode      => '0755',
+      require   => Package ['nagios-nrpe-server'],
       notify    => Service ['nagios-nrpe-server'],
     }
 }
-
-		
