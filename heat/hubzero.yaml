@@ -85,6 +85,11 @@ parameters:
     label: The Hostname
     description: The fully quailified hostname for the installation - something along the lines of hubzero.v3.edu.au
 
+  nagiosserver:
+    type: string
+    label: Nagios Server
+    description: The server that nagios will report to
+
 resources:
   hubZero_instance:
     type: OS::Nova::Server
