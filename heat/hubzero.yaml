@@ -91,6 +91,9 @@ parameters:
     description: The server that nagios will report to
 
 resources:
+  #TODO: We need to add a rule for a security group that opens all the ports required by HUBZero
+  # http,https,http-alt,ldap,ssh.smtp,mysql,submit,etc icmp and nagios
+  # more /etc/firewall_on shows: http https dns (53) ssh, smtp mysql ldap 1170 icmp  830/831
   hubZero_instance:
     type: OS::Nova::Server
     properties:
