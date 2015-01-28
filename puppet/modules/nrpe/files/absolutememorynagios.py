@@ -32,11 +32,7 @@ args = parser.parse_args()
 try:
     physmem = psutil.virtual_memory().available / MB  #psutils >= 0.6
 except AttributeError:  # have to use old api
-    physmem = (( psutil.avail_phymem() + 
-                 psutil.phymem_buffers() +
-                 psutil.cached_phymem() 
-                ) / MB   
-              )
+    physmem = (( psutil.avail_phymem() - psutil.used_phymem()) / MB)
 
 if args.c >= args.w:
     print ('UNKNOWN: critical level must be less than warning level')
