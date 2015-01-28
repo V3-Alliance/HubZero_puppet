@@ -23,9 +23,6 @@ class nrpe::absolutememory {
       ensure    => file,
       source    => "puppet:///modules/nrpe/absolutememorynagios.py",
       mode      => '0755',
-#      require   => [  Package ['nagios-nrpe-server'],
-#                      File['/usr/lib/nagios/plugins/tomcatinfo.py'],
-#                   ],
       notify    => Service ['nagios-nrpe-server'],
     }
 }
