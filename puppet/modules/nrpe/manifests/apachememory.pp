@@ -3,6 +3,7 @@
 
 class nrpe::apachememory {
 
+    # the script needs the bc package to be installed.
     file {"/etc/nagios-plugins/config/apachememory.cfg":
       ensure    => file,
       source    => "puppet:///modules/nrpe/apachememory.cfg",
