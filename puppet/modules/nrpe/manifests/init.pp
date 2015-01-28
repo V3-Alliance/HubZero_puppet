@@ -5,6 +5,10 @@ class nrpe (
   $nagiosservers = $nrpe::nagiosservers, 
 ) {
 
+    # if we want this to log to its own file:
+    #    http://www.charlesjudith.com/2014/03/11/create-a-log-file-for-nrpe/
+    # if we want to debug what's going on:
+    #    http://www.lowlevelmanager.com/2012/05/debugging-nagios-remote-nrpe-commands.html
     package {"nagios-nrpe-server":
       ensure  => installed,
     }
