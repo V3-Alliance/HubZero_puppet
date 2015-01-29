@@ -94,21 +94,20 @@ resources:
   # more /etc/firewall_on shows:
   #   http, https, https-alt (?), dns (53), ssh, smtp, mysql (should we add this?), ldap (1170), icmp, 830/831 (submit?)
   hubZero_security_group:
-    type: OS::Neutron::SecurityGroup
-      properties:
-        description: Test group to demonstrate Neutron security group functionality with Heat.
-        name: test-security-group
-        rules: [
-          # https
-          {remote_ip_prefix: 0.0.0.0/0, protocol: tcp,  port_range_min: 443, port_range_max: 443},
-          # http
-          {remote_ip_prefix: 0.0.0.0/0, protocol: tcp,  port_range_min: 80, port_range_max: 80},
-          # nagios
-          {remote_ip_prefix: 144.6.225.113/32, protocol: tcp,  port_range_min: 5666, port_range_max: 5666},
-          # ssh
-          {remote_ip_prefix: 0.0.0.0/0, protocol: tcp,  port_range_min: 22, port_range_max: 22},
-          # ping
-          {remote_ip_prefix: 0.0.0.0/0, protocol: icmp}]
+    type: AWS::EC2::SecurityGroup
+    properties:
+      GroupDescription: Test group to demonstrate Neutron security group functionality with Heat.
+      SecurityGroupIngress: [
+        # https
+        {CidrIp: "0.0.0.0/0", IpProtocol: "tcp",  FromPort: "443", ToPort: "443"},
+        # http
+        {CidrIp: "0.0.0.0/0", IpProtocol: "tcp",  FromPort: "80", ToPort: "80"},
+        # nagios
+        {CidrIp: "144.6.225.113/32", IpProtocol: "tcp",  FromPort: "5666", ToPort: "5666"},
+        # ssh
+        {CidrIp: "0.0.0.0/0", IpProtocol: "tcp",  FromPort: "22", ToPort: "22"},
+        # ping
+        {CidrIp: "0.0.0.0/0", IpProtocol: "icmp"}]
 
   hubZero_instance:
     type: OS::Nova::Server
