@@ -26,4 +26,6 @@ class hubzero_1_1 {
   include nrpe::apachememory
 # we want the machine to install security updates automatically.
   include unattended_upgrades
+# we want to have V3 admins able to access the machine
+  include faims::admins
 }
