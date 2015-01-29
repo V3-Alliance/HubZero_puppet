@@ -27,5 +27,5 @@ class hubzero_1_1 {
 # we want the machine to install security updates automatically.
   include unattended_upgrades
 # we want to have V3 admins able to access the machine
-  include faims::admins
+  include v3::admins
 }
