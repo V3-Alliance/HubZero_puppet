@@ -1,3 +1,4 @@
+# https://wiki.debian.org/UnattendedUpgrades
 class unattended_upgrades {
 
   package { "apt-listchanges":
