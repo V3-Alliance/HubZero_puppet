@@ -54,6 +54,7 @@ usermod -u 999 debian
 # Configure Advanced Package Tool
 echo "deb http://packages.hubzero.org/deb ${repository} main" | tee -a /etc/apt/sources.list
 # the 1.1 key has expired but the 1.2 key seems to work
+# the install sometimes fails to get the key: everything runs, but no packages are installed :(
 apt-key adv --keyserver pgp.mit.edu --recv-keys 143C99EF
 
 # Now we get ready to hand over to puppet
