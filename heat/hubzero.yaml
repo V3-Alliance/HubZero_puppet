@@ -91,9 +91,25 @@ parameters:
     description: The server that nagios will report to
 
 resources:
-  #TODO: We need to add a rule for a security group that opens all the ports required by HUBZero
-  # http,https,http-alt,ldap,ssh.smtp,mysql,submit,etc icmp and nagios
-  # more /etc/firewall_on shows: http https dns (53) ssh, smtp mysql ldap 1170 icmp  830/831
+  # more /etc/firewall_on shows:
+  #   http, https, https-alt (?), dns (53), ssh, smtp, mysql (should we add this?), ldap (1170), icmp, 830/831 (submit?)
+  hubZero_security_group:
+    type: OS::Neutron::SecurityGroup
+      properties:
+        description: Test group to demonstrate Neutron security group functionality with Heat.
+        name: test-security-group
+        rules: [
+          # https
+          {remote_ip_prefix: 0.0.0.0/0, protocol: tcp,  port_range_min: 443, port_range_max: 443},
+          # http
+          {remote_ip_prefix: 0.0.0.0/0, protocol: tcp,  port_range_min: 80, port_range_max: 80},
+          # nagios
+          {remote_ip_prefix: 144.6.225.113/32, protocol: tcp,  port_range_min: 5666, port_range_max: 5666},
+          # ssh
+          {remote_ip_prefix: 0.0.0.0/0, protocol: tcp,  port_range_min: 22, port_range_max: 22},
+          # ping
+          {remote_ip_prefix: 0.0.0.0/0, protocol: icmp}]
+
   hubZero_instance:
     type: OS::Nova::Server
     properties:
@@ -101,6 +117,7 @@ resources:
       image: { get_param: image }
       flavor: { get_param: flavor }
       key_name: { get_param: key }
+      security_groups: [{ get_resource: hubZero_security_group }]
       user_data:
         str_replace:
           params:
