@@ -1,10 +1,14 @@
 #/etc/puppet/modules/nrpe/manifests/init.pp
-# On the nagios server the matching file for this setup is:
-#     /etc/nagios/conf.d/hubzero-martin.cfg
-# The command to check any changes to it is:
-#     service nagios checkconfig
-# The command to restart nagios after any config changes is:
-#     systemctl restart nagios
+# On the nagios server:
+#   The matching file for this setup is:
+#       /etc/nagios/conf.d/hubzero-martin.cfg
+#   To debug what's going on:
+#       http://support.nagios.com/forum/viewtopic.php?f=7&t=5807&start=0
+#   The command to check any changes to it is:
+#       service nagios checkconfig
+#   The command to restart nagios after any config changes is:
+#       systemctl restart nagios
+#
 
 class nrpe ( 
   $nagiosservers = $nrpe::nagiosservers, 
