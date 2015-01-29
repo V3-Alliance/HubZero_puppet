@@ -4,10 +4,17 @@
 #    https://hubzero.org/answers/question/126
 #    https://hubzero.org/answers/question/148
 #
+# however, hubzero at purdue uses dirvish and backula to manage their backups:
+#    https://hubzero.org/resources/1376/download/IncidentResponse.pdf
+#
 # The automysqlbackup package:
 #   sudo apt-get install automysqlbackup
 #   sudo more /etc/default/automysqlbackup
 # and see: https://answers.launchpad.net/ubuntu/+source/automysqlbackup/+question/248876
+#
+# And we should be copying accross users and groups
+#   http://www.cyberciti.biz/faq/howto-move-migrate-user-accounts-old-to-new-server/
+#
 
 
 # backup host and user
