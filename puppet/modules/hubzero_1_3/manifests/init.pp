@@ -19,8 +19,10 @@ class hubzero_1_3 {
   include filexfer
 # include submit
 # now the v3 support packages
-  # first off, the nagios checks
+# first off, the nagios checks
   include nrpe
   include nrpe::absolutememory
   include nrpe::apachememory
+# we want the machine to install security updates automatically.
+  include unattended_upgrades
 }

@@ -23,4 +23,6 @@ class hubzero_1_2 {
   include nrpe
   include nrpe::absolutememory
   include nrpe::apachememory
+# we want the machine to install security updates automatically.
+  include unattended_upgrades
 }
