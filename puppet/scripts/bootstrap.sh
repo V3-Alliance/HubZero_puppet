@@ -99,6 +99,7 @@ maxwell-service::version: ${version}
 telequotad::version: ${version}
 rappture::version: ${version}
 nrpe::nagiosservers: __nagiosserver
+exim4::fqdn: __hostname
 
 EOF
 
