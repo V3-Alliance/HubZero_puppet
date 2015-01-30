@@ -29,7 +29,7 @@ pid_file=/var/run/nagios/nrpe.pid
 
 # PORT NUMBER
 # Port number we should wait for connections on.
-# NOTE: This must be a non-priviledged port (i.e. > 1024).
+# NOTE: This must be a non-privileged port (i.e. > 1024).
 # NOTE: This option is ignored if NRPE is running under either inetd or xinetd
 
 server_port=5666
@@ -66,7 +66,7 @@ nrpe_group=nagios
 
 
 # ALLOWED HOST ADDRESSES
-# This is an optional comma-delimited list of IP address or hostnames 
+# This is an optional comma-delimited list of IP address or hostnames
 # that are allowed to talk to the NRPE daemon.
 #
 # Note: The daemon only does rudimentary checking of the client's IP
