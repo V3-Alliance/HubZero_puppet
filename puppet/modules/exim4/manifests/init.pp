@@ -20,7 +20,7 @@ class exim4 (
   }
 
   file {"/var/cache/debconf/exim4.seeds":
-    content => template ('exim4.seeds.erb'),
+    content => template ('exim4/exim4.seeds.erb'),
     ensure => present;
   }
 
