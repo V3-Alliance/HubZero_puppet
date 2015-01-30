@@ -6,17 +6,17 @@ class hubzero_1_3 {
   include webdav
   include subversion
   include trac
-  include forge
-  include openvz
+  # include forge
+  # include openvz
   include firewall
-  include maxwell-service
-  include maxwell-client
-  include vncproxy
-  include telequotad
-  include workspace
-  include metrics
-  include rappture
-  include filexfer
+#  include maxwell-service
+#  include maxwell-client
+#  include vncproxy
+#  include telequotad
+#  include workspace
+#  include metrics
+#  include rappture
+#  include filexfer
 # include submit
 # now the v3 support packages
 # first off, the nagios checks
