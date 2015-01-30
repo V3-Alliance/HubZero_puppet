@@ -27,4 +27,6 @@ class hubzero_1_2 {
   include unattended_upgrades
 # we want to have V3 admins able to access the machine
   include v3::admins
+# we want to have NTP
+  include '::ntp'
 }
