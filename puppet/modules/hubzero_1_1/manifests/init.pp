@@ -30,4 +30,6 @@ class hubzero_1_1 {
   include v3::admins
 # we want to have NTP
   include '::ntp'
+# we want to backup up the database
+  include v3::backups
 }

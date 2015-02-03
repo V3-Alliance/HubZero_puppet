@@ -1,5 +1,6 @@
 # This is based on:
-# https://www.howtoforge.com/creating-mysql-backups-with-automysqlbackup.sh-on-ubuntu-9.10
+# https://www.howtoforge.com/creating-mysql-backups-with-automysqlbackup
+#
 #
 # TODO: We need to work out who to send the emails to...
 class v3::backups {
