@@ -28,7 +28,6 @@ parameters:
     type: string
     label: Key Name
     description: Name of an existing key pair to enable SSH access to the instance.
-    default: nectar_dev
 
   email:
     type: string
