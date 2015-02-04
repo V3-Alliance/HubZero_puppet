@@ -11,7 +11,7 @@ class v3::backups {
 
   file {"/etc/default/automysqlbackup":
     ensure    => file,
-    source    => "puppet:///modules/v3/automysqlbackup",
+    source    => "puppet:///modules/v3/automysqlbackup.sh",
     require   => Package ['automysqlbackup-nrpe-server'],
     mode      => '0644',
   }
