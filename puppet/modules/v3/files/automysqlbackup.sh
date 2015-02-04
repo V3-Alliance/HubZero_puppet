@@ -38,7 +38,7 @@ BACKUPDIR="/mnt/backup/mysqlbackup"
 # - files : send log file and sql files as attachments (see docs)
 # - stdout : will simply output the log to the screen if run manually.
 # - quiet : Only send logs if an error occurs to the MAILADDR.
-MAILCONTENT="log"
+MAILCONTENT="quiet"
 
 # Set the maximum allowed email size in k. (4000 = approx 5MB email [see
 # docs])
