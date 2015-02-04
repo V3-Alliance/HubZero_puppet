@@ -6,6 +6,11 @@
 #   <li><a href="https://hubzero.org/documentation/1.2.2/installation/Setup.mysql">1.2 Install Instructions</a>
 #   <li><a href="https://hubzero.org/documentation/1.3.0/installation/installdeb.mysql">1.3 Install Instructions</a>
 # </ul>
+# After rebooting, it would seem that sometimes the exim4 package resets its configuration and no longer mails out
+# The quick fix is to  run:
+# dpkg-reconfigure exim4-config
+# and select the "internet site" option.
+# The exim -bV command gives useful information on exim's setup.
 class exim4 (
   $fqdn
 ){
