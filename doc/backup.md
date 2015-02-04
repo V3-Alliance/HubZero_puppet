@@ -8,10 +8,10 @@ The [automysqlbackup](https://packages.debian.org/search?keywords=automysqlbacku
 the mysql databases.
 
 The location of the backup directory is set in the configuration file `/etc/default/automysqlbackup`. This
-configuration file is copied across from the `automysqlbackup.sh` file in the v3 module (the backups manifests
+configuration file is copied across from the `automysqlbackup.sh` file in the v3 module (the backups manifest
 does the dirty work).
 
-So if you want to make any changes to automysqlbackup change the `automysqlbackup.sh` configuration.
+So if you want to make any changes to automysqlbackup change the configuration in the `automysqlbackup.sh` file.
 
 Although we currently backup the `information_schema` database, it's a read only one that you can't restore.
 
@@ -39,7 +39,7 @@ root@hubzero:~# gunzip /mnt/backup/mysqlbackup/daily/example/example_2015-02-04_
 root@hubzero:~# ls /mnt/backup/mysqlbackup/daily/example/
 example_2015-02-04_03h43m.Wednesday.sql
 ```
-Once uncompressed, restore it as follows:
+Once uncompressed, restore it as follows (note that this is done as the root user):
 
 ```bash
 root@hubzero:~# mysql -h localhost -u root example < /mnt/backup/mysqlbackup/daily/example/example_2015-02-04_03h43m.Wednesday.sql
