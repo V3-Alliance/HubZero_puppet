@@ -39,7 +39,7 @@ class v3::admins {
   }
 
 # hubzero_sup
-  ssh_authorized_key { 'alan@Alan-Los-MacBook-Pro.local':
+  ssh_authorized_key { 'alan@v3.org.au':
     user    => 'alan',
     ensure  => present,
     key     => 'AAAAB3NzaC1yc2EAAAABIwAAAQEA7UQmx4+R7ToMxZJyQmfV0xIAQ1v3WYibFHKTmLd830HVOH+iP+vWTVqLd6eCU6gdV7RmnkgJ/LMsYZC48kguyN2YBzA3+vWSexAcrKxlcNchLAbw66fwTy54jzrACRDsJw+6cXUmox/ZKIs3LTsGHRC2ukE4GEO9OMsQOBL/Fhzkh1RcIlV87Tjl4zMg5Ojeav+63qh3jmyvj6DfBoXlvNoxG/9kewI7w132+FQSmQwq8E5WLLG3u989YWC/MOj0EWvkzjUoZD9OPvoxxZcxNFD5K9AZYq/FliGd7as8G8WbYwbf7Nl9xSgLLA8yHKDVaRkuP+qbZjp8yJSsV9YMLQ==',
