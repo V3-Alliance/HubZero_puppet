@@ -30,18 +30,42 @@ eg:
 root@hubzero:~# ls /mnt/backup/mysqlbackup/daily/example/
 example_2015-02-04_03h43m.Wednesday.sql.gz
 ```
+
 The `.gz` extension shows that the backup is compressed.
 
 To restore it you first need to uncompress it:
 
 ```bash
 root@hubzero:~# gunzip /mnt/backup/mysqlbackup/daily/example/example_2015-02-04_03h43m.Wednesday.sql.gz
-root@hubzero:~# ls /mnt/backup/mysqlbackup/daily/example/
-example_2015-02-04_03h43m.Wednesday.sql
 ```
+
 Once uncompressed, restore it as follows (note that this is done as the root user):
 
 ```bash
 root@hubzero:~# mysql -h localhost -u root example < /mnt/backup/mysqlbackup/daily/example/example_2015-02-04_03h43m.Wednesday.sql
 ```
 
+LDAP
+----
+
+The script ldapbackup.sh in..
+
+To restore the ldap database:
+
+```bash
+# you first need to uncompress your chosen database
+gunzip /mnt/backup/ldap/ldap-150204-0522.ldif.gz
+
+# stop slapd from running
+/etc/init.d/slapd stop
+
+# delete the existing database
+cd /var/lib/ldap
+rm -rf *
+
+# restore the database from your selected backup
+/usr/sbin/slapadd -l /mnt/backup/ldap/ldap-150204-0522.ldif
+
+# start the slapd again
+/etc/init.d/slapd start
+```
