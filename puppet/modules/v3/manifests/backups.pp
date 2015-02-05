@@ -25,7 +25,7 @@ class v3::backups {
     source    => "puppet:///modules/v3/sitebackup.sh",
     mode      => '0744',
   } ->
-  file {"/etc/ldapbackup":
+  file {"/etc/userbackup":
     ensure    => file,
     source    => "puppet:///modules/v3/userbackup.sh",
     mode      => '0744',
