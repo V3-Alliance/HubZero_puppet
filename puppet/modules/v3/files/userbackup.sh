@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -ex
 
 # based on: http://www.cyberciti.biz/faq/howto-move-migrate-user-accounts-old-to-new-server/
 
@@ -15,5 +15,3 @@ tar -zcvpf $WORKING_DIR/home.tar.gz /home
 tar -zcvpf $WORKING_DIR/mail.tar.gz /var/spool/mail
 tar -zcvf $BACKUP_DIR/$USER_BACKUP_FILE $WORKING_DIR
 rm -r $WORKING_DIR
-# tar -zxvf /mnt/backup/users.tar.gz -C /mnt/backup/users/
-
