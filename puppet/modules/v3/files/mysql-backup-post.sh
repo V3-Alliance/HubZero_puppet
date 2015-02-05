@@ -1,4 +1,4 @@
-#!/bin/sh -ex
+#!/bin/sh -e
 
 /etc/ldapbackup
 /etc/sitebackup
