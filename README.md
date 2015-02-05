@@ -63,11 +63,11 @@ Tasks still to be done:
       ```
 - [ ] The php file upload size (upload_max_filesize in /etc/php5/apache2/php.ini) needs to be increased
       (must check that it matches or is less than upload_max_filesize)
-- [ ] Email needs to be properly configured ( *Check: must not relay email!* )
 - [ ] Do we need to move the users home directories to the larger mounted transient storage?
 - [ ] submit package not yet added to the installation
 - [ ] The external DNS entry for the site and any matching records need to be set up manually. Instructions have to be written.
 - [ ] The url shown on the output page of the stack shows an IP number. One that uses the domain name needs to be added.
+- [ ] Add error checking to our scripts
 
 Known issues:
 - The LDAP installation on version 1.1 returns an error: this needs investigation. See the open-ldap module for more.
