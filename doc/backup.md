@@ -59,7 +59,7 @@ mysql -h localhost -u root example < /mnt/backup/mysqlbackup/daily/example/examp
 LDAP
 ----
 
-The script ldapbackup.sh in...
+The script /etc/ldapbackup is called by automysqlbackup in its post backup phase to backup the ldap database.
 
 To restore the ldap database:
 
@@ -84,7 +84,7 @@ rm -rf *
 Sites
 -----
 
-The script sitebackup.sh in...
+The script /etc/sitebackup is called by automysqlbackup in its post backup phase to backup the web sites.
 
 To restore the websites, simply remove any crud that might be in the existing /var/www directory, then:
 
@@ -98,7 +98,7 @@ tar -zxvf /mnt/backup/sites/sites-150205-0358.tar.gz -C /
 Users
 -----
 
-The script userbackup.sh in...
+The script /etc/userbackup is called by automysqlbackup in its post backup phase to backup the web sites.
 
 To restore the users *on a new instance*:
 
