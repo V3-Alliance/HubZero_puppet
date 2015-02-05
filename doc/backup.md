@@ -1,6 +1,15 @@
 Backups and restoring
 =====================
 
+First
+-----
+
+Before doing a restore on a newly rebuilt machine, stop apache from running
+
+```bash
+service apache2 stop
+```
+
 Databases
 ---------
 
@@ -48,7 +57,7 @@ root@hubzero:~# mysql -h localhost -u root example < /mnt/backup/mysqlbackup/dai
 LDAP
 ----
 
-The script ldapbackup.sh in..
+The script ldapbackup.sh in...
 
 To restore the ldap database:
 
@@ -69,3 +78,41 @@ rm -rf *
 # start the slapd again
 /etc/init.d/slapd start
 ```
+
+Users
+-----
+
+Ths script userbackup.sh in...
+
+To restore the users *on a new instance*:
+
+```bash
+# you first need to uncompress your chosen user backup file
+ tar -zxvf /mnt/backup/users/users-150204-2306.tar.gz -C /
+
+# restore the copied files
+cat /mnt/backup/users/scratch/passwd.mig >> /etc/passwd
+cat /mnt/backup/users/scratch/group.mig >> /etc/group
+cat /mnt/backup/users/scratch/shadow.mig >> /etc/shadow
+cp /mnt/backup/users/scratch/gshadow.mig /etc/gshadow
+
+# restore the home directories
+tar -zxvf /mnt/backup/users/scratch/home.tar.gz -C /
+
+# restore the mail files
+# tar -zxvf /mnt/backup/users/scratch/mail.tar.gz -C /
+
+# and then reboot
+reboot
+```
+
+Finally
+-------
+
+After doing a restore on a newly rebuilt machine, remember to check if apache's running, and if not, to restart it.
+
+
+```bash
+service apache2 start
+```
+
