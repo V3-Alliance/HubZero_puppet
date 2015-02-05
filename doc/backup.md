@@ -4,6 +4,8 @@ Backups and restoring
 First
 -----
 
+Note that all of the following is done in the root user role.
+
 Before doing a restore on a newly rebuilt machine, stop apache from running
 
 ```bash
@@ -36,7 +38,7 @@ To restore a database, first identify the database you want to restore in the ba
 eg:
 
 ```bash
-root@hubzero:~# ls /mnt/backup/mysqlbackup/daily/example/
+ls /mnt/backup/mysqlbackup/daily/example/
 example_2015-02-04_03h43m.Wednesday.sql.gz
 ```
 
@@ -45,13 +47,13 @@ The `.gz` extension shows that the backup is compressed.
 To restore it you first need to uncompress it:
 
 ```bash
-root@hubzero:~# gunzip /mnt/backup/mysqlbackup/daily/example/example_2015-02-04_03h43m.Wednesday.sql.gz
+gunzip /mnt/backup/mysqlbackup/daily/example/example_2015-02-04_03h43m.Wednesday.sql.gz
 ```
 
-Once uncompressed, restore it as follows (note that this is done as the root user):
+Once uncompressed, restore it as follows:
 
 ```bash
-root@hubzero:~# mysql -h localhost -u root example < /mnt/backup/mysqlbackup/daily/example/example_2015-02-04_03h43m.Wednesday.sql
+mysql -h localhost -u root example < /mnt/backup/mysqlbackup/daily/example/example_2015-02-04_03h43m.Wednesday.sql
 ```
 
 LDAP
@@ -79,10 +81,24 @@ rm -rf *
 /etc/init.d/slapd start
 ```
 
+Sites
+-----
+
+The script sitebackup.sh in...
+
+To restore the websites, simply remove any crud that might be in the existing /var/www directory, then:
+
+```bash
+# uncompress your chosen backup file
+tar -zxvf /mnt/backup/sites/sites-150205-0358.tar.gz -C /
+
+# restore the copied files
+```
+
 Users
 -----
 
-Ths script userbackup.sh in...
+The script userbackup.sh in...
 
 To restore the users *on a new instance*:
 
