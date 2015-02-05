@@ -69,6 +69,11 @@ Tasks still to be done:
 - [ ] The url shown on the output page of the stack shows an IP number. One that uses the domain name needs to be added.
 - [ ] The exim4 configuration is loosing it's settings. find out why and fix it.
 - [ ] What about log files. Should we rotate them? Do we backup them up as well?
+- [ ] Use duplicity to move backups to swift and to possibly replace some of the backup scripts.
+
+https://raymii.org/s/tutorials/Encrypted_Duplicity_Backups_to_Openstack_Swift_Objectstore.html
+http://www.cyberciti.biz/faq/duplicity-installation-configuration-on-debian-ubuntu-linux/
+
 
 Known issues:
 - The LDAP installation on version 1.1 returns an error: this needs investigation. See the open-ldap module for more.
