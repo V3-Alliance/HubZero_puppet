@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -ex
 
 # This is a bash script that will kick start the installation of hub zero on the target machine.
 # It makes the assumption that it is being run as the root user. So run it as the user_data segment of the
