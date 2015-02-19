@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh -ex
 
 USER_BACKUP_FILE=sites-$( date +%y%m%d-%H%M ).tar.gz
 BACKUP_DIR=/mnt/backup/sites

@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh -ex
 LDAP_BACKUP_FILE=ldap-$( date +%y%m%d-%H%M ).ldif
 BACKUP_DIR=/mnt/backup/ldap
 mkdir -p $BACKUP_DIR
