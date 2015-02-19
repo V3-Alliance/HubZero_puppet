@@ -1,4 +1,4 @@
-#!/bin/sh -ex
+#!/bin/sh -e
 
 # based on: http://www.cyberciti.biz/faq/howto-move-migrate-user-accounts-old-to-new-server/
 
