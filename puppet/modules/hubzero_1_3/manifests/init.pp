@@ -31,4 +31,6 @@ class hubzero_1_3 {
   include '::ntp'
 # we want to backup up the database
   include v3::backups
+# and write the backup to swift
+  include v3::duplicity
 }
