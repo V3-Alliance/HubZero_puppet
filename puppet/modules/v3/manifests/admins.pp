@@ -66,7 +66,6 @@ class v3::admins {
     groups  => 'sudo',
   }
 
-# hubzero_sup
   ssh_authorized_key { 'dmicevski@v3.org.au':
     user    => 'dmicevski',
     ensure  => present,
