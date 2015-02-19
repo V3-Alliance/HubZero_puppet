@@ -60,6 +60,34 @@ class v3::admins {
 
 #'========================'
 
+  user { 'dmicevski':
+    comment => 'dmicevski@v3.org.au',
+    ensure  => present,
+    groups  => 'sudo',
+  }
+
+# hubzero_sup
+  ssh_authorized_key { 'dmicevski@v3.org.au':
+    user    => 'dmicevski',
+    ensure  => present,
+    key     => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQC4E2LNMEh9l0FO/vhzWnPnoY8Ov7HC8ie6djt+J64sVacLra/kPvUzNCosYVGCn/0QLSlU3fD//VFrGnpKCCgsbwmoLDeQwaSnS1pxluIdFXXySjZ+096hSvF5MrNy4lSPYixRx6vIBPJOWCiP0Tq0T7EpugnPhevpq7ZSXOviwTr6ek2ZmgoQlBb/KFP1+/qxUkQDnd5ylM+Iu6etuNEQ87Oei4TOZg1+6Q75Mo8j0KOyVVPsuOnorlknNA0/B6F+yzSeWgR+RqMD0e5u+FbpEyTgOTSw0OsfBPpfntNAGFarsZQydOgv7EkoL1n0NW0qFAb3Yg4eZV9w3ys5YL5X',
+    type    => 'rsa',
+    require => File['/home/dmicevski/.ssh'],
+  }
+
+  file { '/home/dmicevski':
+    ensure => 'directory',
+    owner  => 'dmicevski'
+  }
+
+  file { '/home/dmicevski/.ssh':
+    ensure => 'directory',
+    owner  => 'dmicevski',
+    mode   => '0700',
+  }
+
+#'========================'
+
   file { '/etc/sudoers.d/sudogroup':
     ensure => file,
     owner  => root,
