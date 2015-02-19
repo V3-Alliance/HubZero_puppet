@@ -37,7 +37,7 @@ class v3::duplicity (
   }
   ->
   exec { "install duplicity":
-    cwd => "/opt",
+    cwd => "${target_dir}/duplicity-0.7.01",
     command => "/usr/bin/python setup.py install",
     subscribe => Exec["untar duplicity"],
   }
