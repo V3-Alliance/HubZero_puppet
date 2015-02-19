@@ -64,6 +64,6 @@ class v3::admins {
     ensure => file,
     owner  => root,
     mode   => '0440',
-    source => 'puppet:///modules/V3/sudogroup',
+    source => 'puppet:///modules/v3/sudogroup',
   }
 }
