@@ -6,12 +6,12 @@ package { "python-pip":
 }
 ->
 exec { "keystone":
-  command => "/usr/bin/pip install python-keystoneclient",
+  command => "/usr/local/bin/pip install python-keystoneclient",
   require => Package["python-dev"],
 }
 ->
 exec { "swift":
-  command => "/usr/bin/pip install python-swiftclient",
+  command => "/usr/local/bin/pip install python-swiftclient",
 }
 
 }
