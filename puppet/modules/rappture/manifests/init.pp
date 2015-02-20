@@ -29,6 +29,8 @@ class rappture (
   }
 
   exec { "configure rappture":
+    # can take long time, so set the timeout to forever...
+    timeout      => 0,
     command      => "/usr/local/bin/setup_jail.sh",
     require      => [
       Package["hubzero-rappture"],
