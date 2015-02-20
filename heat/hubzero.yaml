@@ -76,7 +76,7 @@ parameters:
     description: The NeCTAR zone in which the VM is to run
     default: melbourne-qh2
     constraints:
-      - allowed_values: ["melbourne-qh2", "melbourne-np", "monash", "qld", ""]
+      - allowed_values: ["melbourne", "melbourne-qh2", "melbourne-np", "monash", "qld", "intersect", "tasmania", "pawsey", ""]
         description: The NeCTAR zones in which the the instance can be launched.
 
   hostname:
