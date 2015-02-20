@@ -33,4 +33,5 @@ class hubzero_1_3 {
   include v3::backups
 # and write the backup to swift
   include v3::duplicity
+  include v3::swift
 }
