@@ -9,6 +9,14 @@
 #   The command to restart nagios after any config changes is:
 #       systemctl restart nagios
 #
+# to check these rules from the nagios server do something along the lines of, where the ip number is the
+# ip number of the target machine:
+#  /usr/lib64/nagios/plugins/check_nrpe -H 115.146.87.78 -c check_load
+#  /usr/lib64/nagios/plugins/check_nrpe -H 115.146.87.78 -c apachememory
+#  /usr/lib64/nagios/plugins/check_nrpe -H 115.146.87.78 -c absolutememory
+#  /usr/lib64/nagios/plugins/check_nrpe -H 115.146.87.78 -c check_all_disks
+#  /usr/lib64/nagios/plugins/check_nrpe -H 115.146.87.78 -c check_ntp_time
+
 
 class nrpe ( 
   $nagiosservers = $nrpe::nagiosservers, 
