@@ -87,6 +87,7 @@ parameters:
   nagiosserver:
     type: string
     label: Nagios Server
+    default: nagios.v3apps.org.au
     description: The server that nagios will report to
 
 resources:
