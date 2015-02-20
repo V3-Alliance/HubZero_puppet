@@ -1,7 +1,7 @@
 # This is based on:
 # https://www.howtoforge.com/creating-mysql-backups-with-automysqlbackup
 #
-#
+# TODO: Should we backup the secrets file or not? Because at the moment we aren't
 # TODO: We need to work out who to send the emails to...
 class v3::backups {
 
