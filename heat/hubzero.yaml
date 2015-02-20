@@ -87,8 +87,8 @@ parameters:
   nagiosserver:
     type: string
     label: Nagios Server
-    default: 144.6.225.113
-    description: The IP number of the server that nagios will report to (nagios.v3apps.org.au)
+    default: nagios.v3apps.org.au
+    description: The IP number or hostname of the server that nagios will report to
 
 resources:
   # more /etc/firewall_on shows:
