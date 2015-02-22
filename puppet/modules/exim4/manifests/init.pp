@@ -6,6 +6,8 @@
 #   <li><a href="https://hubzero.org/documentation/1.2.2/installation/Setup.mysql">1.2 Install Instructions</a>
 #   <li><a href="https://hubzero.org/documentation/1.3.0/installation/installdeb.mysql">1.3 Install Instructions</a>
 # </ul>
+# Also see: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-the-send-only-mail-server-exim-on-ubuntu-12-04">
+#     how to install the send only mail server exim on ubuntu 12-04</a>
 # After rebooting, it would seem that sometimes the exim4 package resets its configuration and no longer mails out
 # The quick fix is to  run:
 # dpkg-reconfigure exim4-config
