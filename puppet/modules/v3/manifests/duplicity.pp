@@ -1,3 +1,13 @@
+# This installs the duplicity package, which allows us, in conjunction with swift, to write backups to swift.
+# Some usefull commmands:
+# to list the current files in the swift container named duplicity:
+#     /usr/local/bin/duplicity list-current-files swift://duplicity
+#
+# If you get an error: "Exception Versioning for this project requires either an sdist tarball..."
+# Then you, most likely, have upgraded the keystone client. And it hasn't upgraded one of its dependencies.
+# To fix this issue you then need to run: pip install --upgrade distribute
+#
+#
 class v3::duplicity (
   $work_dir = "/var/tmp",
   $target_dir = "/opt",
