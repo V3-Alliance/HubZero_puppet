@@ -110,6 +110,7 @@ export SWIFT_USERNAME="__tenancy_name:__nectar_user_id"
 export SWIFT_PASSWORD="__swift_password"
 export SWIFT_AUTHURL="https://keystone.rc.nectar.org.au:5000/v2.0/"
 export SWIFT_AUTHVERSION="2"
+export PASSPHRASE="__pgp_passphraze"
 EOF
 
 git clone https://github.com/MartinPaulo/puppet_hub_zero.git
