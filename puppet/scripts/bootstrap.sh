@@ -103,6 +103,15 @@ exim4::fqdn: __hostname
 
 EOF
 
+cat > /etc/nectar.secrets <<EOF
+#!/bin/bash
+
+export SWIFT_USERNAME="__tenancy_name:__nectar_user_id"
+export SWIFT_PASSWORD="__swift_password"
+export SWIFT_AUTHURL="https://keystone.rc.nectar.org.au:5000/v2.0/"
+export SWIFT_AUTHVERSION="2"
+EOF
+
 git clone https://github.com/MartinPaulo/puppet_hub_zero.git
 
 MACHINE_IP=$(/sbin/ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')

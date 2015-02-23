@@ -8,6 +8,31 @@ description: A template to initiate the installation of hubZero on an instance i
 #                     --environment-file=IdeaProjects/HubZeroPuppet/heat/environment.yaml \
 #                     hubzero_test
 
+
+parameter_groups:
+- label: VM
+  description: Configure the VM
+  parameters:
+  - image
+  - flavor
+  - availability_zone
+  - hostname
+  - nagiosserver
+- label: Security
+  description: Secret things.
+  parameters:
+  - key
+  - my_sql_root_password
+  - slapd_root_password
+  - nectar_user_id
+  - swift_password
+- label: Other Things
+  description: Not yet categorized.
+  parameters:
+  - email
+  - hub_zero_version
+  - tenancy_name
+
 parameters:
   image:
     type: string
@@ -90,6 +115,21 @@ parameters:
     default: nagios.v3apps.org.au
     description: The IP number or hostname of the server that nagios will report to
 
+  nectar_user_id:
+    type: string
+    label: NeCTAR User ID
+    description: The ID of the user associated with the the Swift password.
+
+  swift_password:
+    type: string
+    label: Swift Command Line Password
+    description: The command line password for the NeCTAR user who the app will be writing to Swift as.
+
+  tenancy_name:
+    type: string
+    label: The Project Name
+    description: The project name
+
 resources:
   # more /etc/firewall_on shows:
   #   http, https, https-alt (?), dns (53), ssh, smtp, mysql (should we add this?), ldap (1170), icmp, 830/831 (submit?)
@@ -126,6 +166,9 @@ resources:
             __email: { get_param: email}
             __hostname: { get_param: hostname}
             __nagiosserver: {get_param: nagiosserver}
+            __nectar_user_id: {get_param: nectar_user_id}
+            __swift_password: {get_param: swift_password}
+            __tenancy_name: {get_param: tenancy_name}
           template:
             get_file: https://raw.githubusercontent.com/MartinPaulo/puppet_hub_zero/master/puppet/scripts/bootstrap.sh
       user_data_format: RAW

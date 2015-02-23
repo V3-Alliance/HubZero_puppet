@@ -12,6 +12,9 @@ parameters:
   slapd_root_password: # 6-16 characters and numbers only, starting with a Capital
   hub_zero_version: # 1.1 | 1.2 | 1.3 | 1.3.1
   email: # a valid email address to notify when the installation is complete.
-  hostname: # a valid fully quailified hostname, eg: hubzero.v3.edu.au
+  hostname: # a valid fully qualified hostname, eg: hubzero.v3.edu.au
   nagiosserver : # the nagios host that will be monitoring this server.
-  key: # the keypair to use to launch the vm
+  key: # the key pair to use to launch the vm
+  tenancy_name: # OS_TENANT_NAME in the downloaded NeCTAR project resource file
+  nectar_user_id: # OS_USERNAME in the downloaded NeCTAR project resource file
+  swift_password: # OS_PASSWORD in the downloaded NeCTAR project resource file
