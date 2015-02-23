@@ -13,6 +13,8 @@
 # dpkg-reconfigure exim4-config
 # and select the "internet site" option.
 # The exim -bV command gives useful information on exim's setup.
+# To test on the command line, enter the following (where someone@target.com is your email address!:
+#     $ # echo “This is a test message.” | mail -s “Hello from hubzero” someone@target.com
 class exim4 (
   $fqdn
 ){
