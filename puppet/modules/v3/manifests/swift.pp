@@ -9,16 +9,16 @@ class v3::swift (
   # bizarro: this seems to install a new version of pip in a different location...
     command => "pip install python-keystoneclient",
     require => Package["python-dev"],
-    path    => "/bin"
+    path    => "/usr/local/bin:/usr/bin"
   }
   ->
   exec { "swift":
     command => "pip install python-swiftclient",
-    path    => "/bin"
+    path    => "/usr/local/bin:/usr/bin/"
   }
   ->
   exec { "distribute":
     command => "pip install --upgrade distribute",
-    path    => "/bin"
+    path    => "/usr/local/bin:/usr/bin/"
   }
 }
