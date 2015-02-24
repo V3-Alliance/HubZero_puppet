@@ -13,7 +13,7 @@ class v3::admins {
   }
   ->
   exec { 'set_martins_account_number':
-    command => 'usermod -u 501 martin',
+    command => '/usr/sbin/usermod -u 501 martin',
   }
 
 # hubzero_sup
@@ -46,7 +46,7 @@ class v3::admins {
   }
   ->
   exec { 'set_alans_account_number':
-    command => 'usermod -u 502 alan',
+    command => '/usr/sbin/usermod -u 502 alan',
   }
 
 # hubzero_sup
@@ -78,7 +78,7 @@ class v3::admins {
   }
   ->
   exec { 'set_dmicevskis_account_number':
-    command => 'usermod -u 503 dmicevski',
+    command => '/usr/sbin/usermod -u 503 dmicevski',
   }
 
   ssh_authorized_key { 'dmicevski@v3.org.au':
@@ -109,7 +109,7 @@ class v3::admins {
   }
   ->
   exec { 'set_melvins_account_number':
-    command => 'usermod -u 504 melvin',
+    command => '/usr/sbin/usermod -u 504 melvin',
   }
 
   ssh_authorized_key { 'melvin@v3.org.au':
