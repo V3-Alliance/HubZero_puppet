@@ -1,12 +1,19 @@
 # Could perhaps be done with pgp key? http://budts.be/weblog/2012/08/ssh-authentication-with-your-pgp-key
+# note the hubzero admonition:
+# If you require additional system accounts, they can be numbered between 500-999 without interfering with hub operations!
 class v3::admins {
 
 # for each potential admin, copy the the section below up to the '========================' line and customize.
+#'=martin======================='
 
   user { 'martin':
     comment => 'mpaulo@v3.org.au',
     ensure  => present,
     groups  => 'sudo',
+  }
+  ->
+  exec { 'set_martins_account_number':
+    command => 'usermod -u 501 martin',
   }
 
 # hubzero_sup
@@ -30,12 +37,16 @@ class v3::admins {
     mode   => '0700',
   }
 
-#'========================'
+#'=alan======================='
 
   user { 'alan':
     comment => 'alan@v3.org.au',
     ensure  => present,
     groups  => 'sudo',
+  }
+  ->
+  exec { 'set_alans_account_number':
+    command => 'usermod -u 502 alan',
   }
 
 # hubzero_sup
@@ -58,12 +69,16 @@ class v3::admins {
     mode   => '0700',
   }
 
-#'========================'
+#'=dmicevski======================='
 
   user { 'dmicevski':
     comment => 'dmicevski@v3.org.au',
     ensure  => present,
     groups  => 'sudo',
+  }
+  ->
+  exec { 'set_dmicevskis_account_number':
+    command => 'usermod -u 503 dmicevski',
   }
 
   ssh_authorized_key { 'dmicevski@v3.org.au':
@@ -85,11 +100,16 @@ class v3::admins {
     mode   => '0700',
   }
 
-#'========================'
+#'=melvin======================='
+
   user { 'melvin':
     comment => 'melvin@v3.org.au',
     ensure  => present,
     groups  => 'sudo',
+  }
+  ->
+  exec { 'set_melvins_account_number':
+    command => 'usermod -u 504 melvin',
   }
 
   ssh_authorized_key { 'melvin@v3.org.au':
