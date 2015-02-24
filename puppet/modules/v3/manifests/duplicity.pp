@@ -2,6 +2,16 @@
 # Some usefull commmands:
 # to list the current files in the swift container named duplicity:
 #     /usr/local/bin/duplicity list-current-files swift://duplicity
+# to see the version of duplicity:
+#     duplicity -V
+# to do a dry run of a backup
+#     duplicity --dry-run /mnt/backup/ swift://duplicity
+# to actually do a backup to swift
+#     duplicity /mnt/backup/ swift://duplicity
+# to restore a directory from swift:
+#     duplicity swift://duplicity /mnt/backup/
+# to see the status of a backup on swift:
+#     duplicity collection-status swift://duplicity
 #
 # If you get an error: "Exception Versioning for this project requires either an sdist tarball..."
 # Then you, most likely, have upgraded the keystone client. And it hasn't upgraded one of its dependencies.
