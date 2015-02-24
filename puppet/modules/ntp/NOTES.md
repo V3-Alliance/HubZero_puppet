@@ -4,7 +4,7 @@ To synchronise the ntp service on the target machine:
     sudo ntpd -gq
     sudo service ntp start
 
-To test the ntp service via the nagious plugin on the target machine:
+To test the ntp service via the nagios plugin on the target machine:
 
     /usr/lib/nagios/plugins/check_ntp_time -H <ip> -v
 
