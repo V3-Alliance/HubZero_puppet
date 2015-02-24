@@ -86,6 +86,32 @@ class v3::admins {
   }
 
 #'========================'
+  user { 'melvin':
+    comment => 'melvin@v3.org.au',
+    ensure  => present,
+    groups  => 'sudo',
+  }
+
+  ssh_authorized_key { 'melvin@v3.org.au':
+    user    => 'melvin',
+    ensure  => present,
+    key     => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDIAxgXVuCzQavkX5WqDuo9zJ+PvI3dxGsh4mPPkwqQ4eotKNYnXiWmj9iDdIkFkWCTF2sy1oNhiR4U5tYQJJEEtmYl9w94aM0fnlB+0k7JTaFsMfk41Q2PoHYa0oLDMoZ2CFKTyKVCJDANjXGGYfQUhOz3W0q25KZmTEMfErwJwhMmEiyliZgGkjUHcKfEDBMaN/Dtn4t52RvDxCPs57zzT8A91XaxuqAKhdra8MZVigu6WStXVUqSya3C6TQo7t7Sj3JLldQSu+G4uDYAjP/22KG7b0+HcyyVCRgihky55vd0fipCHStIqXgNsAnJjbZM3ZiNJEn5l6FdMWFQvINV',
+    type    => 'rsa',
+    require => File['/home/melvin/.ssh'],
+  }
+
+  file { '/home/melvin':
+    ensure => 'directory',
+    owner  => 'melvin'
+  }
+
+  file { '/home/melvin/.ssh':
+    ensure => 'directory',
+    owner  => 'melvin',
+    mode   => '0700',
+  }
+
+#'========================'
 
   file { '/etc/sudoers.d/sudogroup':
     ensure => file,
