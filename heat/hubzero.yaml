@@ -22,10 +22,9 @@ parameter_groups:
   description: Secret things.
   parameters:
   - key
-  - my_sql_root_password
-  - slapd_root_password
   - nectar_user_id
   - swift_password
+  - pgp_passphraze
 - label: Other Things
   description: Not yet categorized.
   parameters:
@@ -59,23 +58,11 @@ parameters:
     label: Email Address
     description: The email address to notify when the installation is complete.
 
-  my_sql_root_password:
+  # should make the following totally PGP key dependent
+  pgp_passphraze:
     type: string
-    label: MySql Root Password
-    description: The password that gives absolute access to the database (v1.1 only).
-    hidden: true
-    constraints: # update the environment_template.yaml if changing the constraints...
-      - length: { min: 6, max: 16 }
-        description: The password length must be between 6 and 16 characters long.
-      - allowed_pattern: "[a-zA-Z0-9]+"
-        description: The password must consist of characters and numbers only.
-      - allowed_pattern: "[A-Z]+[a-zA-Z0-9]*"
-        description: The password must start with an uppercase character.
-
-  slapd_root_password:
-    type: string
-    label: LDAP Server Root Password
-    description: The password that gives absolute access to the LDAP service.
+    label: The password used to access Swift backups
+    description: The password that gives absolute access to the Duplicity backups in Swift.
     hidden: true
     constraints: # update the environment_template.yaml if changing the constraints...
       - length: { min: 6, max: 16 }
@@ -131,6 +118,15 @@ parameters:
     description: The project name
 
 resources:
+
+  # This gets overwritten
+  my_sql_root_password:
+    type: OS::Heat::RandomString
+
+  # This gets overwritten
+  slapd_root_password:
+    type: OS::Heat::RandomString
+
   # more /etc/firewall_on shows:
   #   http, https, https-alt (?), dns (53), ssh, smtp, mysql (should we add this?), ldap (1170), icmp, 830/831 (submit?)
   hubZero_security_group:
@@ -160,8 +156,8 @@ resources:
       user_data:
         str_replace:
           params:
-            __my_sql_root_password: { get_param: my_sql_root_password }
-            __slapd_root_password: { get_param: slapd_root_password }
+            __my_sql_root_password: {get_attr: [my_sql_root_password, value]}
+            __slapd_root_password: {get_attr: [slapd_root_password, value]}
             __hub_zero_version: { get_param: hub_zero_version }
             __email: { get_param: email}
             __hostname: { get_param: hostname}
@@ -169,6 +165,7 @@ resources:
             __nectar_user_id: {get_param: nectar_user_id}
             __swift_password: {get_param: swift_password}
             __tenancy_name: {get_param: tenancy_name}
+            __pgp_passphraze: {get_param: pgp_passphraze}
           template:
             get_file: https://raw.githubusercontent.com/MartinPaulo/puppet_hub_zero/master/puppet/scripts/bootstrap.sh
       user_data_format: RAW
