@@ -10,7 +10,7 @@
 #     how to install the send only mail server exim on ubuntu 12-04</a>
 # After rebooting, it would seem that sometimes the exim4 package resets its configuration and no longer mails out
 # The quick fix is to  run:
-# dpkg-reconfigure exim4-config
+#     dpkg-reconfigure exim4-config
 # and select the "internet site" option.
 # The exim -bV command gives useful information on exim's setup.
 # To test on the command line, enter the following (where someone@target.com is your email address!):
