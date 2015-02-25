@@ -1,11 +1,12 @@
 #!/bin/bash -e
 
 # based on: http://www.cyberciti.biz/faq/howto-move-migrate-user-accounts-old-to-new-server/
+# note that this script fails if there are no users in the range being backed up.
 
 USER_BACKUP_FILE=users-$( date +%y%m%d-%H%M ).tar.gz
 BACKUP_DIR=/mnt/backup/users
 WORKING_DIR=$BACKUP_DIR/scratch
-UGIDLIMIT=1000
+UGIDLIMIT=500
 mkdir -p $WORKING_DIR
 awk -v LIMIT=$UGIDLIMIT -F: '($3>=LIMIT) && ($3!=65534)' /etc/passwd > $WORKING_DIR/passwd.mig
 awk -v LIMIT=$UGIDLIMIT -F: '($3>=LIMIT) && ($3!=65534)' /etc/group > $WORKING_DIR/group.mig
