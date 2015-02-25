@@ -29,6 +29,9 @@ echo "Repo is: ${repository}"
 echo "Version is: ${version}"
 echo "Puppet module is: ${puppet_module}"
 
+# first off, set the time zone that we want the server to be in
+ln -sf /usr/share/zoneinfo/Australia/Melbourne /etc/localtime
+
 # Set hostname
 # registered temporary domain at http://www.dot.tk/en/index.html?lang=en ...
 hostname __hostname
