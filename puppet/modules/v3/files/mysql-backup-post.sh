@@ -1,4 +1,6 @@
-#!/bin/bash -e
+#!/bin/bash
+# We do not do the -e arg here as we want to backup as much is as possible.
+# We also want to write to system error if there is a failure so that we are notified by the automysqlbackup script.
 
 function progress_check {
     if [ $? -eq 0 ]
