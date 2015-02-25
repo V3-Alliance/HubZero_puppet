@@ -29,7 +29,7 @@ echo "Repo is: ${repository}"
 echo "Version is: ${version}"
 echo "Puppet module is: ${puppet_module}"
 
-# first off, set the time zone that we want the server to be in
+# first off, set the time zone that we want the server to be in (to check this just run the 'date' command
 ln -sf /usr/share/zoneinfo/Australia/Melbourne /etc/localtime
 
 # Set hostname
