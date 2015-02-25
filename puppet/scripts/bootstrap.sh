@@ -43,7 +43,7 @@ echo "127.0.1.1 	__hostname" | tee -a /etc/hosts
 
 # Delete local users
 # since we still want to log in as the debian user we'll just move their ID to an acceptible range
-usermod -u 999 debian
+usermod -u 500 debian
 
 # Configure networking
 # the default VM settings should work
