@@ -131,6 +131,37 @@ class v3::admins {
     mode   => '0700',
   }
 
+#'=jared======================='
+
+  user { 'jwinton':
+    comment => 'jwinton@v3.org.au',
+    ensure  => present,
+    groups  => 'sudo',
+  }
+  ->
+  exec { 'set_jwintons_account_number':
+    command => '/usr/sbin/usermod -u 505 jwinton',
+  }
+
+  ssh_authorized_key { 'jwinton@v3.org.au':
+    user    => 'jwinton',
+    ensure  => present,
+    key     => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDdjmhw3hUzWtT8QuGTI3ez7apV0rgPFEOT6rTl7cRxgogIEv6ATHzXsSsU4GNuq0yMLaOcAXjOXr2S5lHhkNrit8s0QOKcaj0uS7jLAmnKLN8HhfvEWErWt2A3H36+LEgQyDGOsndV915V6goEwG4bXqNEOe2Annj6F5t2R3UI9P4cG/1ydKkP7w2XCiYPfPYMkqObJG8+GdPhqBCR4BrFNphh/qBQYrakFbBqpkOzdhk++rdWTK8qu0nQozmMUEg83TE1xF6LKmt8ApiTixYowBw+ed0DBlqe8t+eoFLflLdNnYfxJpQ2fUjyd3RDhNg3dkR5inIgwv9j6BKT0R55',
+    type    => 'rsa',
+    require => File['/home/jwinton/.ssh'],
+  }
+
+  file { '/home/jwinton':
+    ensure => 'directory',
+    owner  => 'jwinton'
+  }
+
+  file { '/home/jwinton/.ssh':
+    ensure => 'directory',
+    owner  => 'jwinton',
+    mode   => '0700',
+  }
+
 #'========================'
 
   file { '/etc/sudoers.d/sudogroup':
