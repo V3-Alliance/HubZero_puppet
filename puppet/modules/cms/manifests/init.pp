@@ -36,8 +36,13 @@ class cms (
     subscribe =>  Exec["disable default sites"],
   }
 
+  exec { "set the php tmp upload directory":
+    command => 'sed -i.bak "s/;upload_tmp_dir =.*/upload_tmp_dir = \/tmp/" /etc/php5/apache2/php.ini',
+    subscribe => Exec["enable sample sites"],
+  }
+
   exec { "restart apache":
     command   => "/etc/init.d/apache2 restart",
-    subscribe => Exec["enable sample sites"]
+    subscribe => Exec["set the php tmp upload directory"],
   }
 }
