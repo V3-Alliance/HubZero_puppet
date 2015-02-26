@@ -20,6 +20,9 @@ progress_check "site files"
 /etc/userbackup
 progress_check "users"
 
+/etc/secretsbackup
+progress_check "secrets"
+
 source /etc/nectar.secrets
 duplicity /mnt/backup/ swift://$(hostname)
 

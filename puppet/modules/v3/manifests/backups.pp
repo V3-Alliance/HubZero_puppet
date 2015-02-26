@@ -9,28 +9,33 @@ class v3::backups {
     ensure => latest,
   }
 
-  file {"/etc/default/automysqlbackup":
+  file { "/etc/default/automysqlbackup":
     ensure    => file,
     source    => "puppet:///modules/v3/automysqlbackup.sh",
     require   => Package ['automysqlbackup'],
     mode      => '0644',
   } ->
-  file {"/etc/ldapbackup":
+  file { "/etc/ldapbackup":
     ensure    => file,
     source    => "puppet:///modules/v3/ldapbackup.sh",
     mode      => '0744',
   } ->
-  file {"/etc/sitebackup":
+  file { "/etc/sitebackup":
     ensure    => file,
     source    => "puppet:///modules/v3/sitebackup.sh",
     mode      => '0744',
   } ->
-  file {"/etc/userbackup":
+  file { "/etc/userbackup":
     ensure    => file,
     source    => "puppet:///modules/v3/userbackup.sh",
     mode      => '0744',
   } ->
-  file {"/etc/mysql-backup-post":
+  file { "/etc/secretsbackup":
+    ensure    => file,
+    source    => "puppet:///modules/v3/secretsbackup.sh",
+    mode      => '0744',
+  } ->
+  file { "/etc/mysql-backup-post":
     ensure    => file,
     source    => "puppet:///modules/v3/mysql-backup-post.sh",
     mode      => '0744',
