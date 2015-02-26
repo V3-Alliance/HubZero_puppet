@@ -91,9 +91,9 @@ To restore the websites, simply remove any crud that might be in the existing /v
 ```bash
 # uncompress your chosen backup file
 tar -zxvf /mnt/backup/sites/sites-150205-0358.tar.gz -C /
-
-# restore the copied files
 ```
+
+where sites-150205-0358.tar.gz is the name of the file that you are restoring...
 
 Users
 -----
@@ -122,10 +122,22 @@ tar -zxvf /mnt/backup/users/scratch/home.tar.gz -C /
 reboot
 ```
 
+Update Passwords
+----------------
+
+Update the example users database password in the mysql database:
+
+```
+mysql -h localhost -u root -e "SET PASSWORD FOR 'example'@'localhost' = PASSWORD('new_password');"
+```
+
+where the new_password is the HUBDB password in the old sites hubzero.secrets file.
+
+
 Finally
 -------
 
-After doing a restore on a newly rebuilt machine, remember to check if apache's running, and if not, to restart it.
+After doing a restore on a newly rebuilt machine, remember to restart apache.
 
 
 ```bash
