@@ -95,6 +95,13 @@ tar -zxvf /mnt/backup/sites/sites-150205-0358.tar.gz -C /
 
 where sites-150205-0358.tar.gz is the name of the file that you are restoring...
 
+To see the passwords:
+
+```
+mysql -h localhost -u root -e "select host, user, password from mysql.user;"
+```
+
+
 Users
 -----
 
