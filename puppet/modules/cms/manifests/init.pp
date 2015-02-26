@@ -37,7 +37,8 @@ class cms (
   }
 
   exec { "set the php tmp upload directory":
-    command => 'sed -i.bak "s/;upload_tmp_dir =.*/upload_tmp_dir = \/tmp/" /etc/php5/apache2/php.ini',
+    command => '/bin/sed -i.bak "s/;upload_tmp_dir =.*/upload_tmp_dir = \/tmp/" /etc/php5/apache2/php.ini',
+    require => [Package["hubzero-cms"]],
     subscribe => Exec["enable sample sites"],
   }
 
