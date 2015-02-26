@@ -95,13 +95,6 @@ tar -zxvf /mnt/backup/sites/sites-150205-0358.tar.gz -C /
 
 where sites-150205-0358.tar.gz is the name of the file that you are restoring...
 
-To see the passwords:
-
-```
-mysql -h localhost -u root -e "select host, user, password from mysql.user;"
-```
-
-
 Users
 -----
 
@@ -140,6 +133,11 @@ mysql -h localhost -u root -e "SET PASSWORD FOR 'example'@'localhost' = PASSWORD
 
 where the new_password is the HUBDB password in the old sites hubzero.secrets file.
 
+To see the passwords:
+
+```
+mysql -h localhost -u root -e "select host, user, password from mysql.user;"
+```
 
 Finally
 -------
