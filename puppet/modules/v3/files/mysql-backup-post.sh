@@ -23,7 +23,5 @@ progress_check "users"
 /etc/secretsbackup
 progress_check "secrets"
 
-source /etc/nectar.secrets
-duplicity /mnt/backup/ swift://$(hostname)
-
+/etc/swiftbackup
 progress_check "swift"
