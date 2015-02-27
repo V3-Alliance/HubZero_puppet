@@ -1,7 +1,6 @@
 # This is based on:
 # https://www.howtoforge.com/creating-mysql-backups-with-automysqlbackup
 #
-# TODO: Should we backup the secrets file or not? Because at the moment we aren't
 # TODO: We need to work out who to send the emails to...
 class v3::backups {
 
@@ -33,6 +32,11 @@ class v3::backups {
   file { "/etc/secretsbackup":
     ensure    => file,
     source    => "puppet:///modules/v3/secretsbackup.sh",
+    mode      => '0744',
+  } ->
+  file { "/etc/swiftbackup":
+    ensure    => file,
+    source    => "puppet:///modules/v3/swiftbackup.sh",
     mode      => '0744',
   } ->
   file { "/etc/mysql-backup-post":
