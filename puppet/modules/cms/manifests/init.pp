@@ -42,8 +42,14 @@ class cms (
     subscribe => Exec["enable sample sites"],
   }
 
+  exec { "set the php maximum upload file size":
+    command => "/bin/sed -i '/upload_max_filesize/s/= *2M/= 10M/' /etc/php5/apache2/php.ini",
+    require => [Package["hubzero-cms"]],
+    subscribe => Exec["set the php tmp upload directory"],
+  }
+
   exec { "restart apache":
     command   => "/etc/init.d/apache2 restart",
-    subscribe => Exec["set the php tmp upload directory"],
+    subscribe => Exec["set the php maximum upload file size"],
   }
 }
