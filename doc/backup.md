@@ -77,6 +77,9 @@ rm -rf *
 # restore the database from your selected backup
 /usr/sbin/slapadd -l /mnt/backup/ldap/ldap-150204-0522.ldif
 
+# change the ownership of the restored files back to the slapd user and group
+chown -R openldap:openldap /var/lib/ldap
+
 # start the slapd again
 /etc/init.d/slapd start
 ```
