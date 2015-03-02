@@ -1,5 +1,6 @@
 # This installs the duplicity package, which allows us, in conjunction with swift, to write backups to swift.
-# Some usefull commmands:
+# A write up on duplicity can be found at: https://help.ubuntu.com/community/DuplicityBackupHowto
+# But some usefull commmands:
 # to list the current files in the swift container named $(hostname):
 #     duplicity list-current-files swift://$(hostname)
 # to see the version of duplicity:
