@@ -105,6 +105,8 @@ nrpe::nagiosservers: __nagiosserver
 exim4::fqdn: __hostname
 EOF
 
+chmod 600 ${YAMLDIR}/common.yaml
+
 cat > /etc/nectar.secrets <<EOF
 #!/bin/bash
 
@@ -114,6 +116,8 @@ export SWIFT_AUTHURL="https://keystone.rc.nectar.org.au:5000/v2.0/"
 export SWIFT_AUTHVERSION="2"
 export PASSPHRASE="__pgp_passphraze"
 EOF
+
+chmod 600 /etc/nectar.secrets
 
 git clone https://github.com/MartinPaulo/puppet_hub_zero.git
 
