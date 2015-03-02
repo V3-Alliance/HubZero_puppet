@@ -1,17 +1,17 @@
 # This installs the duplicity package, which allows us, in conjunction with swift, to write backups to swift.
 # Some usefull commmands:
-# to list the current files in the swift container named duplicity:
-#     /usr/local/bin/duplicity list-current-files swift://duplicity
+# to list the current files in the swift container named $(hostname):
+#     duplicity list-current-files swift://$(hostname)
 # to see the version of duplicity:
 #     duplicity -V
 # to do a dry run of a backup
-#     duplicity --dry-run /mnt/backup/ swift://duplicity
+#     duplicity --dry-run /mnt/backup/ swift://$(hostname)
 # to actually do a backup to swift
-#     duplicity /mnt/backup/ swift://duplicity
+#     duplicity /mnt/backup/ swift://$(hostname)
 # to restore a directory from swift:
-#     duplicity swift://duplicity /mnt/backup/
+#     duplicity swift://$(hostname) /mnt/backup/
 # to see the status of a backup on swift:
-#     duplicity collection-status swift://duplicity
+#     duplicity collection-status swift://$(hostname)
 #
 # If you get an error: "Exception Versioning for this project requires either an sdist tarball..."
 # Then you, most likely, have upgraded the keystone client. And it hasn't upgraded one of its dependencies.
