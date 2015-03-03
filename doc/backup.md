@@ -1,12 +1,24 @@
-Backups and restoring
-=====================
+Backups
+=======
+
+There are a number of scripts that run to create the backups. They are chained together and called by the
+automysqlbackup package as part of its run.
+
+The intent is to simply backup the state of the machine, and not the actual machine itself. The backup scripts
+write a copy of the state to the /mnt/backup directory. The contents of this directory are then encrypted and
+written to Swift. If so desired, these backups can be downloaded from Swift to an off site location.
+
+Restoring
+=========
 
 First
 -----
 
+Rebuild a new machine using the scripts in this project.
+
 Note that all of the following is done in the root user role.
 
-Before doing a restore on a newly rebuilt machine, stop apache from running
+Then before doing a restore on a newly rebuilt machine, stop apache from running
 
 ```bash
 service apache2 stop
