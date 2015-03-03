@@ -23,5 +23,9 @@ progress_check "users"
 /etc/secretsbackup
 progress_check "secrets"
 
+# secure the backups from prying eyes.
+chmod -R 640 /mnt/backup/
+progress_check "read only"
+
 /etc/swiftbackup
 progress_check "swift"
