@@ -32,7 +32,7 @@ suffice.
 
 automysqlbackup sets up a daily cron job to run the backup. Thus the time the backup is performed is dependent on
 when the daily cron job is configured to run.
-
+g
 To restore a database, first identify the database you want to restore in the backup directory.
 
 eg:
@@ -56,6 +56,8 @@ Once uncompressed, restore it as follows:
 mysql -h localhost -u root example < /mnt/backup/mysqlbackup/daily/example/example_2015-02-04_03h43m.Wednesday.sql
 ```
 
+You will need to restore both the example and the example_metrics databases.
+
 LDAP
 ----
 
@@ -64,7 +66,12 @@ The script /etc/ldapbackup is called by automysqlbackup in its post backup phase
 To restore the ldap database:
 
 ```bash
-# you first need to uncompress your chosen database
+# first you need to configure slapd to match the domain that you are restoring from, if you are restoring to a new
+# machine with a different name.
+# If doing this step, use the ldap administrator password from the machine that you restoring from...
+dpkg-reconfigure slapd
+
+# then you need to uncompress your chosen database
 gunzip /mnt/backup/ldap/ldap-150204-0522.ldif.gz
 
 # stop slapd from running
@@ -82,6 +89,17 @@ chown -R openldap:openldap /var/lib/ldap
 
 # start the slapd again
 /etc/init.d/slapd start
+```
+
+You can test the restore by trying to set your admin's password to what it was on the machine you were restoring from.
+Of course this means that you are setting the password to what it was before you changed it...
+e.g.:
+
+```
+#example 1
+ldappasswd -D "cn=admin,dc=rc,dc=edu,dc=au" -s <a_password> -w <a_password>
+#example 2
+ldappasswd -D "cn=admin,dc=v3apps,dc=org,dc=au " -s <a_password> -w <a_password>
 ```
 
 Sites
