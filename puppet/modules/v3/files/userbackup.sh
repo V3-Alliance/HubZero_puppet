@@ -1,7 +1,6 @@
 #!/bin/bash -e
 
 # based on: http://www.cyberciti.biz/faq/howto-move-migrate-user-accounts-old-to-new-server/
-# note that this script fails if there are no users in the range being backed up.
 
 USER_BACKUP_FILE=users-$( date +%y%m%d-%H%M ).tar.gz
 BACKUP_DIR=/mnt/backup/users
