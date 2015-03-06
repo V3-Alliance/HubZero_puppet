@@ -11,21 +11,21 @@ function progress_check {
     fi
 }
 
-/etc/ldapbackup
+nice /etc/ldapbackup
 progress_check "ldap database"
 
-/etc/sitebackup
+nice /etc/sitebackup
 progress_check "site files"
 
-/etc/userbackup
+nice /etc/userbackup
 progress_check "users"
 
-/etc/secretsbackup
+nice /etc/secretsbackup
 progress_check "secrets"
 
 # secure the backups from prying eyes.
 chmod -R 640 /mnt/backup/
 progress_check "read only"
 
-/etc/swiftbackup
+nice /etc/swiftbackup
 progress_check "swift"
