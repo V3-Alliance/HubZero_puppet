@@ -8,6 +8,16 @@ The intent is to simply backup the state of the machine, and not the actual mach
 write a copy of the state to the /mnt/backup directory. The contents of this directory are then encrypted and
 written to Swift. If so desired, these backups can be downloaded from Swift to an off site location.
 
+The /mnt/backup directory contains the following subdirectories:
+
+| Directory   | Contents |
+| ----------- | -------- |
+| ldap        | The files required to restore the ldap system |
+| $(hostname) | The hubzero.secrets file for the machine being backed up |
+| mysql       | The mysql database files |
+| sites       | The apache files used to serve up the application |
+| users       | The files required to restore the users |
+
 Restoring
 =========
 
@@ -22,6 +32,30 @@ Then before doing a restore on a newly rebuilt machine, stop apache from running
 
 ```bash
 service apache2 stop
+```
+
+Fetch the backup
+----------------
+
+The backup needs to be fetched from the object store.
+
+To do this you need to set up the environment variables required to access the Swift repository.
+
+This can be done by placing them in a file and then sourcing it. The file is of the following format:
+
+```bash
+#!/bin/bash
+
+export SWIFT_USERNAME="<tenancy_name>:<user_id>"
+export SWIFT_PASSWORD="<user_password>"
+export SWIFT_AUTHURL="https://keystone.rc.nectar.org.au:5000/v2.0/"
+export SWIFT_AUTHVERSION="2"
+export PASSPHRASE="<pass_phrase_used_to_encrypt_swift_files>"
+```
+
+Once the file is sourced, then use duplicity to fetch the file onto the machine from which the restore is being done:
+```bash
+swift://<source_bucket> <target_directory>
 ```
 
 Databases
@@ -68,7 +102,7 @@ Once uncompressed, restore it as follows:
 mysql -h localhost -u root example < /mnt/backup/mysqlbackup/daily/example/example_2015-02-04_03h43m.Wednesday.sql
 ```
 
-You will need to restore both the example and the example_metrics databases.
+You will need to restore **both** the example and the example_metrics databases.
 
 LDAP
 ----
@@ -78,29 +112,42 @@ The script /etc/ldapbackup is called by automysqlbackup in its post backup phase
 To restore the ldap database:
 
 ```bash
-# first you need to configure slapd to match the domain that you are restoring from, if you are restoring to a new
+# First you need to configure slapd to match the domain that you are restoring from, if you are restoring to a new
 # machine with a different name.
-# If doing this step, use the ldap administrator password from the machine that you restoring from...
+# If doing this step, use the ldap administrator password (LDAP-ADMINPW) taken from the hubzero.secrets file
+# of the machine that you restoring from.
+# Also note that if you are restoring from a machine named collaboration.rc.edu.au the domain name
+# to enter is rc.edu.au ...
 dpkg-reconfigure slapd
 
 # then you need to uncompress your chosen database
-gunzip /mnt/backup/ldap/ldap-150204-0522.ldif.gz
+tar -zxvf /mnt/backup/ldap/ldap-150204-0522.ldif.gz -C /
 
-# stop slapd from running
+# stop the various ldap daemons from running
+service nscd stop
+service nslcd stop
 /etc/init.d/slapd stop
 
 # delete the existing database
-cd /var/lib/ldap
+pushd /var/lib/ldap
 rm -rf *
+popd
 
-# restore the database from your selected backup
-/usr/sbin/slapadd -l /mnt/backup/ldap/ldap-150204-0522.ldif
+# restore the databases from your selected backup
+slapadd -F /etc/ldap/slapd.d -n 0 -l mnt/backup/ldap/scratch/config.ldif
+slapadd -F /etc/ldap/slapd.d -n 1 -l mnt/backup/ldap/scratch/collaboration.rc.edu.au.ldif
 
 # change the ownership of the restored files back to the slapd user and group
 chown -R openldap:openldap /var/lib/ldap
+chown -R openldap:openldap /var/lib/ldap
 
-# start the slapd again
+#copy the nslcd.conf file across to the new machine
+cp mnt/backup/ldap/scratch/nslcd.conf /etc
+
+# start the daemons again
 /etc/init.d/slapd start
+service nslcd start
+service nscd start
 ```
 
 You can test the restore by trying to set your admin's password to what it was on the machine you were restoring from.
@@ -112,6 +159,19 @@ e.g.:
 ldappasswd -D "cn=admin,dc=rc,dc=edu,dc=au" -s <a_password> -w <a_password>
 #example 2
 ldappasswd -D "cn=admin,dc=v3apps,dc=org,dc=au " -s <a_password> -w <a_password>
+```
+
+To search:
+
+```bash
+ldapsearch -x -LLL -b dc=rc,dc=edu,dc=au 'uid=hubrepo' cn gidNumber
+```
+
+To check that the ldap restore has gone successfully:
+
+```bash
+# following should return an ldap user...
+getent passwd | grep apps
 ```
 
 Sites
@@ -149,25 +209,29 @@ cp /mnt/backup/users/scratch/gshadow.mig /etc/gshadow
 tar -zxvf /mnt/backup/users/scratch/home.tar.gz -C /
 
 # restore the mail files
-# tar -zxvf /mnt/backup/users/scratch/mail.tar.gz -C /
+tar -zxvf /mnt/backup/users/scratch/mail.tar.gz -C /
 
-# and then reboot
-reboot
+```
+
+Because the install scripts create users, and the restore scripts concatenates users, there may be some duplicate
+entries. To check for this & to fix any such errors run:
+
+```bash
+grpck
 ```
 
 Update Passwords
 ----------------
 
-Update the example users database password in the mysql database:
+Update the example users database password in the mysql database
+(this is the password for the user named HUBDB in the file named hubzero.secrets
+taken off of the machine that you are restoring from):
 
 ```
 mysql -h localhost -u root -e "SET PASSWORD FOR 'example'@'localhost' = PASSWORD('new_password');"
 ```
 
-where the new_password is the HUBDB password in the old sites hubzero.secrets file.
-
-To see the passwords:
-
+Not necessary, but hand to compare passwords between machines:
 ```
 mysql -h localhost -u root -e "select host, user, password from mysql.user;"
 ```
@@ -175,10 +239,9 @@ mysql -h localhost -u root -e "select host, user, password from mysql.user;"
 Finally
 -------
 
-After doing a restore on a newly rebuilt machine, remember to restart apache.
-
+After doing a restore on a newly rebuilt machine, reboot.
 
 ```bash
-service apache2 start
+reboot
 ```
 
