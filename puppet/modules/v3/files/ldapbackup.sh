@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
-#based on: https://help.ubuntu.com/lts/serverguide/openldap-server.html#ldap-backup
+# based on: https://help.ubuntu.com/lts/serverguide/openldap-server.html#ldap-backup
+# see http://arthurdejong.org/nss-pam-ldapd/setup on how to debug this lot...
 
 BACKUP_DIR=/mnt/backup/ldap
 WORKING_DIR=${BACKUP_DIR}/scratch
