@@ -30,7 +30,7 @@ DBNAMES=`mysql --defaults-file=/etc/mysql/debian.cnf --execute="SHOW DATABASES" 
 # Folders inside this one will be created (daily, weekly, etc.), and the
 # subfolders will be database names. Note that backups will be owned by
 # root, with Unix rights 0600.
-BACKUPDIR="/mnt/backup/mysqlbackup"
+BACKUPDIR="/mnt/backup/mysql"
 
 # Mail setup
 # What would you like to be mailed to you?
