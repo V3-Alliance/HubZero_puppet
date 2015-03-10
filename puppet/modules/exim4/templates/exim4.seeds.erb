@@ -1,4 +1,4 @@
-exim4-config	exim4/dc_other_hostnames	string	localhost
+exim4-config	exim4/dc_other_hostnames	string	<%=@fqdn%>
 exim4-config	exim4/dc_eximconfig_configtype	select	internet site; mail is sent and received directly using SMTP
 exim4-config	exim4/no_config	boolean	true
 exim4-config	exim4/hide_mailname	boolean
