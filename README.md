@@ -56,29 +56,15 @@ If installing version 1.1, once the installation is complete, go to the administ
 in order to export all the CMS users and groups
 
 Tasks still to be done:
-- [ ] The php temporary directory (upload_tmp_dir in /etc/php5/apache2/php.ini) needs to be set
-      The command to do this is:
-      ```bash
-      sed -i.bak "s/;upload_tmp_dir = .*/upload_tmp_dir = \/tmp/" /etc/php5/apache2/php.ini
-      ```
-- [ ] The php file upload size (upload_max_filesize in /etc/php5/apache2/php.ini) needs to be increased
-      (must check that it matches or is less than upload_max_filesize)
 - [ ] Do we need to move the users home directories to the larger mounted transient storage?
 - [ ] submit package not yet added to the installation
 - [ ] The external DNS entry for the site and any matching records need to be set up manually. Instructions have to be written.
 - [ ] The url shown on the output page of the stack shows an IP number. One that uses the domain name needs to be added.
 - [ ] The exim4 configuration is loosing it's settings. find out why and fix it.
 - [ ] What about log files. Should we rotate them? Do we backup them up as well?
-- [ ] Use duplicity to move backups to swift and to possibly replace some of the backup scripts.
-
-https://raymii.org/s/tutorials/Encrypted_Duplicity_Backups_to_Openstack_Swift_Objectstore.html
-http://www.cyberciti.biz/faq/duplicity-installation-configuration-on-debian-ubuntu-linux/
-
+- [ ] What to do about backup files that are older than, say  7 days?
+http://www.linuxquestions.org/questions/linux-general-1/bash-script-to-remove-files-older-than-3-days-462290/
 
 Known issues:
 - The LDAP installation on version 1.1 returns an error: this needs investigation. See the open-ldap module for more.
-- The maxwell service create template execution seems to be totally arbitrary in terms of its completion times
-  (and success). This would appear to be a HubZero Issue
 - The email doesn't send mail successfully to all sites, as some sites, such as google,  don't trust it (not surprising).
-- I'm not certain that I have the host name correctly written to the /etc/hosts file. I need some input from someone
-  with more sysadmin smarts than I...
