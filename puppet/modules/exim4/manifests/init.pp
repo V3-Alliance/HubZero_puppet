@@ -12,19 +12,17 @@
 #   <li><a href="http://blogs.cae.tntech.edu/mwr/2008/02/05/stupid-puppet-trick-agreeing-to-the-sun-java-license-with-debconf-preseeds-and-puppet/">
 #          Dealing with the sun licence with debconf and preseeds</a>
 # </ul>
-# <p> Also note that the pre-seeding only works once: when the package is installed. After that, you have to
+# <p>Also note that the pre-seeding only works once: when the package is installed. After that, you have to
 # edit the config file directly and run <pre>update-exim4-config</pre> or do a <pre>dpkg-reconfigure exim4-config</pre>
-# <p> See <a href="http://serverfault.com/questions/614895/debconf-is-ignoring-my-default-anwsers">
+# <p>See <a href="http://serverfault.com/questions/614895/debconf-is-ignoring-my-default-anwsers">
 #           debconf is ignoring my default anwsers.</a>
-# <p> Also see: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-the-send-only-mail-server-exim-on-ubuntu-12-04">
-#     how to install the send only mail server exim on ubuntu 12-04</a>
-# <p>After rebooting, it would seem that sometimes the exim4 package resets its configuration and no longer mails out.
-# The quick fix is to  run:
+# <p>Given the above, changes need to be made by running:
 # <pre>dpkg-reconfigure exim4-config</pre>
-# and select the "internet site" option.
 # <p>The
 # <pre>exim -bV command</pre>
 # <p>gives useful information on exim's setup.
+# <p>Also see: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-the-send-only-mail-server-exim-on-ubuntu-12-04">
+#     how to install the send only mail server exim on ubuntu 12-04</a>
 # <p>To test on the command line, enter the following (where someone@target.com is your email address!):
 # <pre>$ echo “This is a test message.” | mail -s “Hello from hubzero” someone@target.com</pre>
 # <p>To send a file via the command line, enter the following (where someone@target.com is your email address!):
