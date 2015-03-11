@@ -30,7 +30,7 @@
 # <p>To send a file via the command line, enter the following (where someone@target.com is your email address!):
 # <pre>$ mail -s “A filey gift” someone@target.com < /a/path/to/some/file</pre>
 class exim4 (
-  $fqdn
+  $fqdn, $postmaster
 ){
 
   file { "/var/cache/debconf/exim4.seeds":
