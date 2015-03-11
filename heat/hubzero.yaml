@@ -111,6 +111,7 @@ parameters:
     type: string
     label: Swift Command Line Password
     description: The command line password for the NeCTAR user who the app will be writing to Swift as.
+    hidden: true
 
   tenancy_name:
     type: string
