@@ -6,7 +6,7 @@
 #                     hubzero_test
 parameters:
   hub_zero_version: # 1.1 | 1.2 | 1.3 | 1.3.1
-  email: # a valid email address to notify when the installation is complete.
+  email_postmaster: # a valid email address to notify of events on the server, such as the installation completion.
   hostname: # a valid fully qualified hostname, eg: hubzero.v3.edu.au
   nagiosserver : # the nagios host that will be monitoring this server.
   key: # the key pair to use to launch the vm

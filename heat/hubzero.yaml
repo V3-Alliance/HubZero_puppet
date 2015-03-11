@@ -28,7 +28,7 @@ parameter_groups:
 - label: Other Things
   description: Not yet categorized.
   parameters:
-  - email
+  - email_postmaster
   - hub_zero_version
   - tenancy_name
 
@@ -53,10 +53,10 @@ parameters:
     label: Key Name
     description: Name of an existing key pair to enable SSH access to the instance.
 
-  email:
+  email_postmaster:
     type: string
-    label: Email Address
-    description: The email address to notify when the installation is complete.
+    label: Postmaster Email Address
+    description: The email address to be notified of events on the server (and also when the installation is complete).
 
   # should make the following totally PGP key dependent
   pgp_passphraze:
@@ -159,7 +159,7 @@ resources:
             __my_sql_root_password: {get_attr: [my_sql_root_password, value]}
             __slapd_root_password: {get_attr: [slapd_root_password, value]}
             __hub_zero_version: { get_param: hub_zero_version }
-            __email: { get_param: email}
+            __email: { get_param: email_postmaster}
             __hostname: { get_param: hostname}
             __nagiosserver: {get_param: nagiosserver}
             __nectar_user_id: {get_param: nectar_user_id}
