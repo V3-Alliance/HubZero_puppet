@@ -59,12 +59,11 @@ Tasks still to be done:
 - [ ] Do we need to move the users home directories to the larger mounted transient storage?
 - [ ] submit package not yet added to the installation
 - [ ] The external DNS entry for the site and any matching records need to be set up manually. Instructions have to be written.
-- [ ] The url shown on the output page of the stack shows an IP number. One that uses the domain name needs to be added.
-- [ ] The exim4 configuration is loosing it's settings. find out why and fix it.
 - [ ] What about log files. Should we rotate them? Do we backup them up as well?
 - [ ] What to do about backup files that are older than, say  7 days?
 http://www.linuxquestions.org/questions/linux-general-1/bash-script-to-remove-files-older-than-3-days-462290/
 
 Known issues:
 - The LDAP installation on version 1.1 returns an error: this needs investigation. See the open-ldap module for more.
-- The email doesn't send mail successfully to all sites, as some sites, such as google,  don't trust it (not surprising).
+- The email doesn't send mail successfully to all sites, as some sites, such as google, don't trust it (not surprising).
+- Also, not all NeCTAR nodes seem to allow e-mail to flow out.
