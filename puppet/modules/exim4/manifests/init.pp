@@ -41,8 +41,8 @@ class exim4 (
     responsefile => "/var/cache/debconf/exim4.seeds",
     ensure       => latest;
   }
-  # There is an oddity with the erb file not breaking the 'internet' setting for the application if variables are
-  # embedded in it. This sledgehammer forces it to internet.
+  # There is an oddity with the erb file not breaking the 'internet' setting for the application if more than one
+  # variables is embedded in it. This sledgehammer forces it to internet.
   ->
   exec { "change exim4 config to internet":
     command =>"/bin/sed -i \"s/dc_eximconfig_configtype=.*/dc_eximconfig_configtype='internet'/\" /etc/exim4/update-exim4.conf.conf",
