@@ -173,14 +173,6 @@ resources:
 
 
 outputs:
-  instance_name:
-    description: "The name of the instance:"
-    value: { get_attr: [hubZero_instance, name] }
-    # TODO: reports "The Referenced Attribute (hubZero_instance name) is incorrect."??
-
-  instance_aws_name:
-    description: "The AWS compatible instance name:"
-    value: { get_attr: [hubZero_instance, instance_name] }
 
   instance_ip:
     description: "The IP address of the instance:"
