@@ -45,11 +45,11 @@ class exim4 (
   # embedded in it. This sledgehammer forces it to internet.
   ->
   exec { "change exim4 config to internet":
-    command =>"sed -i \"s/dc_eximconfig_configtype=.*/dc_eximconfig_configtype='internet'/\" /etc/exim4/update-exim4.conf.conf",
+    command =>"/bin/sed -i \"s/dc_eximconfig_configtype=.*/dc_eximconfig_configtype='internet'/\" /etc/exim4/update-exim4.conf.conf",
   }
   ->
   exec { "reconfigure exim4":
-    command=>'dpkg-reconfigure exim4-config -fnoninteractive'
+    command=>'/usr/sbin/dpkg-reconfigure exim4-config -fnoninteractive'
   }
 
 }
