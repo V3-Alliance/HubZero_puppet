@@ -24,9 +24,9 @@
 # <p>Also see: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-the-send-only-mail-server-exim-on-ubuntu-12-04">
 #     how to install the send only mail server exim on ubuntu 12-04</a>
 # <p>To test on the command line, enter the following (where someone@target.com is your email address!):
-# <pre>$ echo “This is a test message.” | mail -s “Hello from hubzero” someone@target.com</pre>
+# <pre>$ echo "This is a test message." | mail -s "Hello from hubzero" someone@target.com</pre>
 # <p>To send a file via the command line, enter the following (where someone@target.com is your email address!):
-# <pre>$ mail -s “A filey gift” someone@target.com < /a/path/to/some/file</pre>
+# <pre>$ mail -s "A filey gift" someone@target.com < /a/path/to/some/file</pre>
 class exim4 (
   $fqdn, $postmaster
 ){
