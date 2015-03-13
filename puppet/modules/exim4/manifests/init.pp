@@ -27,6 +27,8 @@
 # <pre>$ echo "This is a test message." | mail -s "Hello from hubzero" someone@target.com</pre>
 # <p>To send a file via the command line, enter the following (where someone@target.com is your email address!):
 # <pre>$ mail -s "A filey gift" someone@target.com < /a/path/to/some/file</pre>
+# <p>To see what mail has been sent you can run:</p>
+# <pre>$ eximstats /var/log/exim_mainlog | less</pre>
 class exim4 (
   $fqdn, $postmaster
 ){
