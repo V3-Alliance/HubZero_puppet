@@ -3,6 +3,11 @@
 # If you require additional system accounts, they can be numbered between 500-999 without interfering with hub operations!
 class v3::admins {
 
+# for our admin's sanity
+  package { 'vim':
+    ensure => latest,
+  }
+
 # for each potential admin, copy the the section below up to the '========================' line and customize.
 #'=martin======================='
 
