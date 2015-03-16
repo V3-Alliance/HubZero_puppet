@@ -1,10 +1,8 @@
 A set of scripts to install HubZero
 ===================================
 
-This project is a set of scripts for installing [HubZero](https://hubzero.org) onto a virtual machine
+This project contains a set of scripts for installing [HubZero](https://hubzero.org) onto a virtual machine
 running on the Nectar cloud, using [Heat](https://support.rc.nectar.org.au/docs/heat)
-
-# NB: This is a work in progress! #
 
 To use these scripts you need to have the Heat command line client installed. Instructions for installing and using
 the command line tools on the NeCTAR cloud [are found here](https://support.rc.nectar.org.au/docs/installing-command-line-tools).
@@ -27,22 +25,21 @@ cp heat/environment_template.yaml heat/environment.yaml
 vi heat/environment.yaml
 
 # Launch the heat template
-heat stack-create --template-file=heat/hubzero.yaml --environment-file=heat/environment.yaml hubzero_1_3
+heat stack-create --template-file=heat/hubzero.yaml --environment-file=heat/environment.yaml a_suitable_name
 
 # wait for a while...
 ```
 
-The installation will attempt to send email to the address given in the environment template once it is complete.
-Typically it will take up to 15 minutes to run through the installation.
+The installation is a two phase one. First Heat sets up and configures the required infrastructure. Then it hands
+over to a set of Puppet scripts on the instance that install and manage the required software. Hence the installation
+is not complete until the Puppet scripts have finished executing.
+
+Once complete, the install will send email to the postmaster address given in the environment template.
+Typically it will take 15 minutes (sometimes a lot longer) to run through the installation.
 
 The Heat template has on its stack output page the url's to connect to the instance and a sample ssh connection string.
 
-Once complete, the passwords and users created by the ldap installation have been written to the file:
-
-```bash
-/etc/ldap.secrets
-```
-Once complete, the passwords and users created by the hub zero installation have been written to the file:
+Once completed, the passwords and users created by the hub zero installation can be found in the file:
 
 ```bash
 /etc/hubzero.secrets
@@ -56,14 +53,15 @@ If installing version 1.1, once the installation is complete, go to the administ
 in order to export all the CMS users and groups
 
 Tasks still to be done:
-- [ ] Do we need to move the users home directories to the larger mounted transient storage?
-- [ ] submit package not yet added to the installation
-- [ ] The external DNS entry for the site and any matching records need to be set up manually. Instructions have to be written.
-- [ ] What about log files. Should we rotate them? Do we backup them up as well?
-- [ ] What to do about backup files that are older than, say  7 days?
+- Do we need to move the users home directories to the larger mounted transient storage?
+- The submit package is not yet added to the installation. Is it needed?
+- The external DNS entry for the site and any matching records need to be set up manually.
+- What about log files. Should we rotate them? Do we backup them up as well?
+- What to do about backup files that are older than, say  7 days?
 http://www.linuxquestions.org/questions/linux-general-1/bash-script-to-remove-files-older-than-3-days-462290/
 
 Known issues:
 - The LDAP installation on version 1.1 returns an error: this needs investigation. See the open-ldap module for more.
+  We are not going to investigate this further as we are not targeting 1.1.
 - The email doesn't send mail successfully to all sites, as some sites, such as google, don't trust it (not surprising).
 - Also, not all NeCTAR nodes seem to allow e-mail to flow out.
