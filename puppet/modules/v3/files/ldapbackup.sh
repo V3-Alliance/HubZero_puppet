@@ -4,6 +4,12 @@
 # see http://arthurdejong.org/nss-pam-ldapd/setup on how to debug this lot...
 
 BACKUP_DIR=/mnt/backup/ldap
+
+mkdir -p ${BACKUP_DIR}
+
+# delete any backup older than 7 days
+find ${BACKUP_DIR} -mtime 7 -delete
+
 WORKING_DIR=${BACKUP_DIR}/scratch
 LDAP_BACKUP_FILE=${BACKUP_DIR}/ldap-$( date +%y%m%d-%H%M ).tar.gz
 SLAPCAT=/usr/sbin/slapcat

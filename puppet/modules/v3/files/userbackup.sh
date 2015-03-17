@@ -4,6 +4,12 @@
 
 USER_BACKUP_FILE=users-$( date +%y%m%d-%H%M ).tar.gz
 BACKUP_DIR=/mnt/backup/users
+
+mkdir -p ${BACKUP_DIR}
+
+# delete any backup older than 7 days
+find ${BACKUP_DIR} -mtime 7 -delete
+
 WORKING_DIR=${BACKUP_DIR}/scratch
 UGIDLIMIT=1000
 mkdir -p ${WORKING_DIR}
