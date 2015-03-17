@@ -1,12 +1,31 @@
 Backups
 =======
 
+Overview
+--------
+
+The intent of the backups is to simply backup the state of the machine, and not the actual machine itself.
+The backup scripts write a copy of the state to the /mnt/backup directory.
+The contents of this directory are then encrypted and written to Swift.
+
+If so desired, these backups can be downloaded from Swift to an off site location.
+
+A daily backup run is performed.
+
+Any daily backup on the machine (apart from the MySQL backups) that is older than seven days is deleted.
+
+The first backup on Swift is a full one. For the next six days the subsequent backups are incremental. Then another
+full backup is performed.
+
+All backup files older than a month are purged from Swift. This means that the furthest a restore can go is a month
+back in time. If a complete history is required then a monthly copy of the backups in Swift should be kept as well.
+
+
+Implementation
+==============
+
 There are a number of scripts that run to create the backups. They are chained together and called by the
 automysqlbackup package as part of its run.
-
-The intent is to simply backup the state of the machine, and not the actual machine itself. The backup scripts
-write a copy of the state to the /mnt/backup directory. The contents of this directory are then encrypted and
-written to Swift. If so desired, these backups can be downloaded from Swift to an off site location.
 
 The /mnt/backup directory contains the following subdirectories:
 
