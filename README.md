@@ -52,12 +52,21 @@ If installing version 1.1, once the installation is complete, go to the administ
 (/administrator), go to Site->Maintenance->LDAP and press the Export Users and Export Groups buttons
 in order to export all the CMS users and groups
 
-Still to be resolved:
+Backups
+=======
+
+Backup and restore is discussed in more detail [here](doc/backup.md).
+
+Still to be resolved
+====================
+
 - Do we need to move some of the data directories to the larger mounted transient storage?
 - The submit package is not yet added to the installation. Is it needed?
 - What about log files. Should we rotate them? Do we backup them up as well?
 
-Known issues:
+Known issues
+============
+
 - The external DNS entry for the site and any matching records need to be set up manually.
 - The LDAP installation on version 1.1 returns an error: this needs investigation. See the open-ldap module for more.
   We are not going to investigate this further as we are not targeting 1.1.
