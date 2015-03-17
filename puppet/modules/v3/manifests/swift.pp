@@ -1,5 +1,4 @@
-class v3::swift (
-){
+class v3::swift {
 
   package { "python-pip":
     ensure => "installed"
