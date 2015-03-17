@@ -20,7 +20,6 @@ full backup is performed.
 All backup files older than a month are purged from Swift. This means that the furthest a restore can go is a month
 back in time. If a complete history is required then a monthly copy of the backups in Swift should be kept as well.
 
-
 Implementation
 ==============
 
