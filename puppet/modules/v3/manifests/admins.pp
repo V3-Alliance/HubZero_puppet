@@ -1,4 +1,4 @@
-class v3::admin {
+class v3::admins {
 # for our admin's sanity
   package { 'vim':
     ensure => latest,
