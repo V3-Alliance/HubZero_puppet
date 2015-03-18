@@ -13,6 +13,8 @@
 #     duplicity /mnt/backup/ swift://$(hostname)
 # to restore a directory from swift:
 #     duplicity swift://$(hostname) /mnt/backup/
+# to restore a particular file from swift (say an ldap one):
+#     duplicity --file-to-restore ldap/ldap-150317-1409.tar.gz swift://$(hostname) /mnt/backup/ldap/ldap-150317-1409.tar.gz
 # to see the status of a backup on swift:
 #     duplicity collection-status swift://$(hostname)
 # to restore a backup as it was 5 days ago
