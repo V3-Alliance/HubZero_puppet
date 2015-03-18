@@ -1,8 +1,8 @@
 # Could perhaps be done with pgp key? http://budts.be/weblog/2012/08/ssh-authentication-with-your-pgp-key
 # note the hubzero admonition:
 # If you require additional system accounts, they can be numbered between 500-999 without interfering with hub operations!
-class v3::admin_account (
-  $username,
+define v3::admin_account (
+  $username = $title,
   $user_mail,
   $user_id,
   $public_key,
@@ -14,7 +14,7 @@ class v3::admin_account (
     groups  => 'sudo',
   }
   ->
-  exec { 'set_account_number':
+  exec { "set_${username}_account_number":
     command => "/usr/sbin/usermod -u ${user_id} ${username}",
   }
 
@@ -37,10 +37,4 @@ class v3::admin_account (
     mode   => '0700',
   }
 
-  file { '/etc/sudoers.d/sudogroup':
-    ensure => file,
-    owner  => root,
-    mode   => '0440',
-    source => 'puppet:///modules/v3/sudogroup',
-  }
 }
