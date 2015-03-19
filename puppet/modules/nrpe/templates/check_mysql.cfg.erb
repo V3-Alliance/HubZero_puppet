@@ -1,1 +1,1 @@
-/usr/lib/nagios/plugins/check_mysql -u nagios -p <%= @nagios_mysql_password %> -d example
+command[check_mysql]=/usr/lib/nagios/plugins/check_mysql -u nagios -p <%= @nagios_mysql_password %> -d example
