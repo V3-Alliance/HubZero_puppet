@@ -72,6 +72,7 @@ export PASSPHRASE="<pass_phrase_used_to_encrypt_swift_files>"
 ```
 
 Once the file is sourced, then use duplicity to fetch the file onto the machine from which the restore is being done:
+
 ```bash
 swift://<source_bucket> <target_directory>
 ```
