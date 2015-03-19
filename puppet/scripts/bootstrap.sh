@@ -102,6 +102,7 @@ maxwell-service::version: ${version}
 telequotad::version: ${version}
 rappture::version: ${version}
 nrpe::nagiosservers: __nagiosserver
+nrpe::nagios_mysql_password __nagios_mysql_password
 exim4::fqdn: __hostname
 exim4::postmaster: __email
 EOF

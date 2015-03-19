@@ -128,6 +128,10 @@ resources:
   slapd_root_password:
     type: OS::Heat::RandomString
 
+  # This is just for monitoring
+  nagios_mysql_password:
+    type: OS::Heat::RandomString
+
   # more /etc/firewall_on shows:
   #   http, https, https-alt (?), dns (53), ssh, smtp, mysql (should we add this?), ldap (1170), icmp, 830/831 (submit?)
   hubZero_security_group:
@@ -167,6 +171,7 @@ resources:
             __swift_password: {get_param: swift_password}
             __tenancy_name: {get_param: tenancy_name}
             __pgp_passphraze: {get_param: pgp_passphraze}
+            __nagios_mysql_password: {get_param: nagios_mysql_password}
           template:
             get_file: https://raw.githubusercontent.com/MartinPaulo/puppet_hub_zero/master/puppet/scripts/bootstrap.sh
       user_data_format: RAW
