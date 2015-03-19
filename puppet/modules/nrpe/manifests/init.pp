@@ -74,8 +74,8 @@ class nrpe (
   }
 
   exec { 'create nagios mysql user':
-    command => "mysql -h localhost -u root -e \"GRANT SELECT ON example.* TO 'nagios'@'localhost' IDENTIFIED BY '${nagios_mysql_password}';\"",
-    path    => "/usr/local/bin:/usr/bin/:/root",
+    command => "mysql --defaults-file=/root/.my.cnf -h localhost -u root -e \"GRANT SELECT ON example.* TO 'nagios'@'localhost' IDENTIFIED BY '${nagios_mysql_password}';\"",
+    path    => "/usr/local/bin:/usr/bin/",
     # following breaks 1.1 :(
     require => Package ['hubzero-mysql'],
   }
