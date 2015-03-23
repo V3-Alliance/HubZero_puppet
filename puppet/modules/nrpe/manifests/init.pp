@@ -78,7 +78,7 @@ class nrpe (
     path    => "/usr/local/bin:/usr/bin/",
   # following breaks 1.1 :(
     require => Package ['hubzero-mysql'],
-    onlyif   => 'dpkg -s hubzero-mysql'
+    onlyif   => 'dpkg -s hubzero-mysql',
   }
 
   exec { 'create nagios mysql user on 1.1':
@@ -86,7 +86,7 @@ class nrpe (
     path    => "/usr/local/bin:/usr/bin/",
   # following is 1.1 :(
     require => package ['mysql-server'],
-    except   => 'dpkg -s hubzero-mysql'
+    unless   => 'dpkg -s hubzero-mysql',
   }
 
   file { '/etc/nagios/nrpe.d/check_mysql.cfg':
