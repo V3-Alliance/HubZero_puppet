@@ -85,7 +85,7 @@ class nrpe (
     command => "mysql --defaults-file=/root/.my.cnf -h localhost -u root -e \"GRANT SELECT ON example.* TO 'nagios'@'localhost' IDENTIFIED BY '${nagios_mysql_password}';\"",
     path    => "/usr/local/bin:/usr/bin/",
   # following is 1.1 :(
-  #  require => Package ['mysql-server'],
+    require => Class ['mysql::server'],
     unless   => 'dpkg -s hubzero-mysql',
   }
 
