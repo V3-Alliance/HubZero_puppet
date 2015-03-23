@@ -16,6 +16,7 @@
 #  /usr/lib64/nagios/plugins/check_nrpe -H 115.146.87.78 -c absolutememory
 #  /usr/lib64/nagios/plugins/check_nrpe -H 115.146.87.78 -c check_all_disks
 #  /usr/lib64/nagios/plugins/check_nrpe -H 115.146.87.78 -c check_ntp_time
+#  /usr/lib64/nagios/plugins/check_nrpe -H 115.146.87.78 -c check_mysql
 
 
 class nrpe (
@@ -79,7 +80,7 @@ class nrpe (
     command => "mysql --defaults-file=/root/.my.cnf -h localhost -u root -e \"GRANT SELECT ON example.* TO 'nagios'@'localhost' IDENTIFIED BY '${nagios_mysql_password}';\"",
     path    => "/usr/local/bin:/usr/bin/",
   }
-
+  ->
   file { '/etc/nagios/nrpe.d/check_mysql.cfg':
     ensure    => file,
     content   => template('nrpe/check_mysql.cfg.erb'),
