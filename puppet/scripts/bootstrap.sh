@@ -87,6 +87,7 @@ cat > /etc/puppet/hiera.yaml <<EOF
 :logger: puppet
 
 EOF
+# syntax error on line 11, col 0: `exim4::fqdn: onetwo.v3apps.org.au' on node onetwo.v3apps.org.au#
 
 # write out common.yaml
 mkdir -p ${YAMLDIR}
@@ -102,7 +103,7 @@ maxwell-service::version: ${version}
 telequotad::version: ${version}
 rappture::version: ${version}
 nrpe::nagiosservers: __nagiosserver
-nrpe::nagios_mysql_password __nagios_mysql_password
+nrpe::nagios_mysql_password: __nagios_mysql_password
 exim4::fqdn: __hostname
 exim4::postmaster: __email
 EOF
