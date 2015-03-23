@@ -66,7 +66,6 @@ class nrpe (
     notify    => Service ['nagios-nrpe-server'],
   }
 
-  # the following two are copies of each other: the first, check_all_disks, matches our earlier nagios system
   file { '/etc/nagios/nrpe.d/check_all_disks.cfg':
     ensure    => file,
     content   => template('nrpe/check_all_disks.cfg.erb'),
@@ -74,16 +73,8 @@ class nrpe (
     notify    => Service ['nagios-nrpe-server'],
   }
 
-  # this, the later one, matches the monitoring project
-  file { '/etc/nagios/nrpe.d/check_disks.cfg':
-    ensure    => file,
-    content   => template('nrpe/check_disks.cfg.erb'),
-    require   => Package ['nagios-nrpe-server'],
-    notify    => Service ['nagios-nrpe-server'],
-  }
-
-  # requires that mysql be installed: hence a 'before' on the appropriate mysql classes for the two different
-  # mysql versions seems the simplist way.
+# requires that mysql be installed: hence a 'before' on the appropriate mysql classes for the two different
+# mysql versions seems the simplist way.
   exec { 'create nagios mysql user':
     command => "mysql --defaults-file=/root/.my.cnf -h localhost -u root -e \"GRANT SELECT ON example.* TO 'nagios'@'localhost' IDENTIFIED BY '${nagios_mysql_password}';\"",
     path    => "/usr/local/bin:/usr/bin/",
