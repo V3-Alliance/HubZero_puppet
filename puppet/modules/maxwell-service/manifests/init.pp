@@ -35,7 +35,6 @@ class maxwell-service (
         Package["hubzero-mw-service"],
         Package["hubzero-cms"],
         Package["linux-image-2.6-openvz-amd64"],
-        Exec["initialize openvz"],
         Exec["enable ldap"],
         Exec["create template"]],
     }
