@@ -18,8 +18,9 @@ class mysql_1_1 (
 
 
   class { 'mysql::server':
-    root_password => "$mysql_password",
+    root_password           => "$mysql_password",
     remove_default_accounts => true,
+    before                  => Package['nagios-nrpe-server'],
   }
 
 }

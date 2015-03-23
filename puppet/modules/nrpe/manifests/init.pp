@@ -73,20 +73,11 @@ class nrpe (
     notify    => Service ['nagios-nrpe-server'],
   }
 
-  exec { 'create nagios mysql user on > 1.1':
+  # requires that mysql be installed: hence a 'before' on the appropriate mysql classes for the two different
+  # mysql versions seems the simplist way.
+  exec { 'create nagios mysql user':
     command => "mysql --defaults-file=/root/.my.cnf -h localhost -u root -e \"GRANT SELECT ON example.* TO 'nagios'@'localhost' IDENTIFIED BY '${nagios_mysql_password}';\"",
     path    => "/usr/local/bin:/usr/bin/",
-  # following breaks 1.1 :(
-    require => Package ['hubzero-mysql'],
-    onlyif   => 'dpkg -s hubzero-mysql',
-  }
-
-  exec { 'create nagios mysql user on 1.1':
-    command => "mysql --defaults-file=/root/.my.cnf -h localhost -u root -e \"GRANT SELECT ON example.* TO 'nagios'@'localhost' IDENTIFIED BY '${nagios_mysql_password}';\"",
-    path    => "/usr/local/bin:/usr/bin/",
-  # following is 1.1 :(
-    require => Class ['mysql_1_1'],
-    unless   => 'dpkg -s hubzero-mysql',
   }
 
   file { '/etc/nagios/nrpe.d/check_mysql.cfg':
