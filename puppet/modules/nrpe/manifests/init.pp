@@ -17,6 +17,13 @@
 #  /usr/lib64/nagios/plugins/check_nrpe -H 115.146.87.78 -c check_all_disks
 #  /usr/lib64/nagios/plugins/check_nrpe -H 115.146.87.78 -c check_ntp_time
 #  /usr/lib64/nagios/plugins/check_nrpe -H 115.146.87.78 -c check_mysql
+#
+# also found that when doing re-runs on the same machine, that the restart of nrpe service done by puppet doesn't
+# have any effect. Hence a manual:
+# /etc/init.d/nagios-nrpe-server
+# restart is required.
+# The following article might have the solution if this turns out to be a problem:
+# http://anothersysadmin.blogspot.com.au/2012/05/on-centos-my-puppet-manifests-were.html
 
 
 class nrpe (
