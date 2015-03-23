@@ -66,9 +66,18 @@ class nrpe (
     notify    => Service ['nagios-nrpe-server'],
   }
 
+  # the following two are copies of each other: the first, check_all_disks, matches our earlier nagios system
   file { '/etc/nagios/nrpe.d/check_all_disks.cfg':
     ensure    => file,
     content   => template('nrpe/check_all_disks.cfg.erb'),
+    require   => Package ['nagios-nrpe-server'],
+    notify    => Service ['nagios-nrpe-server'],
+  }
+
+  # this, the later one, matches the monitoring project
+  file { '/etc/nagios/nrpe.d/check_disks.cfg':
+    ensure    => file,
+    content   => template('nrpe/check_disks.cfg.erb'),
     require   => Package ['nagios-nrpe-server'],
     notify    => Service ['nagios-nrpe-server'],
   }
