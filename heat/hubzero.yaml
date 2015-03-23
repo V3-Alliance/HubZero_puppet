@@ -163,6 +163,7 @@ resources:
           params:
             __my_sql_root_password: {get_attr: [my_sql_root_password, value]}
             __slapd_root_password: {get_attr: [slapd_root_password, value]}
+            __nagios_mysql_password: {get_attr: [nagios_mysql_password, value]}
             __hub_zero_version: { get_param: hub_zero_version }
             __email: { get_param: email_postmaster}
             __hostname: { get_param: hostname}
@@ -171,7 +172,6 @@ resources:
             __swift_password: {get_param: swift_password}
             __tenancy_name: {get_param: tenancy_name}
             __pgp_passphraze: {get_param: pgp_passphraze}
-            __nagios_mysql_password: {get_param: nagios_mysql_password}
           template:
             get_file: https://raw.githubusercontent.com/MartinPaulo/puppet_hub_zero/master/puppet/scripts/bootstrap.sh
       user_data_format: RAW
