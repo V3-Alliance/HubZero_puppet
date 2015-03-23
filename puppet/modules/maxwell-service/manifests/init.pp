@@ -29,7 +29,7 @@ class maxwell-service (
   }
 
   if $version == "1.1" {
-    exec { "enable maxwell 1.1":
+    exec { "enable maxwell":
       command      => "/usr/bin/hzcms configure mw-service --enable",
       require      => [
         Package["hubzero-mw-service"],
