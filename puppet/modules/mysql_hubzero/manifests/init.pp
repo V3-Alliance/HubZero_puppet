@@ -10,7 +10,7 @@ class mysql_hubzero {
 
   package { "hubzero-mysql":
     ensure => latest,
-    before => Package['nagios-nrpe-server'],
+    before => Exec['create nagios mysql user'],
   }
 
 }
