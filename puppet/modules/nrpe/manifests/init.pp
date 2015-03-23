@@ -73,13 +73,22 @@ class nrpe (
     notify    => Service ['nagios-nrpe-server'],
   }
 
-  exec { 'create nagios mysql user':
+  exec { 'create nagios mysql user on > 1.1':
     command => "mysql --defaults-file=/root/.my.cnf -h localhost -u root -e \"GRANT SELECT ON example.* TO 'nagios'@'localhost' IDENTIFIED BY '${nagios_mysql_password}';\"",
     path    => "/usr/local/bin:/usr/bin/",
-    # following breaks 1.1 :(
+  # following breaks 1.1 :(
     require => Package ['hubzero-mysql'],
+    onlyf   => 'dpkg -s hubzero-mysql'
   }
-  ->
+
+  exec { 'create nagios mysql user on 1.1':
+    command => "mysql --defaults-file=/root/.my.cnf -h localhost -u root -e \"GRANT SELECT ON example.* TO 'nagios'@'localhost' IDENTIFIED BY '${nagios_mysql_password}';\"",
+    path    => "/usr/local/bin:/usr/bin/",
+  # following is 1.1 :(
+    require => package ['mysql-server'],
+    except   => 'dpkg -s hubzero-mysql'
+  }
+
   file { '/etc/nagios/nrpe.d/check_mysql.cfg':
     ensure    => file,
     content   => template('nrpe/check_mysql.cfg.erb'),
