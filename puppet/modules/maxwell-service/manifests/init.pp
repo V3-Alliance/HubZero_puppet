@@ -27,14 +27,29 @@ class maxwell-service (
     timeout      => 0,
     require      => Package["hubzero-mw-service"],
   }
-  ->
-  exec { "enable maxwell":
-    command      => "/usr/bin/hzcms configure mw-service --enable",
-    require      => [
-      Package["hubzero-mw-service"],
-      Package["hubzero-cms"],
-      Exec["initialize openvz"],
-      Exec["enable ldap"]],
+
+  if $version == "1.1" {
+    exec { "enable maxwell 1.1":
+      command      => "/usr/bin/hzcms configure mw-service --enable",
+      require      => [
+        Package["hubzero-mw-service"],
+        Package["hubzero-cms"],
+        Package["linux-image-2.6-openvz-amd64"],
+        Exec["initialize openvz"],
+        Exec["enable ldap"],
+        Exec["create template"]],
+    }
+  } else {
+    exec { "enable maxwell":
+      command      => "/usr/bin/hzcms configure mw-service --enable",
+      require      => [
+        Package["hubzero-mw-service"],
+        Package["hubzero-cms"],
+        Package["hubzero-openvz"],
+        Exec["initialize openvz"],
+        Exec["enable ldap"],
+        Exec["create template"]],
+    }
   }
 
 }
