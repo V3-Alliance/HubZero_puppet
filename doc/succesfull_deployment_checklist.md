@@ -19,9 +19,9 @@ used is limited to the ones that we have found are able to support this requirem
 Enter the Values of the initial Parameter settings as used in the environment.yml, hubzero.yml  files and the Heat client command line:
 
 <table>
-  <tr style="background-color: #D3D3D3;">
-    <td>Parameter</td>
-    <td>Value</td>
+  <tr>
+    <td style="font-weight: bold;">Parameter</td>
+    <td style="font-weight: bold;">Value</td>
   </tr>
   <tr>
     <td>image</td>
