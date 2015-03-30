@@ -19,9 +19,9 @@ used is limited to the ones that we have found are able to support this requirem
 Enter the Values of the initial Parameter settings as used in the environment.yml, hubzero.yml  files and the Heat client command line:
 
 <table>
-  <tr>
-    <td> **Parameter** </td>
-    <td> **Value** </td>
+  <tr style="background-color: #D3D3D3;">
+    <td>Parameter</td>
+    <td>Value</td>
   </tr>
   <tr>
     <td>image</td>
@@ -70,75 +70,74 @@ Enter the Values of the initial Parameter settings as used in the environment.ym
 </table>
 
 
-Once the Heat scripts have been launched from the command line, Heat responds with a table showing the id of the newly launched stack, its name, creation time, and its initial status of "CREATE_IN_PROGRESS".
+Once the Heat scripts have been launched from the command line, Heat responds with a table showing the id of the newly 
+launched stack, its name, creation time, and its initial status of "CREATE_IN_PROGRESS".
 
 ### Test 1: Once built, does the stack pass Parameters through correctly?
 
 After some time, all being well on the NeCTAR side, the status of the stack will become "CREATE_COMPLETE". At this point the command:
 
-<table style="font-family: courier; border-style: none; background-color: #D3D3D3;">
-  <tr>
-    <td>$ heat stack-show <stack name></td>
-  </tr>
-</table>
+```bash
+$ heat stack-show <stack name>
+```
 
-
-will show the Parameters of the stack. The <stack name> originates from the heat stack-create command line string and its default Value is typically hubzero_test.
+will show the Parameters of the stack. The <stack name> originates from the heat stack-create command line string and 
+its default Value is typically hubzero_test.
 
 Are the following Assertions true?
 
 <table>
   <tr>
-    <td> **Result** </td>
-    <td>**Assertion**</td>
+    <td>Result</td>
+    <td>Assertion</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** image matches the **Value** entered above</td>
+    <td>The Parameter image matches the Value entered above</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** flavor matches the **Value** entered above</td>
+    <td>The Parameter flavor matches the Value entered above</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** key matches the **Value** entered above</td>
+    <td>The Parameter key matches the Value entered above</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** availability_zone matches the **Value** entered above</td>
+    <td>The Parameter availability_zone matches the Value entered above</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** tenancy_name matches the **Value** entered above</td>
+    <td>The Parameter tenancy_name matches the Value entered above</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** email_postmaster matches the **Value** entered above</td>
+    <td>The Parameter email_postmaster matches the Value entered above</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** hub_zero_version matches the **Value** entered above</td>
+    <td>The Parameter hub_zero_version matches the Value entered above</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** hostname matches the **Value** entered above</td>
+    <td>The Parameter hostname matches the Value entered above</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** nagiosserver matches the **Value** entered above</td>
+    <td>The Parameter nagiosserver matches the Value entered above</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** nectar_user_id matches the **Value** entered above</td>
+    <td>The Parameter nectar_user_id matches the Value entered above</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** pgp_passphraze is hidden by checkmarks</td>
+    <td>The Parameter pgp_passphraze is hidden by checkmarks</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** swift_password is hidden by checkmarks</td>
+    <td>The Parameter swift_password is hidden by checkmarks</td>
   </tr>
 </table>
 
@@ -153,24 +152,24 @@ In this page are the following Assertions true?
 
 <table>
   <tr>
-    <td>**Result**</td>
-    <td>**Assertion**</td>
+    <td>Result</td>
+    <td>Assertion</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** availability_zone matches (or is in) the Availability Zone **Value** in the Info section</td>
+    <td>The Parameter availability_zone matches (or is in) the Availability Zone Value in the Info section</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** flavor matches the Flavor **Value** in the Specs section</td>
+    <td>The Parameter flavor matches the Flavor Value in the Specs section</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** key matches the Key Name **Value** in the Meta section</td>
+    <td>The Parameter key matches the Key Name Value in the Meta section</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Parameter** image matches  the Image Name **Value** in the Meta section</td>
+    <td>The Parameter image matches  the Image Name Value in the Meta section</td>
   </tr>
 </table>
 
@@ -183,8 +182,8 @@ Are the following Assertions true?
 
 <table>
   <tr>
-    <td>**Result**</td>
-    <td>**Assertion**</td>
+    <td>Result</td>
+    <td>Assertion</td>
   </tr>
   <tr>
     <td></td>
@@ -192,7 +191,7 @@ Are the following Assertions true?
   </tr>
   <tr>
     <td></td>
-    <td>The instance_ssh **Value** has the **Parameter** key **Value** in it</td>
+    <td>The instance_ssh Value has the Parameter key Value in it</td>
   </tr>
 </table>
 
@@ -205,8 +204,8 @@ Is the following Assertion true?
 
 <table>
   <tr>
-    <td>**Result**</td>
-    <td>**Assertion**</td>
+    <td>Result</td>
+    <td>Assertion</td>
   </tr>
   <tr>
     <td></td>
@@ -240,12 +239,12 @@ Once the install is complete, the puppet script will send email to the address l
 
 <table>
   <tr>
-    <td>**Result**</td>
-    <td>**Assertion**</td>
+    <td>Result</td>
+    <td>Assertion</td>
   </tr>
   <tr>
     <td></td>
-    <td>The person in the email_postmaster **Parameter** received an email with the message heading "Install Progress"</td>
+    <td>The person in the email_postmaster Parameter received an email with the message heading "Install Progress"</td>
   </tr>
   <tr>
     <td></td>
@@ -258,8 +257,8 @@ Once the install is complete, the puppet script will send email to the address l
 
 <table>
   <tr>
-    <td>**Result**</td>
-    <td>**Assertion**</td>
+    <td>Result</td>
+    <td>Assertion</td>
   </tr>
   <tr>
     <td></td>
@@ -283,12 +282,12 @@ As root, in the ssh window, on the virtual machine, enter the command:
 
 <table>
   <tr>
-    <td>**Result**</td>
-    <td>**Assertion**</td>
+    <td>Result</td>
+    <td>Assertion</td>
   </tr>
   <tr>
     <td></td>
-    <td>Some time later, the person in the email_postmaster **Parameter** will receive an email with the message heading "This is a test message"</td>
+    <td>Some time later, the person in the email_postmaster Parameter will receive an email with the message heading "This is a test message"</td>
   </tr>
 </table>
 
@@ -318,8 +317,8 @@ In the Resultant login page enter the username "admin" and the JOOMLA-ADMIN Valu
 
 <table>
   <tr>
-    <td>**Result**</td>
-    <td>**Assertion**</td>
+    <td>Result</td>
+    <td>Assertion</td>
   </tr>
   <tr>
     <td></td>
@@ -343,12 +342,12 @@ Is the following correct?
 
 <table>
   <tr>
-    <td>**Result**</td>
-    <td>**Assertion**</td>
+    <td>Result</td>
+    <td>Assertion</td>
   </tr>
   <tr>
     <td></td>
-    <td>The **Result** returned is the **Value** of the hostname **Parameter**. </td>
+    <td>The Result returned is the Value of the hostname Parameter. </td>
   </tr>
 </table>
 
@@ -364,12 +363,12 @@ As root, in the ssh window on the virtual machine, enter the command:
 </table>
 
 
-The **Result**ing file will have its variables made up as follows:
+The Resulting file will have its variables made up as follows:
 
 <table>
   <tr>
-    <td>**Result**</td>
-    <td>**Assertion**</td>
+    <td>Result</td>
+    <td>Assertion</td>
   </tr>
   <tr>
     <td></td>
@@ -402,8 +401,8 @@ The file should not be visible:
 
 <table>
   <tr>
-    <td>**Result**</td>
-    <td>**Assertion**</td>
+    <td>Result</td>
+    <td>Assertion</td>
   </tr>
   <tr>
     <td></td>
