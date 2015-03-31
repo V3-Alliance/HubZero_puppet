@@ -51,7 +51,7 @@ vi heat/environment.yaml
 # A symptom of having the wrong environment variables set is that when you look in the dashboard for the resources 
 # created by this script you don't find them...
 
-heat stack-create --template-file=heat/hubzero.yaml --environment-file=heat/environment.yaml SOname
+heat stack-create --template-file=heat/hubzero.yaml --environment-file=heat/environment.yaml stackName
 
 # wait for a while...
 ```
