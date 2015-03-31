@@ -16,12 +16,13 @@ used is limited to the ones that we have found are able to support this requirem
 
 ## Part 1: Validating the NeCTAR infrastructure
 
-Enter the Values of the initial Parameter settings as used in the environment.yml, hubzero.yml  files and the Heat client command line:
+Enter the Values of the initial Parameter settings as used in the `environment.yml`, `hubzero.yml`  files and the 
+Heat client command line:
 
 <table>
   <tr>
     <td style="font-weight: bold;">Parameter</td>
-    <td style="font-weight: bold;">Value</td>
+    <td style="font-weight: bold;width:300px;">Value</td>
   </tr>
   <tr>
     <td>image</td>
@@ -88,8 +89,8 @@ Are the following Assertions true?
 
 <table>
   <tr>
-    <td>Result</td>
-    <td>Assertion</td>
+    <td style="font-weight: bold;">Result</td>
+    <td style="font-weight: bold;">Assertion</td>
   </tr>
   <tr>
     <td></td>
@@ -152,8 +153,8 @@ In this page are the following Assertions true?
 
 <table>
   <tr>
-    <td>Result</td>
-    <td>Assertion</td>
+    <td style="font-weight: bold;">Result</td>
+    <td style="font-weight: bold;">Assertion</td>
   </tr>
   <tr>
     <td></td>
@@ -182,8 +183,8 @@ Are the following Assertions true?
 
 <table>
   <tr>
-    <td>Result</td>
-    <td>Assertion</td>
+    <td style="font-weight: bold;">Result</td>
+    <td style="font-weight: bold;">Assertion</td>
   </tr>
   <tr>
     <td></td>
@@ -204,8 +205,8 @@ Is the following Assertion true?
 
 <table>
   <tr>
-    <td>Result</td>
-    <td>Assertion</td>
+    <td style="font-weight: bold;">Result</td>
+    <td style="font-weight: bold;">Assertion</td>
   </tr>
   <tr>
     <td></td>
@@ -224,23 +225,19 @@ You will have to ssh into the machine again, and re-verify your certificate.
 
 Once logged in become the root user:
 
-<table style="font-family: courier; border-style: none; background-color: #D3D3D3;">
-  <tr>
-    <td>$ sudo -i</td>
-  </tr>
-</table>
+```bash
+$ sudo -i
+```
 
 
 ### Test 5: Does the site notify the postmaster that the install is complete?
 
 Once the install is complete, the puppet script will send email to the address listed in the email_postmaster Parameter.
 
- 
-
-<table>
+ <table>
   <tr>
-    <td>Result</td>
-    <td>Assertion</td>
+    <td style="font-weight: bold;">Result</td>
+    <td style="font-weight: bold;">Assertion</td>
   </tr>
   <tr>
     <td></td>
@@ -257,8 +254,8 @@ Once the install is complete, the puppet script will send email to the address l
 
 <table>
   <tr>
-    <td>Result</td>
-    <td>Assertion</td>
+    <td style="font-weight: bold;">Result</td>
+    <td style="font-weight: bold;">Assertion</td>
   </tr>
   <tr>
     <td></td>
@@ -273,17 +270,14 @@ Note: on version 1.3 of HubZero you will be taken to an unsecured  landing page 
 
 As root, in the ssh window, on the virtual machine, enter the command:
 
-<table style="font-family: courier; border-style: none; background-color: #D3D3D3;">
-  <tr>
-    <td>$ echo "This is a test message." | mail -s "Hello from hubzero" root@localhost</td>
-  </tr>
-</table>
-
+```bash
+$ echo "This is a test message." | mail -s "Hello from hubzero" root@localhost
+```
 
 <table>
   <tr>
-    <td>Result</td>
-    <td>Assertion</td>
+    <td style="font-weight: bold;">Result</td>
+    <td style="font-weight: bold;">Assertion</td>
   </tr>
   <tr>
     <td></td>
@@ -298,12 +292,9 @@ You cannot log into the site successfully unless the web browser, the database, 
 
 As root, in the ssh window on the virtual machine, enter the command: 
 
-<table style="font-family: courier; border-style: none; background-color: #D3D3D3;">
-  <tr>
-    <td>less /etc/hubzero.secrets</td>
-  </tr>
-</table>
-
+```bash
+$ less /etc/hubzero.secrets
+```
 
 In the window brought up, make a note of the JOOMLA-ADMIN Value.
 
@@ -317,8 +308,8 @@ In the Resultant login page enter the username "admin" and the JOOMLA-ADMIN Valu
 
 <table>
   <tr>
-    <td>Result</td>
-    <td>Assertion</td>
+    <td style="font-weight: bold;">Result</td>
+    <td style="font-weight: bold;">Assertion</td>
   </tr>
   <tr>
     <td></td>
@@ -331,19 +322,16 @@ In the Resultant login page enter the username "admin" and the JOOMLA-ADMIN Valu
 
 As root, in the ssh window on the virtual machine, enter the command:
 
-<table style="font-family: courier; border-style: none; background-color: #D3D3D3;">
-  <tr>
-    <td>$ echo $(hostname)</td>
-  </tr>
-</table>
-
+```bash
+$ echo $(hostname)
+```
 
 Is the following correct?
 
 <table>
   <tr>
-    <td>Result</td>
-    <td>Assertion</td>
+    <td style="font-weight: bold;">Result</td>
+    <td style="font-weight: bold;">Assertion</td>
   </tr>
   <tr>
     <td></td>
@@ -356,19 +344,16 @@ Is the following correct?
 
 As root, in the ssh window on the virtual machine, enter the command:
 
-<table style="font-family: courier; border-style: none; background-color: #D3D3D3;">
-  <tr>
-    <td>$ less /etc/nectar.secrets</td>
-  </tr>
-</table>
-
+```bash
+$ less /etc/nectar.secrets
+```
 
 The Resulting file will have its variables made up as follows:
 
 <table>
   <tr>
-    <td>Result</td>
-    <td>Assertion</td>
+    <td style="font-weight: bold;">Result</td>
+    <td style="font-weight: bold;">Assertion</td>
   </tr>
   <tr>
     <td></td>
@@ -389,25 +374,20 @@ The Resulting file will have its variables made up as follows:
 
 As root, in the ssh window on the virtual machine, enter the commands:
 
-<table style="font-family: courier; border-style: none; background-color: #D3D3D3;">
-  <tr>
-    <td>$ exit<br />
-        $ less /etc/nectar.secrets</td>
-  </tr>
-</table>
-
+```bash
+$ exit
+$ less /etc/nectar.secrets
+```
 
 The file should not be visible:
 
 <table>
   <tr>
-    <td>Result</td>
-    <td>Assertion</td>
+    <td style="font-weight: bold;">Result</td>
+    <td style="font-weight: bold;">Assertion</td>
   </tr>
   <tr>
     <td></td>
     <td>The attempt to view the file as a non root user Resulted in the error message: "/etc/nectar.secrets: Permission denied"</td>
   </tr>
 </table>
-
-
