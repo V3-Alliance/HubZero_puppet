@@ -70,6 +70,7 @@ and tail the OpenStack log files.
 
 Once the entire installation is complete, an email will be sent to the postmaster address given in the environment 
 template. 
+
 **NB** Some mail providers will not accept the email sent by from the installation unless it comes from a known domain.
 To see if this is an issue or not, inspect the file `/var/log/exim4/mainlog` to see if the mail has been successfully
 sent.
