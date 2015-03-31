@@ -83,8 +83,11 @@ Then the passwords and users created by the hub zero installation can be found i
 /etc/hubzero.secrets
 ```
 
-If you want to verify your installation there is a [checklist](doc/succesfull_deployment_checklist.md) that you can
+If you want to verify your installation there is a [checklist](doc/successful_deployment_checklist.md) that you can
 work through to see if everything went according to plan.
+
+**NB** If you chose to use your own Nagios server(s), once the software is installed, you need to alter the security group
+set up by the Heat template to point at your Nagios server(s) rather than the default monitoring ones.
 
 Configuration
 -------------

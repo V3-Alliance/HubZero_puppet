@@ -17,7 +17,7 @@ parameter_groups:
   - flavor
   - availability_zone
   - hostname
-  - nagiosserver
+  - nagiosservers
 - label: Security
   description: Secret things.
   parameters:
@@ -65,12 +65,8 @@ parameters:
     description: The password that gives absolute access to the Duplicity backups in Swift.
     hidden: true
     constraints: # update the environment_template.yaml if changing the constraints...
-      - length: { min: 6, max: 16 }
-        description: The password length must be between 6 and 16 characters long.
-      - allowed_pattern: "[a-zA-Z0-9]+"
-        description: The password must consist of characters and numbers only.
-      - allowed_pattern: "[A-Z]+[a-zA-Z0-9]*"
-        description: The password must start with an uppercase character.
+      - length: { min: 6 }
+        description: The password length must be at least 6 characters long.
 
   hub_zero_version:
     type: string
@@ -96,11 +92,11 @@ parameters:
     label: The Hostname
     description: The fully quailified hostname for the installation - something along the lines of hubzero.v3.edu.au
 
-  nagiosserver:
+  nagiosservers:
     type: string
-    label: Nagios Server
-    default: nagios.v3apps.org.au
-    description: The IP number or hostname of the server that nagios will report to
+    label: The Nagios Servers
+    default: n1.v3apps.org.au, n2.v3apps.org.au
+    description: A comma-delimited list of IP address or hostnames that are allowed to talk to the NRPE daemon. If you change these you need to edit the firewall rules after the deployment!
 
   nectar_user_id:
     type: string
@@ -143,11 +139,13 @@ resources:
         {CidrIp: 0.0.0.0/0, IpProtocol: tcp,  FromPort: '443', ToPort: '443'},
         # http
         {CidrIp: 0.0.0.0/0, IpProtocol: tcp,  FromPort: '80', ToPort: '80'},
-        # nagios
-        {CidrIp: 144.6.225.113/32, IpProtocol: tcp, FromPort: '5666', ToPort: '5666'},
+        # nagios n1.v3apps.org.au
+        {CidrIp: 115.146.85.205/32, IpProtocol: tcp, FromPort: '5666', ToPort: '5666'},
+        # nagios n2.v3apps.org.au
+        {CidrIp: 130.56.251.28/32, IpProtocol: tcp, FromPort: '5666', ToPort: '5666'},
         # ssh
         {CidrIp: 0.0.0.0/0, IpProtocol: tcp,  FromPort: '22', ToPort: '22'},
-        # ping
+        # icmp
         {CidrIp: 0.0.0.0/0, IpProtocol: icmp, FromPort: '-1', ToPort: '-1'}]
 
   hubZero_instance:
@@ -167,7 +165,7 @@ resources:
             __hub_zero_version: { get_param: hub_zero_version }
             __email: { get_param: email_postmaster}
             __hostname: { get_param: hostname}
-            __nagiosserver: {get_param: nagiosserver}
+            __nagiosservers: {get_param: nagiosservers}
             __nectar_user_id: {get_param: nectar_user_id}
             __swift_password: {get_param: swift_password}
             __tenancy_name: {get_param: tenancy_name}
