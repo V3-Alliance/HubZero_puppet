@@ -19,56 +19,19 @@ used is limited to the ones that we have found are able to support this requirem
 Enter the Values of the initial Parameter settings as used in the `environment.yml`, `hubzero.yml`  files and the 
 Heat client command line:
 
-<table>
-  <tr>
-    <td style="font-weight: bold;">Parameter</td>
-    <td style="font-weight: bold;width:300px;">Value</td>
-  </tr>
-  <tr>
-    <td>image</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>flavor</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>key</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>availability_zone</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>tenancy_name</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>email_postmaster</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>hub_zero_version</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>hostname</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>nagiosserver</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>nectar_user_id</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>stack name</td>
-    <td></td>
-  </tr>
-</table>
+| Parameter        | Value                                      |
+|------------------|--------------------------------------------|
+|image             |                                            |
+|flavor            |                                            |
+|key               |                                            |
+|availability_zone |                                            |
+|tenancy_name      |                                            |
+|email_postmaster  |                                            |
+|hub_zero_version  |                                            |
+|hostname          |                                            |
+|nagiosserver      |                                            |
+|nectar_user_id    |                                            |
+|stack name        |                                            |
 
 
 Once the Heat scripts have been launched from the command line, Heat responds with a table showing the id of the newly 
