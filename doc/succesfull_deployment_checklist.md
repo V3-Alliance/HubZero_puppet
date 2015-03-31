@@ -19,7 +19,7 @@ used is limited to the ones that we have found are able to support this requirem
 Enter the Values of the initial Parameter settings as used in the `environment.yml`, `hubzero.yml`  files and the 
 Heat client command line:
 
-| Parameter        | Value                                      |
+| Parameter        | Value &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |------------------|--------------------------------------------|
 |image             |                                            |
 |flavor            |                                            |
