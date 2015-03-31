@@ -4,15 +4,22 @@
 ##Last Name:
 ##Date:
 
-If working online you can copy either ☑ or ☒ and paste into the Result column as you progress.
+Write either a ☑ ('yes') or ☒ ('no') into the Result column as you progress.
 
 The scripts run as a two stage process.  The first stage uses Heat to create the required infrastructure. This stage 
 executes quite quickly: ordinarily in a matter of minutes.
 
-The second stage takes place on the created instance and uses Puppet to install and configure the required software.
+The second stage takes place on the created instance and uses Puppet to install and configure the required software. 
+This stage can take up to an hour to complete...
+
+Once the Puppet scripts have finished, they send an e-mail to the address entered for the postmaster and reboot the
+server. At that point you can use this checklist to verify that the install went according to plan.
 
 **NB:** The software is being installed into a node that supports the sending of email. The list of nodes that can be 
 used is limited to the ones that we have found are able to support this requirement. Of course this can change :(
+
+Once you've run through this checklist, if everything comes up '☑', then you know that you most likely have a successful 
+install. If you have a '☒' anywhere, then some debugging is needed.
 
 ## Part 1: Validating the NeCTAR infrastructure
 
