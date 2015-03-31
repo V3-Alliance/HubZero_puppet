@@ -46,8 +46,12 @@ cp heat/environment_template.yaml heat/environment.yaml
 # These parameters and the defaults are described in the heat template, heat/hubzero.yaml
 vi heat/environment.yaml
 
-# Launch the heat template
-heat stack-create --template-file=heat/hubzero.yaml --environment-file=heat/environment.yaml a_suitable_name
+# *NB* Make sure that the environment variables used by the OpenStack command line clients are the same as the ones
+# you have set in the environment.yaml file.
+# A symptom of having the wrong environment variables set is that when you look in the dashboard for the resources 
+# created by this script you don't find them...
+
+heat stack-create --template-file=heat/hubzero.yaml --environment-file=heat/environment.yaml SOname
 
 # wait for a while...
 ```
@@ -64,7 +68,12 @@ the execution of Puppet proceeds behind the scenes.
 To obtain feedback on Puppet execution login to the target VM using the ssh connection string
 and tail the OpenStack log files.
 
-Once the entire installation is complete, an email will be sent to the postmaster address given in the environment template.
+Once the entire installation is complete, an email will be sent to the postmaster address given in the environment 
+template. 
+**NB** Some mail providers will not accept the email sent by from the installation unless it comes from a known domain.
+To see if this is an issue or not, inspect the file `/var/log/exim4/mainlog` to see if the mail has been successfully
+sent.
+
 Typically it will take 15 minutes (sometimes a lot longer) to run through the installation.
 
 Once the installation has completed, perform an ssh login to the virtual machine you have just created.
@@ -74,13 +83,16 @@ Then the passwords and users created by the hub zero installation can be found i
 /etc/hubzero.secrets
 ```
 
+If you want to verify your installation there is a [checklist](doc/succesfull_deployment_checklist.md) that you can
+work through to see if everything went according to plan.
+
 Configuration
 -------------
 
 HubZero provides a web-based administrator/configuration interface via the Joomla web application.
 Joomla is a Content Management System (CMS) that provides user and group management.
 
-To login to the web site as admin, use the password from the hubzero.secrets file for the JOOMLA-ADMIN, but with the
+To login to the web site as admin, use the password from the hubzero.secrets file for the `JOOMLA-ADMIN`, but with the
 user name 'admin'
 
 If installing version 1.1, once the installation is complete, go to the administrator section of your site
@@ -97,4 +109,3 @@ Known issues:
 - The LDAP installation on version 1.1 returns an error: this needs investigation. See the open-ldap module for more.
   We are not going to investigate this further as we are not targeting 1.1.
 - The email doesn't send mail successfully to all sites, as some sites, such as google, don't trust it (not surprising).
-- Also, not all NeCTAR nodes seem to allow e-mail to flow out.
