@@ -14,5 +14,5 @@ function do_backup_directory {
     tar -zcpPf ${BACKUP_DIR}/${USER_BACKUP_FILE} $2
 }
 
-do_backup_directory 'sites', '/var/www/'
-do_backup_directory 'srv', '/srv/'
+do_backup_directory 'sites' '/var/www/'
+do_backup_directory 'srv' '/srv/'
