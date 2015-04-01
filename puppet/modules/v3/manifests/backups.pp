@@ -43,6 +43,11 @@ class v3::backups {
     ensure    => file,
     source    => "puppet:///modules/v3/mysql-backup-post.sh",
     mode      => '0744',
+  } ->
+  exec { "backup events table":
+    # we are not backing the events table, and hence getting a mysql error reported. This is a dirty fix.
+    # http://blog.crythias.com/2013/05/solve-automysqlbackup-warning-mysqlevent.html
+    command => '/bin/sed -i.bak "s|\"--quote-names\"|\"--quote-names --events\"|" /usr/sbin/automysqlbackup',
   }
 
 }
