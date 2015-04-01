@@ -1,12 +1,18 @@
 #!/bin/bash -e
 
-USER_BACKUP_FILE=sites-$( date +%y%m%d-%H%M ).tar.gz
-BACKUP_DIR=/mnt/backup/sites
+function do_backup_directory {
 
-mkdir -p ${BACKUP_DIR}
+    USER_BACKUP_FILE=$1-$( date +%y%m%d-%H%M ).tar.gz
+    BACKUP_DIR=/mnt/backup/$1
 
-# delete any backup older than 7 days
-find ${BACKUP_DIR} -mtime +7 -delete
+    mkdir -p ${BACKUP_DIR}
 
-# and tar up the backup directory
-tar -zcpPf ${BACKUP_DIR}/${USER_BACKUP_FILE} /var/www/
+    # delete any backup older than 7 days
+    find ${BACKUP_DIR} -mtime +7 -delete
+
+    # and tar up the backup directory
+    tar -zcpPf ${BACKUP_DIR}/${USER_BACKUP_FILE} $2
+}
+
+do_backup_directory 'sites', '/var/www/'
+do_backup_directory 'srv', '/srv/'
