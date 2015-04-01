@@ -54,7 +54,7 @@ MAILADDR="mpaulo@v3.org.au"
 # List of DBBNAMES for Monthly Backups.
 MDBNAMES="mysql $DBNAMES"
 
-# List of DBNAMES to EXLUCDE if DBNAMES are set to all (must be in " quotes)
+# List of DBNAMES to EXCLUDE if DBNAMES are set to all (must be in " quotes)
 DBEXCLUDE=""
 
 # Include CREATE DATABASE in backup?
