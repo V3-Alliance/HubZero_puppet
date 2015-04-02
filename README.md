@@ -99,17 +99,25 @@ Joomla is a Content Management System (CMS) that provides user and group managem
 To login to the web site as admin, use the password from the hubzero.secrets file for the `JOOMLA-ADMIN`, but with the
 user name 'admin'
 
-If installing version 1.1, once the installation is complete, go to the administrator section of your site
+### Once the installation is complete:
+
+If installing version 1.1, log in to the administrator section of your site
 (/administrator), go to Site->Maintenance->LDAP and press the Export Users and Export Groups buttons
 in order to export all the CMS users and groups
 
-Still to be resolved:
+On all installs, log in to the administration section of your site
+ (/administrator), then go to Site->Global Configuration->Server and change the **From email** appropriately.
+
+##Still to be resolved:
+
 - Do we need to move some of the data directories to the larger mounted transient storage?
 - The submit package is not yet added to the installation. Is it needed?
 - What about log files. Should we rotate them? Do we backup them up as well?
 
-Known issues:
+##Known issues:
+
 - The external DNS entry for the site and any matching records need to be set up manually.
 - The LDAP installation on version 1.1 returns an error: this needs investigation. See the open-ldap module for more.
   We are not going to investigate this further as we are not targeting 1.1.
 - The email doesn't send mail successfully to all sites, as some sites, such as google, don't trust it (not surprising).
+- The "From email" needs manual setting.
