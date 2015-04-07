@@ -12,7 +12,7 @@ class cms (
 
   case $version {
     1.1: { $cms_version =  "hubzero-cms" }
-    1.2: { $cms_version =  "hubzero-cms-1.2.0" }
+    1.2: { $cms_version =  "hubzero-cms-1.2.2" }
     default : { $cms_version =  "hubzero-cms-1.3.0" }
   }
 
