@@ -29,6 +29,8 @@
 # <pre>$ mail -s "A filey gift" someone@target.com < /a/path/to/some/file</pre>
 # <p>To see what mail has been sent you can run:</p>
 # <pre>$ eximstats /var/log/exim_mainlog | less</pre>
+# <p>There are <a href="https://hubzero.org/documentation/1.3.0/installation/advanced_email_setup">instructions</a>
+# that allow you to bypass the NeCTAR limitations</p>
 class exim4 (
   $fqdn, $postmaster
 ){
