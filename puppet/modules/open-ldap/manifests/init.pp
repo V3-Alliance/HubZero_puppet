@@ -51,6 +51,7 @@ class open-ldap (
   ->
   exec { "set ldap file permissions":
     command => "chmod 600 /etc/nectar.secrets",
+    path    => "/usr/local/bin:/usr/bin",
   }
 
   exec { "enable ldap":
