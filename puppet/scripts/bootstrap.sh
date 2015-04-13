@@ -32,8 +32,7 @@ echo "Puppet module is: ${puppet_module}"
 # first off, set the time zone that we want the server to be in (to check this just run the 'date' command
 ln -sf /usr/share/zoneinfo/Australia/Melbourne /etc/localtime
 
-# Set hostname
-# registered temporary domain at http://www.dot.tk/en/index.html?lang=en ...
+# Set hostname (must match the dns entry)
 hostname __hostname
 # and make the name change permanent
 echo "__hostname" > /etc/hostname
