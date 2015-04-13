@@ -3,8 +3,8 @@
 # <p>See:
 # <ul>
 #   <li><a href="https://hubzero.org/documentation/1.1.0/installation/Setup.cms">1.1 Install Instructions</a>
-#   <li><a href="https://hubzero.org/documentation/1.2.2/installation/Setup.cms">1.2 Install Instructions</a>
-#   <li><a href="https://hubzero.org/documentation/1.3.0/installation/installdeb.cms">1.3 Install Instructions</a>
+#   <li><a href="https://hubzero.org/documentation/1.2.2/installation/Setup.cms">1.2.1 Install Instructions</a>
+#   <li><a href="https://hubzero.org/documentation/1.3.1/installation/installdeb.cms">1.3.1 Install Instructions</a>
 # </ul>
 class cms (
   $version
@@ -13,7 +13,7 @@ class cms (
   case $version {
     1.1: { $cms_version =  "hubzero-cms" }
     1.2: { $cms_version =  "hubzero-cms-1.2.2" }
-    default : { $cms_version =  "hubzero-cms-1.3.0" }
+    default : { $cms_version =  "hubzero-cms-1.3.1" }
   }
 
   package { "hubzero-cms":
