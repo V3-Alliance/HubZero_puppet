@@ -44,22 +44,26 @@ class open-ldap (
   }
 
   exec { "initialize ldap":
-    command      => "/usr/bin/hzldap init 2>&1 | tee /etc/ldap.secrets",
-    require      => Package ["hubzero-openldap"],
-    creates      => "/etc/ldap.secrets"
+    command => "/usr/bin/hzldap init 2>&1 | tee /etc/ldap.secrets",
+    require => Package ["hubzero-openldap"],
+    creates => "/etc/ldap.secrets"
+  }
+  ->
+  exec { "set ldap file permissions":
+    command => "chmod 600 /etc/nectar.secrets",
   }
 
   exec { "enable ldap":
-    command      => "/usr/bin/hzcms configure ldap --enable",
-    subscribe    => Exec["initialize ldap"],
-    require      => [Package ["hubzero-cms"], Package["hubzero-openldap"]],
+    command   => "/usr/bin/hzcms configure ldap --enable",
+    subscribe => Exec["initialize ldap"],
+    require   => [Package ["hubzero-cms"], Package["hubzero-openldap"]],
   }
 
   if ($version!="1.1") {
     exec { "sync ldap users":
-      command      => "/usr/bin/hzldap syncusers",
-      subscribe    => Exec["enable ldap"],
-      require      => [Package ["hubzero-cms"], Package["hubzero-openldap"]],
+      command   => "/usr/bin/hzldap syncusers",
+      subscribe => Exec["enable ldap"],
+      require   => [Package ["hubzero-cms"], Package["hubzero-openldap"]],
     }
   }
 
