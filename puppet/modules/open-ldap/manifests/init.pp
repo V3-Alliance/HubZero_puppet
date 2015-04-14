@@ -51,7 +51,7 @@ class open-ldap (
   ->
   exec { "set ldap file permissions":
     command => "chmod 600 /etc/ldap.secrets",
-    path    => "/usr/local/bin:/usr/bin",
+    path    => "/bin",
   }
 
   exec { "enable ldap":
