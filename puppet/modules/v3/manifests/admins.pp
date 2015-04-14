@@ -31,6 +31,11 @@ class v3::admins {
     user_id    => '505',
     public_key => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDdjmhw3hUzWtT8QuGTI3ez7apV0rgPFEOT6rTl7cRxgogIEv6ATHzXsSsU4GNuq0yMLaOcAXjOXr2S5lHhkNrit8s0QOKcaj0uS7jLAmnKLN8HhfvEWErWt2A3H36+LEgQyDGOsndV915V6goEwG4bXqNEOe2Annj6F5t2R3UI9P4cG/1ydKkP7w2XCiYPfPYMkqObJG8+GdPhqBCR4BrFNphh/qBQYrakFbBqpkOzdhk++rdWTK8qu0nQozmMUEg83TE1xF6LKmt8ApiTixYowBw+ed0DBlqe8t+eoFLflLdNnYfxJpQ2fUjyd3RDhNg3dkR5inIgwv9j6BKT0R55',
   }
+  v3::admin_account { 'v3_richard':
+    user_mail  => 'rrothwell@v3.org.au',
+    user_id    => '501',
+    public_key => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQCqAxDr/6iMi724kxGQBcskCHX6ATLYWNbgQMXbcVPuTOAtIyxsn70Bqe/qcIDQP6uLWh7SWdMHJX9BGFI3+AFNRffMBFmT3z6eCoaC1MsHL7pF8DoYYruTyCJQ6vAFBUD3xv9Vh5ojDQJ7VdtyBYwjcNcGetYja7aiVrsBxJDHnJWl3BVNQm2hXQ2ORL9aukL9phffEqqZ8z9O+mAgZgMboR2Z986klY7uU0A1M/VBL+UaY2IBhgyKgxLKt2SHWWn78VEu/GWkHTKIiUPq9KI1L3u5ulD4LLJUMPcFC118xTq+tqjoZzCiC6gq76ULgifzmO+F3lJaehwUDxHf5rK/',
+  }
 
   file { '/etc/sudoers.d/sudogroup':
     ensure => file,
