@@ -33,7 +33,7 @@ class v3::admins {
   }
   v3::admin_account { 'v3_richard':
     user_mail  => 'rrothwell@v3.org.au',
-    user_id    => '501',
+    user_id    => '506',
     public_key => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQCqAxDr/6iMi724kxGQBcskCHX6ATLYWNbgQMXbcVPuTOAtIyxsn70Bqe/qcIDQP6uLWh7SWdMHJX9BGFI3+AFNRffMBFmT3z6eCoaC1MsHL7pF8DoYYruTyCJQ6vAFBUD3xv9Vh5ojDQJ7VdtyBYwjcNcGetYja7aiVrsBxJDHnJWl3BVNQm2hXQ2ORL9aukL9phffEqqZ8z9O+mAgZgMboR2Z986klY7uU0A1M/VBL+UaY2IBhgyKgxLKt2SHWWn78VEu/GWkHTKIiUPq9KI1L3u5ulD4LLJUMPcFC118xTq+tqjoZzCiC6gq76ULgifzmO+F3lJaehwUDxHf5rK/',
   }
 
