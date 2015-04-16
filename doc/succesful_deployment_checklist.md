@@ -235,3 +235,18 @@ The file should not be visible:
 |Result | Assertion |
 |-------|-----------|
 |       |The attempt to view the file as a non root user Resulted in the error message: "/etc/nectar.secrets: Permission denied"|
+
+### Test 12: Are the LDAP settings secure?
+
+As root, in the ssh window on the virtual machine, enter the commands:
+
+```bash
+$ exit
+$ less /etc/ldap.secrets
+```
+
+The file should not be visible:
+
+|Result | Assertion |
+|-------|-----------|
+|       |The attempt to view the file as a non root user Resulted in the error message: "/etc/ldap.secrets: Permission denied"|
