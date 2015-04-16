@@ -87,6 +87,10 @@ Then the passwords and users created by the hub zero installation can be found i
 If you want to verify your installation there is a [checklist](doc/successful_deployment_checklist.md) that you can
 work through to see if everything went according to plan.
 
+**NB** If setting up 1.2 or 1.3 sites, the latest and greatest of these versions, you need to ssh into the machine, 
+then as root run the "hzcms update" command once the installs are complete. This is not automated yet as we are 
+awaiting confirmation that it is indeed a needed step.
+
 **NB** If you chose to use your own Nagios server(s), once the software is installed, you need to alter the security group
 set up by the Heat template to point at your Nagios server(s) rather than the default monitoring ones.
 
@@ -107,6 +111,9 @@ in order to export all the CMS users and groups
 
 On all installs, log in to the administration section of your site
  (/administrator), then go to Site->Global Configuration->Server and change the **From email** appropriately.
+ 
+Modify the terms of use:
+
 
 ##Still to be resolved:
 
