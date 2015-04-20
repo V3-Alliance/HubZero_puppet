@@ -196,7 +196,8 @@ getent passwd | grep apps
 Sites
 -----
 
-The script /etc/sitebackup is called by automysqlbackup in its post backup phase to backup the web sites.
+The script /etc/sitebackup is called by automysqlbackup in its post backup phase to backup the web sites and their
+support directories.
 
 To restore the websites, simply remove any crud that might be in the existing /var/www directory, then:
 
@@ -206,6 +207,24 @@ tar -zxvf /mnt/backup/sites/sites-150205-0358.tar.gz -C /
 ```
 
 where sites-150205-0358.tar.gz is the name of the file that you are restoring...
+
+You also need to restore the /srv/ directory:
+
+```bash
+# uncompress your chosen backup file
+tar -zxvf /mnt/backup/srv/srv-150205-0358.tar.gz -C /
+```
+
+where srv-150205-0358.tar.gz is the name of the file that you are restoring...
+
+And the webdav directory:
+
+```bash
+# uncompress your chosen backup file
+tar -zxvf /mnt/backup/webdav/webdav-150205-0358.tar.gz -C /
+```
+
+where webdav-150205-0358.tar.gz is the name of the file that you are restoring...
 
 Users
 -----
