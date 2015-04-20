@@ -16,3 +16,4 @@ function do_backup_directory {
 
 do_backup_directory 'sites' '/var/www/'
 do_backup_directory 'srv' '/srv/'
+do_backup_directory 'webdav' '/webdav/'
