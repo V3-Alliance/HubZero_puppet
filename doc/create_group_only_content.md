@@ -1,26 +1,26 @@
-Create a Group:
+# Create a Group
  
-Users ->  Access Groups -> New
+`Users ->  Access Groups -> New`
 
 Give it a title and select the parent group of "Registered"
 
 The new group inherits all the Permissions of the Registered group.
 
-Create an Access Level
+# Create an Access Level
 
-Users -> Access Level -> New
+`Users -> Access Level -> New`
 
 Give it a name, and select the group that you previously created to allow them viewing access.
 
-Create a new page:
+# Create a new page
 
-Content -> Article Manager -> Add New Article 
+`Content -> Article Manager -> Add New Article`
 
 Change the Access setting to your level. Now only people who belong to the group will be able to read the article.
 
 Then go to:
 
-Users -> User Manager
+`Users -> User Manager`
 
 and click on a user that you want to add to the group. Then scroll down to the bottom and check your new group.
 
