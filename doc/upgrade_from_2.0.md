@@ -71,7 +71,7 @@ are different, it issues a warning:
 
 > There seems to be the following issue(s) with your user account:
 > Username mismatch error, please contact system administrator to fix your account.
- 
+
 To fix it I made a note of the user id shown in the Users -> Members manager, then at the command line on the system confirmed that they were different:
 
 ```bash
@@ -86,6 +86,20 @@ $ usermod -u 1001 alan
 ```
 
 And the problem was solved.
- 
+
 We would have to do this for all users... 
- 
+
+The usageAgreement column is not '1' for Alan in the `jos_xprofiles` table. To fix this:
+
+```sql
+UPDATE jos_xprofiles SET usageAgreement = 1 where uidNumber = 1001;
+```
+
+```sql
+SELECT uidNumber, name, username, usageAgreement FROM jos_xprofiles;
+```
+
+Shows the people who have not accepted the usage agreement.
+
+
+
