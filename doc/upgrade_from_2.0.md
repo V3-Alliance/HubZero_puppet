@@ -20,41 +20,40 @@ https://help.ubuntu.com/community/MysqlPasswordReset to reset the root password 
 hubzero secrets file.
 
 ```sql
- SET PASSWORD FOR root@'localhost' = PASSWORD('password_from_secrets_file');
- ```
+SET PASSWORD FOR root@'localhost' = PASSWORD('password_from_secrets_file');
+```
+
+Then run
  
- Then run
- 
- ```bash
- hzcms update
- ```
- 
- Then I had to update the theme (I also removed google analytics from theme)
- 
- Having done that to get to a running 1.2.2, I then
- 
- ```bash
- vi /etc/apt/sources.list
- ```
- 
- and removed the shira line and replaced with
- 
-  ```bash
- deb http://packages.hubzero.org/deb diego-deb6 main
- ```
- 
- Then did an:
- 
-  ```bash
- apt-get update
- apt-get -y upgrade
- apt-get install -y hubzero-cms-1.3.1
- hzcms update
- ```
- 
- To give pages that don't have menu items a different theme the following is suggested:
- 
- 
+```bash
+hzcms update
+```
+
+Then I had to update the theme (I also removed google analytics from theme)
+
+Having done that to get to a running 1.2.2, I then
+
+```bash
+vi /etc/apt/sources.list
+```
+
+and removed the shira line and replaced with
+
+```bash
+deb http://packages.hubzero.org/deb diego-deb6 main
+```
+
+Then did an:
+
+```bash
+apt-get update
+apt-get -y upgrade
+apt-get install -y hubzero-cms-1.3.1
+hzcms update
+```
+
+To give pages that don't have menu items a different theme the following is suggested:
+
 *'The problem with creating the menu-item and keeping it unpublished is that any menu parameters which are set, do 
 not take effect if the menu-item is unpublished. You can link to the component and the content-item just fine this 
 way, but you can NOT effectively assign any menu-specific details like template or modules if the menu-item is 
@@ -67,7 +66,26 @@ That's how the items all remain both hidden but also effective.
 Then you can just take those menu-item URLs and paste/enter them elsewhere.'*
 
 
+HubZero now checks to see if the users system id and the database user id are the same or not. If they
+are different, it issues a warning: 
+
+> There seems to be the following issue(s) with your user account:
+> Username mismatch error, please contact system administrator to fix your account.
  
+To fix it I made a note of the user id shown in the Users -> Members manager, then at the command line on the system confirmed that they were different:
+
+```bash
+$ id -u alan
+501
+```
+
+Having done that I updated the users system id to match that in the database:
+
+```bash
+$ usermod -u 1001 alan
+```
+
+And the problem was solved.
  
- 
+We would have to do this for all users... 
  
