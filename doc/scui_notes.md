@@ -34,7 +34,8 @@ if (is_object($item)) { // valid item retrieved
 $id = $item->template_style_id;
 }
 // ---- START HACK FOR SCIU ----
-// This hack makes only the home page not use the default fial template but the sciu one instead
+// This hack makes only the home page not use the default fial template but the sciu one i:q
+nstead
 else if (!JRequest::getInt('catid')) {
 $id = 13; // ID of the sciu template
 }
