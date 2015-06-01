@@ -152,16 +152,20 @@ pushd /var/lib/ldap
 rm -rf *
 popd
 
+#I had to do the following as well when restoring the gvl
+rm -r /etc/ldap/slapd.d/
+mkdir /etc/ldap/slapd.d/
+
 # restore the databases from your selected backup
-slapadd -F /etc/ldap/slapd.d -n 0 -l mnt/backup/ldap/scratch/config.ldif
-slapadd -F /etc/ldap/slapd.d -n 1 -l mnt/backup/ldap/scratch/collaboration.rc.edu.au.ldif
+slapadd -F /etc/ldap/slapd.d -n 0 -l /mnt/backup/ldap/scratch/config.ldif
+slapadd -F /etc/ldap/slapd.d -n 1 -l /mnt/backup/ldap/scratch/collaboration.rc.edu.au.ldif
 
 # change the ownership of the restored files back to the slapd user and group
 chown -R openldap:openldap /var/lib/ldap
-chown -R openldap:openldap /var/lib/ldap
+chown -R openldap:openldap /etc/ldap
 
 #copy the nslcd.conf file across to the new machine
-cp mnt/backup/ldap/scratch/nslcd.conf /etc
+cp /mnt/backup/ldap/scratch/nslcd.conf /etc
 
 # start the daemons again
 /etc/init.d/slapd start
@@ -175,15 +179,15 @@ e.g.:
 
 ```
 #example 1
-ldappasswd -D "cn=admin,dc=rc,dc=edu,dc=au" -s <a_password> -w <a_password>
+ldappasswd -D "cn=admin,dc=<domain>,dc=edu,dc=au" -s <a_password> -w <a_password>
 #example 2
-ldappasswd -D "cn=admin,dc=v3apps,dc=org,dc=au " -s <a_password> -w <a_password>
+ldappasswd -D "cn=admin,dc=<domain>,dc=org,dc=au " -s <a_password> -w <a_password>
 ```
 
 To search:
 
 ```bash
-ldapsearch -x -LLL -b dc=rc,dc=edu,dc=au 'uid=hubrepo' cn gidNumber
+ldapsearch -x -LLL -b dc=<domain>,dc=edu,dc=au 'uid=hubrepo' cn gidNumber
 ```
 
 To check that the ldap restore has gone successfully:
