@@ -42,6 +42,7 @@ export SWIFT_AUTHURL="https://keystone.rc.nectar.org.au:5000/v2.0/"
 export SWIFT_AUTHVERSION="2"
 ```
 
+Bear in mind in the following that `duplicity` should be the name of the swift container...
 To list current files in swift: `/usr/local/bin/duplicity list-current-files swift://duplicity`
 To backup  files to   swift: `/usr/local/bin/duplicity /mnt/backup/ swift://duplicity`
 To restore files from swift: `/usr/local/bin/duplicity swift://duplicity /mnt/backup`
