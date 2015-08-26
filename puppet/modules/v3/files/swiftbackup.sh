@@ -15,10 +15,10 @@ function do_with_captured_syserr {
 }
 
 # perform a full backup every seven days
-do_with_captured_syserr "duplicity --volsize 100 --full-if-older-than 7D /mnt/backup/ swift://$(hostname)"
+do_with_captured_syserr "duplicity --volsize 100 --full-if-older-than 7D /mnt/backup/ swift://$(hostname)-bucket"
 
 # delete all backups older than a month
-do_with_captured_syserr "duplicity remove-older-than 1M --force swift://$(hostname)"
+do_with_captured_syserr "duplicity remove-older-than 1M --force swift://$(hostname)-bucket"
 
 unset SWIFT_PASSWORD
 unset PASSPHRASE
