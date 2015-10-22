@@ -171,7 +171,7 @@ resources:
             __tenancy_name: {get_param: tenancy_name}
             __pgp_passphraze: {get_param: pgp_passphraze}
           template:
-            get_file: https://raw.githubusercontent.com/MartinPaulo/puppet_hub_zero/master/puppet/scripts/bootstrap.sh
+            get_file: https://raw.githubusercontent.com/V3-Alliance/HubZero_puppet/master/puppet/scripts/bootstrap.sh
       user_data_format: RAW
 
 

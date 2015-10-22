@@ -121,10 +121,10 @@ EOF
 
 chmod 600 /etc/nectar.secrets
 
-git clone https://github.com/MartinPaulo/puppet_hub_zero.git
+git clone https://github.com/V3-Alliance/HubZero_puppet.git
 
 MACHINE_IP=$(/sbin/ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')
 # && reboot is required by the OpenVZ module.
-puppet apply --modulepath=/puppet_hub_zero/puppet/modules:/etc/puppet/modules:/usr/share/puppet/modules -e "include ${puppet_module}" --debug --verbose 2>&1 | logger\
+puppet apply --modulepath=/HubZero_puppet/puppet/modules:/etc/puppet/modules:/usr/share/puppet/modules -e "include ${puppet_module}" --debug --verbose 2>&1 | logger\
  && echo "The install is complete! You can find your new hubzero site at: http://${MACHINE_IP}" | mail -s "Install Progress" __email\
  && reboot
