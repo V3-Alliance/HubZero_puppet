@@ -35,7 +35,7 @@ Once the command line tools are installed, the following steps will get you up a
 
 ```bash
 # Clone the repository
-git clone https://github.com/MartinPaulo/puppet_hub_zero.git
+git clone https://github.com/V3-Alliance/HubZero_puppet.git
 
 # Copy the environment template in the heat subdirectory, say to a file named 'environment.yaml'
 cp heat/environment_template.yaml heat/environment.yaml
